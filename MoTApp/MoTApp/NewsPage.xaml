@@ -6,8 +6,45 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="MainPageStyles.xaml"/>
+                <ResourceDictionary Source="FeedbackPageStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="Assets/ScreenBackground.png"/>
+        </Grid.Background>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <RelativePanel>
+            <TextBlock RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignVerticalCenterWithPanel="True"
+                       Text="&#xE0C0;"
+                       Name="btn_GoBack"
+                       TextAlignment="Center"
+                       FontSize="33"
+                       FontFamily="Segoe UI Symbol"
+                       Width="50"/>
+            <TextBlock Text="Ministry of Trasportation"
+                       Style="{StaticResource ScreenLabel}"
+                       FontSize="25"
+                       Margin="5,0,0,0"
+                       RelativePanel.RightOf="btn_GoBack"
+                       RelativePanel.AlignVerticalCenterWithPanel="True"/>
+        </RelativePanel>
+        <Border Grid.Row="1" Background="White">
+            <WebView x:Name="MinistryWebView" Visibility="Visible"/>
+        </Border>
+        
     </Grid>
 </Page>

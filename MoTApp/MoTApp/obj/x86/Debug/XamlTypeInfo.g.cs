@@ -132,7 +132,7 @@ namespace MoTApp.MoTApp_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[9];
+            _typeNameTable = new string[14];
             _typeNameTable[0] = "MoTApp.BusDetailsPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
@@ -140,10 +140,15 @@ namespace MoTApp.MoTApp_XamlTypeInfo
             _typeNameTable[4] = "MoTApp.MainPage";
             _typeNameTable[5] = "MoTApp.MapPage";
             _typeNameTable[6] = "MoTApp.NewsPage";
-            _typeNameTable[7] = "MoTApp.SavedTripsPage";
-            _typeNameTable[8] = "MoTApp.TripPlannerPage";
+            _typeNameTable[7] = "MoTApp.SavedTripTemplate";
+            _typeNameTable[8] = "MoTApp.Trip";
+            _typeNameTable[9] = "Object";
+            _typeNameTable[10] = "MoTApp.SavedTripsPage";
+            _typeNameTable[11] = "MoTApp.TripPlannerPage";
+            _typeNameTable[12] = "MoTApp.TripTemplate";
+            _typeNameTable[13] = "MoTApp.TripsPage";
 
-            _typeTable = new global::System.Type[9];
+            _typeTable = new global::System.Type[14];
             _typeTable[0] = typeof(global::MoTApp.BusDetailsPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
@@ -151,8 +156,13 @@ namespace MoTApp.MoTApp_XamlTypeInfo
             _typeTable[4] = typeof(global::MoTApp.MainPage);
             _typeTable[5] = typeof(global::MoTApp.MapPage);
             _typeTable[6] = typeof(global::MoTApp.NewsPage);
-            _typeTable[7] = typeof(global::MoTApp.SavedTripsPage);
-            _typeTable[8] = typeof(global::MoTApp.TripPlannerPage);
+            _typeTable[7] = typeof(global::MoTApp.SavedTripTemplate);
+            _typeTable[8] = typeof(global::MoTApp.Trip);
+            _typeTable[9] = typeof(global::System.Object);
+            _typeTable[10] = typeof(global::MoTApp.SavedTripsPage);
+            _typeTable[11] = typeof(global::MoTApp.TripPlannerPage);
+            _typeTable[12] = typeof(global::MoTApp.TripTemplate);
+            _typeTable[13] = typeof(global::MoTApp.TripsPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -192,8 +202,12 @@ namespace MoTApp.MoTApp_XamlTypeInfo
         private object Activate_4_MainPage() { return new global::MoTApp.MainPage(); }
         private object Activate_5_MapPage() { return new global::MoTApp.MapPage(); }
         private object Activate_6_NewsPage() { return new global::MoTApp.NewsPage(); }
-        private object Activate_7_SavedTripsPage() { return new global::MoTApp.SavedTripsPage(); }
-        private object Activate_8_TripPlannerPage() { return new global::MoTApp.TripPlannerPage(); }
+        private object Activate_7_SavedTripTemplate() { return new global::MoTApp.SavedTripTemplate(); }
+        private object Activate_8_Trip() { return new global::MoTApp.Trip(); }
+        private object Activate_10_SavedTripsPage() { return new global::MoTApp.SavedTripsPage(); }
+        private object Activate_11_TripPlannerPage() { return new global::MoTApp.TripPlannerPage(); }
+        private object Activate_12_TripTemplate() { return new global::MoTApp.TripTemplate(); }
+        private object Activate_13_TripsPage() { return new global::MoTApp.TripsPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -248,16 +262,50 @@ namespace MoTApp.MoTApp_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 7:   //  MoTApp.SavedTripsPage
-                userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_7_SavedTripsPage;
+            case 7:   //  MoTApp.SavedTripTemplate
+                userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_7_SavedTripTemplate;
+                userType.AddMemberName("Trip");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 8:   //  MoTApp.TripPlannerPage
+            case 8:   //  MoTApp.Trip
+                userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 9:   //  Object
+                xamlType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 10:   //  MoTApp.SavedTripsPage
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_8_TripPlannerPage;
+                userType.Activator = Activate_10_SavedTripsPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 11:   //  MoTApp.TripPlannerPage
+                userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_11_TripPlannerPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 12:   //  MoTApp.TripTemplate
+                userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_12_TripTemplate;
+                userType.AddMemberName("Trip");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 13:   //  MoTApp.TripsPage
+                userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_13_TripsPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -266,11 +314,37 @@ namespace MoTApp.MoTApp_XamlTypeInfo
         }
 
 
+        private object get_0_SavedTripTemplate_Trip(object instance)
+        {
+            var that = (global::MoTApp.SavedTripTemplate)instance;
+            return that.Trip;
+        }
+        private object get_1_TripTemplate_Trip(object instance)
+        {
+            var that = (global::MoTApp.TripTemplate)instance;
+            return that.Trip;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
             global::MoTApp.MoTApp_XamlTypeInfo.XamlMember xamlMember = null;
-            // No Local Properties
+            global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType userType;
+
+            switch (longMemberName)
+            {
+            case "MoTApp.SavedTripTemplate.Trip":
+                userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.SavedTripTemplate");
+                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "Trip", "MoTApp.Trip");
+                xamlMember.Getter = get_0_SavedTripTemplate_Trip;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "MoTApp.TripTemplate.Trip":
+                userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.TripTemplate");
+                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "Trip", "MoTApp.Trip");
+                xamlMember.Getter = get_1_TripTemplate_Trip;
+                xamlMember.SetIsReadOnly();
+                break;
+            }
             return xamlMember;
         }
     }

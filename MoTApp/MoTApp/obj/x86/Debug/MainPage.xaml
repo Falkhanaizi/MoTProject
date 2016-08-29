@@ -26,7 +26,7 @@
 
             <RelativePanel Background="Red">
                 <Image x:ConnectionId='6' Name="BusPic"
-               Stretch="Fill"
+               Stretch="UniformToFill"
                Source="Assets/Background.jpg" Opacity="0.75"/>
                 <StackPanel x:ConnectionId='7' RelativePanel.AlignRightWithPanel="True"
                         Margin="0,10,10,0"

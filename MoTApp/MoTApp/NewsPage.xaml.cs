@@ -25,6 +25,8 @@ namespace MoTApp
         public NewsPage()
         {
             this.InitializeComponent();
+            Uri motLink = new Uri(@"http://www.moe.gov.bh/?lan=en");
+            MinistryWebView.Navigate(motLink);
         }
     }
 }

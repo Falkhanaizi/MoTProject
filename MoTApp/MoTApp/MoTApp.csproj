@@ -114,8 +114,18 @@
     <Compile Include="SavedTripsPage.xaml.cs">
       <DependentUpon>SavedTripsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SavedTripTemplate.xaml.cs">
+      <DependentUpon>SavedTripTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Trip.cs" />
     <Compile Include="TripPlannerPage.xaml.cs">
       <DependentUpon>TripPlannerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TripsPage.xaml.cs">
+      <DependentUpon>TripsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TripTemplate.xaml.cs">
+      <DependentUpon>TripTemplate.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -183,7 +193,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SavedTripTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TripPlannerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TripsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TripTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

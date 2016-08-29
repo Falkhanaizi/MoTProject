@@ -14,22 +14,45 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
-    <StackPanel>
-        <StackPanel.Background>
-            <ImageBrush Stretch="Fill" ImageSource="Assets/ScreenBackground.png"/>
-        </StackPanel.Background>
 
-        <TextBlock Text="FeedBack" Style="{StaticResource ScreenLabel}"/>
-        <TextBlock Text="We highly appreciate your feedback to help us improve our services"
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="Assets/ScreenBackground.png"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <TextBlock Text="FeedBack" 
+                   Style="{StaticResource ScreenLabel}"/>
+            <TextBlock Text="We highly appreciate your feedback to help us improve our services"
                    TextAlignment="Center"
                    Style="{StaticResource feedbackLabels}"/>
-        <TextBlock Text="Name" Style="{StaticResource feedbackLabels}"/>
-        <TextBox/>
-        <TextBlock Text="Phone" Style="{StaticResource feedbackLabels}"/>
-        <TextBox/>
-        <TextBlock Text="E-mail" Style="{StaticResource feedbackLabels}"/>
-        <TextBox/>
-        <TextBlock Text="Your FeedBack" Style="{StaticResource feedbackLabels}"/>
-        <TextBox Height="200"/>
-    </StackPanel>
+            <TextBlock Text="Name" Style="{StaticResource feedbackLabels}"/>
+            <TextBox/>
+            <TextBlock Text="Phone" Style="{StaticResource feedbackLabels}"/>
+            <TextBox/>
+            <TextBlock Text="E-mail" Style="{StaticResource feedbackLabels}"/>
+            <TextBox/>
+            <TextBlock Text="Your FeedBack" Style="{StaticResource feedbackLabels}"/>
+            <TextBox Height="150" TextWrapping="Wrap"/>
+        </StackPanel>
+
+        <RelativePanel Grid.Row="1" 
+                    Background="White">
+            <Button Content="&#x2714; Submit"
+                    Name="btn_Submit"
+                    Style="{StaticResource BarBtns}"
+                    RelativePanel.LeftOf="btn_Cancel" Background="{x:Null}"/>
+            <Button Content="&#x2716; Cancel"
+                    Name="btn_Cancel"
+                    Style="{StaticResource BarBtns}"
+                    Margin="5,0,5,0"
+                    RelativePanel.AlignRightWithPanel="True" Background="{x:Null}"/>
+        </RelativePanel>
+
+    </Grid>
 </Page>

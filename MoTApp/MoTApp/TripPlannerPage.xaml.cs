@@ -26,5 +26,10 @@ namespace MoTApp
         {
             this.InitializeComponent();
         }
+
+        private void trip_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(TripsPage));
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,9 +23,12 @@ namespace MoTApp
     /// </summary>
     public sealed partial class SavedTripsPage : Page
     {
+        private List<Trip> Trips;
+
         public SavedTripsPage()
         {
             this.InitializeComponent();
+            Trips = TripsManager.GetSavedTrips();
         }
     }
 }

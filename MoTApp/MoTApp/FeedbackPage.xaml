@@ -49,6 +49,7 @@
                     RelativePanel.LeftOf="btn_Cancel" Background="{x:Null}"/>
             <Button Content="&#x2716; Cancel"
                     Name="btn_Cancel"
+                    Click="btn_Cancel_Click"
                     Style="{StaticResource BarBtns}"
                     Margin="5,0,5,0"
                     RelativePanel.AlignRightWithPanel="True" Background="{x:Null}"/>

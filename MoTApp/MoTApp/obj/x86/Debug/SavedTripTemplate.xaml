@@ -6,26 +6,31 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="300"
-    d:DesignWidth="400">
+    d:DesignHeight="100"
+    d:DesignWidth="360">
 
     <UserControl.Resources>
         <Style TargetType="TextBlock" x:Key="TimeTextStyle">
-            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontSize" Value="20"/>
             <Setter Property="Margin" Value="5,0,5,0"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
         <Style TargetType="TextBlock" x:Key="LocationTextStyle">
-            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontSize" Value="12"/>
             <Setter Property="Margin" Value="5,0,5,0"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
+        <Style TargetType="TextBlock" x:Key="OtherInfoTextStyle">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="0,0,10,0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
     </UserControl.Resources>
 
-    <Grid>
+    <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -40,14 +45,17 @@
         </Grid.ColumnDefinitions>
 
 
-        <TextBlock x:ConnectionId='2'                                   
+        <TextBlock x:ConnectionId='2'                              
+                       Foreground="#FF00BE00"
                        Style="{StaticResource TimeTextStyle}"/>
         <SymbolIcon Grid.Column="1" 
                         Symbol="Forward"
-                        Width="50" Height="50"
+                        Width="20" Height="30"
+                        VerticalAlignment="Center"
                         Margin="5,0,5,0"/>
         <TextBlock x:ConnectionId='3' Grid.Column="2"  
-                                                         
+                       Foreground="#FF0085FF"
+                                                  
                        Style="{StaticResource TimeTextStyle}"/>
         <TextBlock x:ConnectionId='4' Grid.Row="1"  
                        Style="{StaticResource LocationTextStyle}"
@@ -55,18 +63,23 @@
         <TextBlock x:ConnectionId='5' Grid.Row="1" 
                        Grid.Column="2"  
                        Style="{StaticResource LocationTextStyle}"
-                                                         />
+                                                       />
 
         <TextBlock x:ConnectionId='6' Grid.Column="3"  
-                                                      
+                   Margin="5"
+                   Foreground="Red"
+                   Style="{StaticResource OtherInfoTextStyle}"
+                                                 
                    HorizontalAlignment="Right"/>
 
         <StackPanel Grid.Row="2" 
                     Grid.ColumnSpan="4" 
                     VerticalAlignment="Bottom"
-                    Orientation="Horizontal">
-            <TextBlock x:ConnectionId='7'                               />
-            <TextBlock x:ConnectionId='8'                                    />
+                    Orientation="Horizontal"
+                    Margin="10">
+            <TextBlock x:ConnectionId='7'  Foreground="#FF009CFF"
+                        Style="{StaticResource OtherInfoTextStyle}"
+                                                     />
         </StackPanel>
 
     </Grid>

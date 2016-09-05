@@ -44,6 +44,8 @@
                   ItemsSource="{x:Bind Trips}" 
                   SelectionMode="Single"
                   Margin="0,10,0,0"
+                  IsItemClickEnabled="True"
+                  ItemClick="TripsList_ItemClick"
                   ShowsScrollingPlaceholders="True"
                   Name="TripsList">
             <ListView.ItemContainerStyle>

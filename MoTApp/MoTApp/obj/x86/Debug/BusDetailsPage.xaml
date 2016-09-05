@@ -62,7 +62,7 @@
                         RelativePanel.AlignVerticalCenterWith="RecTimeTable">
                     <Image Source="Assets/icon_timetable.png"
                        Height="40"/>
-                    <TextBlock Text="Time Table"
+                    <TextBlock Text="Timetable"
                            Style="{StaticResource ResourceKey=MainIconsLabel}"/>
                 </StackPanel>
 

@@ -34,7 +34,7 @@ namespace MoTApp
 
         private void RecTimeTable_Tapped(object sender, TappedRoutedEventArgs e)
         {
-
+            Frame.Navigate(typeof(BusTimeTablePage));
         }
     }
 }

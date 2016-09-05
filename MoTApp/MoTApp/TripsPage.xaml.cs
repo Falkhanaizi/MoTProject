@@ -29,5 +29,11 @@ namespace MoTApp
             this.InitializeComponent();
             Trips = TripsManager.GetSavedTrips();
         }
+
+        private void TripsList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var trip = (Trip)e.ClickedItem;
+            Frame.Navigate(typeof(TripMoreInfoPage), trip);
+        }
     }
 }

@@ -126,6 +126,18 @@ namespace MoTApp
             routes.Add(new Route { id = "B1", color = GetSolidColorBrush("FE4A18D1"), stops = GetSavedStops()});
             routes.Add(new Route { id = "C2", color = GetSolidColorBrush("FF4A08D1"), stops = GetSavedStops()});
             routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops()});
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
 
             return routes;
         }

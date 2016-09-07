@@ -17,6 +17,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
         <RelativePanel>
@@ -33,56 +34,42 @@
                         RelativePanel.AlignVerticalCenterWithPanel="True"/>
         </RelativePanel>
 
-        <SplitView x:ConnectionId='2' Grid.Row="1" 
-                   DisplayMode="Inline"
-                   Visibility="Visible"
-                   Name="RoutesSplitView"
-                   OpenPaneLength="50" IsPaneOpen="True">
-            <SplitView.PaneBackground>
-                <SolidColorBrush Color="Black" Opacity="0.75"/>
-            </SplitView.PaneBackground>
-            <SplitView.Pane>
-                <ListView x:ConnectionId='3'                              
-                  SelectionMode="Single"
-                  IsItemClickEnabled="True"
-                  ShowsScrollingPlaceholders="True"
-                  Name="TripsList"
-                                                         >
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                            <Setter Property="HorizontalAlignment" Value="Stretch"/>
-                            <Setter Property="Padding" Value="0"/>
-                        </Style>
-                    </ListView.ItemContainerStyle>
-                    <ListView.ItemTemplate>
-                        <DataTemplate                        >
-                            <StackPanel x:ConnectionId='4'>
-                                <RelativePanel>
-                                    <Rectangle x:ConnectionId='5' Name="circle" RadiusX="100" RadiusY="100" 
-                                               Width="40" Height="40"
-                                               Margin="5"
-                                                                    
-                                               RelativePanel.AlignVerticalCenterWithPanel="True"
-                                               RelativePanel.AlignLeftWithPanel="True" 
-                                               Stroke="White"/>
-                                    <TextBlock x:ConnectionId='6'                    Foreground="White"
-                                           FontSize="18" 
-                                           RelativePanel.AlignHorizontalCenterWith="circle"
-                                           RelativePanel.AlignVerticalCenterWith="circle"/>
-                                </RelativePanel>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </SplitView.Pane>
-            <SplitView.Content>
-                <Frame x:ConnectionId='7' Name="MyFrame">
-
-                </Frame>
-            </SplitView.Content>
-        </SplitView>
-
+        <Frame x:ConnectionId='2' x:Name="MyFrame" Grid.Row="1">
+            
+        </Frame>
+        
+        <ListBox x:ConnectionId='3' x:Name="RoutesListBox"
+                  Grid.Row="2"
+                 ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                 ScrollViewer.HorizontalScrollMode="Auto"
+                 ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                 ScrollViewer.VerticalScrollMode="Disabled"
+                                                                  
+                                                Background="Transparent">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="Margin" Value="5,0,5,0"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate                        >
+                    <Border x:ConnectionId='4' Width="40" Height="40" 
+                                                       
+                            CornerRadius="40" BorderBrush="White"
+                            BorderThickness="2">
+                        <TextBlock x:ConnectionId='5'                    Foreground="White"
+                                   FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
     </Grid>
 </Page>
 

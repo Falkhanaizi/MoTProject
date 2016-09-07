@@ -31,6 +31,13 @@ namespace MoTApp
             MyFrame.Navigate(typeof(TablePage), routes.First());
         }
 
+        private void RoutesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var route = (Route)RoutesListBox.SelectedItem;
+            MyFrame.Navigate(typeof(TablePage), route);
+        }
+
+        /*
         private void Grid_Tapped(object sender, TappedRoutedEventArgs e)
         {
             if (!RoutesSplitView.IsPaneOpen)
@@ -48,5 +55,6 @@ namespace MoTApp
             var route = (Route)e.ClickedItem;
             MyFrame.Navigate(typeof(TablePage), route);
         }
+       */
     }
 }

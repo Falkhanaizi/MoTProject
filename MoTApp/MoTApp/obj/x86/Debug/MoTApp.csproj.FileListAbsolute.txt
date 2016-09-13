@@ -235,15 +235,10 @@
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\StopDetailsTemplate.xaml
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\StopDetailsTemplate.xbf
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\StopDetailsTemplate.xbf
-\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\BusTimeTablePage.g.i.cs
-\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\BusTimeTablePage.g.cs
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\SavedTripMoreInfo.g.i.cs
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\SavedTripMoreInfo.g.cs
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\SavedTripMoreInfo.xaml
-\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\BusTimeTablePage.xaml
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\SavedTripMoreInfo.xbf
-\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\BusTimeTablePage.xbf
-\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\BusTimeTablePage.xbf
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\SavedTripMoreInfo.xbf
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\TablePage.g.i.cs
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\TablePage.g.cs
@@ -255,7 +250,6 @@
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\HomePage.g.cs
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\HomePage.xaml
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\HomePage.xbf
-\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\MoTApp.csprojResolveAssemblyReference.cache
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\Route_DetailsPage.xbf
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\Trip_PlannerPage.xbf
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\Route_DetailsPage.g.i.cs
@@ -271,3 +265,4 @@
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\Saved_TripsPage.g.cs
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\Saved_TripsPage.xaml
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\Saved_TripsPage.xbf
+\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\MoTApp.csprojResolveAssemblyReference.cache

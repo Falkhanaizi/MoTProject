@@ -50,13 +50,19 @@ namespace MoTApp
                     SunToThuGoTimes.Add(stop.SunToThuGoTimetable);
                     SunToThuReturnTimes.Add(stop.SunToThuReturnTimetable);
                 }
-                
+
+                var goingRoute = stops.Select(p => p.city).Distinct().ToArray();
+                GoRouteAreaTextBlock.Text = String.Format("(via {0})", string.Join(" - ", goingRoute));
+
+                var returningRoute = goingRoute.Reverse();
+                ReturnRouteAreaTextBlock.Text = String.Format("(via {0})", string.Join(" - ", returningRoute));
+
                 SatGoTimes = SwapRowsAndColumns(SatGoTimes);
                 SatReturnTimes = SwapRowsAndColumns(SatReturnTimes);
                 SunToThuReturnTimes = SwapRowsAndColumns(SunToThuReturnTimes);
                 SunToThuGoTimes = SwapRowsAndColumns(SunToThuGoTimes);
 
-                StopsListView.ItemsSource = stops;
+                //StopsListView.ItemsSource = stops;
                 SatGoTimesListView.ItemsSource = SatGoTimes;
                 SatReturnTimesListView.ItemsSource = SatReturnTimes;
                 SunToThuGoTimesListView.ItemsSource = SunToThuGoTimes;
@@ -76,6 +82,7 @@ namespace MoTApp
                 {
                     newRow.Add(value[i]);
                 }
+                newRow.Sort();
                 transposed.Add(newRow);
             }
             return transposed;

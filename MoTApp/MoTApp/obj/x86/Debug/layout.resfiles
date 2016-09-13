@@ -6,6 +6,7 @@ Assets\BahrainBus1.jpg
 Assets\BahrainBus2.jpg
 Assets\BahrainBus3.jpg
 Assets\BahrainBus4.jpg
+Assets\fullMap.png
 Assets\icon_Add1.png
 Assets\icon_Add2.png
 Assets\icon_BackArrow1.png
@@ -22,6 +23,13 @@ Assets\icon_route.png
 Assets\icon_search.png
 Assets\icon_star.png
 Assets\icon_timetable.png
+Assets\icon_video.png
+Assets\icon_ZoomInBlack.png
+Assets\icon_ZoomInGray.png
+Assets\icon_ZoomInWhite.png
+Assets\icon_ZoomOutBlack.png
+Assets\icon_ZoomOutGray.png
+Assets\icon_ZoomOutWhite.png
 Assets\ScreenBackground.png
 MoTApp.xr.xml
 Properties\Default.rd.xml

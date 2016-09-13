@@ -6,8 +6,20 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Grid>
+       <RelativePanel>
+        <ScrollViewer HorizontalScrollBarVisibility="Hidden" HorizontalScrollMode="Enabled" VerticalScrollBarVisibility="Hidden" VerticalScrollMode="Enabled">
+            <Image x:Name="RouteMapImage" Source="Assets/33-NL.jpg" Height="700" MinHeight="700" MaxHeight="1700" Stretch="UniformToFill" VerticalAlignment="Stretch"/>
+        </ScrollViewer>
+        <StackPanel Orientation="Horizontal" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="30">
+                <Button x:Name="ZoomOutBtn" Background="{x:Null}" IsEnabled="False" Style="{StaticResource TextBlockButtonStyle}" Click="ZoomOutBtn_Click">
+                    <Image x:Name="ZoomOutIcon" Source="Assets/icon_ZoomOutGray.png" Width="30" Height="30"/>
+                </Button>
+                <Button x:Name="ZoomInBtn" Background="{x:Null}" IsEnabled="True" Style="{StaticResource TextBlockButtonStyle}" Click="ZoomInBtn_Click">
+                    <Image x:Name="ZoomInIcon" Source="Assets/icon_ZoomInBlack.png" Width="30" Height="30"/>
+                </Button>
+            </StackPanel>
+    </RelativePanel> 
     </Grid>
+    
 </Page>

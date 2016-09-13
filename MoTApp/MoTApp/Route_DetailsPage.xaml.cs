@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -22,19 +23,56 @@ namespace MoTApp
     /// </summary>
     public sealed partial class Route_DetailsPage : Page
     {
+        public List<Route> routes { get; set; }
+        public Route SelectedRoute { get; set; }
+
         public Route_DetailsPage()
         {
             this.InitializeComponent();
+            routes = TripsManager.GetSavedRoutes();
         }
 
-        private void RecBusMap_Tapped(object sender, TappedRoutedEventArgs e)
+        private void RoutesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            SelectedRoute = (Route)RoutesListBox.SelectedItem;
+            MyFrame.Navigate(typeof(TablePage), SelectedRoute);
+            RoutesListBox.Visibility = Visibility.Collapsed;
+            RoutesGridView.Visibility = Visibility.Collapsed;
+            idText.Text = SelectedRoute.id;
+            RouteIdBtn.Background = SelectedRoute.color;
         }
 
-        private void RecTimeTable_Tapped(object sender, TappedRoutedEventArgs e)
+        private void RoutesGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Frame.Navigate(typeof(BusTimeTablePage));
+            SelectedRoute = (Route)RoutesGridView.SelectedItem;
+            MyFrame.Navigate(typeof(TablePage), SelectedRoute);
+            RoutesGridView.Visibility = Visibility.Collapsed;
+            idText.Text = SelectedRoute.id;
+            RouteIdBtn.Background = SelectedRoute.color;
+        }
+
+
+        private void RouteIdBtn_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            if (RoutesListBox.Visibility == Visibility.Visible)
+            {
+                RoutesListBox.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                RoutesListBox.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void BackBtn_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.GoBack();
+        }
+
+        private void RouteMapBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MyFrame.Navigate(typeof(MapPage), SelectedRoute);
+            RoutesGridView.Visibility = Visibility.Collapsed;
         }
     }
 }

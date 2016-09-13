@@ -82,13 +82,14 @@ namespace MoTApp
             List<string> SatReturnTimes = new List<string> { "11:00", "11:40", "12:00", "13:08", "14:00" };
             List<string> SunToThuGoTimes = new List<string> { "10:25", "11:00", "12:33", "13:00", "14:00" };
             List<string> SunToThuReturnTimes = new List<string> { "10:50", "11:11", "12:00", "13:10", "14:00" };
+            List<string> SatReturnTimesStop6 = new List<string> { "10:00", "10:40", "11:00", "12:08", "13:00" };
 
             stops.Add(new Stop { name = "main terminal 1", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "manama"});
-            stops.Add(new Stop { name = "main terminal 2", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "manama" });
-            stops.Add(new Stop { name = "main terminal 3", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "manama" });
+            stops.Add(new Stop { name = "main terminal 2", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "saar" });
+            stops.Add(new Stop { name = "main terminal 3", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "jidhafs" });
             stops.Add(new Stop { name = "main terminal 4", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "manama" });
             stops.Add(new Stop { name = "main terminal 5", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "manama" });
-            stops.Add(new Stop { name = "main terminal 6", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "manama" });
+            stops.Add(new Stop { name = "main terminal 6", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimesStop6, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "manama" });
 
 
             return stops;

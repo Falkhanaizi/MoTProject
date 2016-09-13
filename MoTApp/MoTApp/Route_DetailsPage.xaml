@@ -5,93 +5,103 @@
     xmlns:local="using:MoTApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:MoTApp"
     mc:Ignorable="d">
 
-    <Page.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="MainPageStyles.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Page.Resources>
-
     <Grid>
-        <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="Assets/ScreenBackground.png"/>
-        </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <RelativePanel Background="Red">
-            <Image Name="BusPic"
-               Stretch="UniformToFill"
-               Source="Assets/Background.jpg" Opacity="0.75"/>
+        <Image x:Name="BackBtn" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Width="25" Height="25" Source="Assets/icon_BackArrow2.png" Tapped="BackBtn_Tapped"/>
+        <TextBlock Text="Route Details" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="30" FontWeight="Bold"/>
+
+        <Frame x:Name="MyFrame" Grid.Row="1">
+            
+        </Frame>
+        <GridView x:Name="RoutesGridView" Grid.Row="1"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 ScrollViewer.HorizontalScrollMode="Disabled"
+                 ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                 ScrollViewer.VerticalScrollMode="Auto"
+                  Padding="0"
+                  HorizontalAlignment="Center"
+                 SelectionChanged="RoutesGridView_SelectionChanged"
+                  ItemsSource="{x:Bind routes}" Background="Transparent">
+            <GridView.ItemContainerStyle>
+                <Style TargetType="GridViewItem">
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="Margin" Value="8"/>
+                </Style>
+            </GridView.ItemContainerStyle>
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="data:Route">
+                    <RelativePanel>
+                        <Image x:Name="mapImage" Source="{x:Bind mapImage}" Width="100" Height="100" Stretch="UniformToFill"/>
+                        <Border Width="40" Height="40" 
+                            Background="{x:Bind color}"
+                            BorderBrush="White"
+                            BorderThickness="2"
+                                RelativePanel.AlignLeftWith="mapImage">
+                            <TextBlock Text="{x:Bind id}" Foreground="White"
+                                   FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </RelativePanel>
+
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+
+        <ListBox x:Name="RoutesListBox"
+                 Grid.Row="1"
+                 VerticalAlignment="Bottom"
+                 Visibility="Collapsed"
+                 Background="Black"
+                 Opacity="0.75"
+                 Margin="0,0,0,10"
+                 Padding="5"
+                 ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                 ScrollViewer.HorizontalScrollMode="Auto"
+                 ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                 ScrollViewer.VerticalScrollMode="Disabled"
+                 SelectionChanged="RoutesListBox_SelectionChanged"
+                  ItemsSource="{x:Bind routes}">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="Margin" Value="5,0,5,0"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate x:DataType="data:Route">
+                    <Border Width="40" Height="40" 
+                            Background="{x:Bind color}"
+                            BorderBrush="White"
+                            BorderThickness="2">
+                        <TextBlock Text="{x:Bind id}" Foreground="White"
+                                   FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <RelativePanel Grid.Row="2" Background="#FFA42226">
+            <Border Margin="5" x:Name="RouteIdBtn" Width="40" Height="40" IsTapEnabled="True" Tapped="RouteIdBtn_Tapped"
+                            Background="Gray" BorderBrush="White"
+                            BorderThickness="2" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
+                <TextBlock  x:Name="idText" Text="All" Foreground="White" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <Button x:Name="RouteMapBtn" Content="Route Map" Click="RouteMapBtn_Click" Background="White" Height="50" FontSize="18" Width="130" RelativePanel.AlignRightWithPanel="True"/>
         </RelativePanel>
-
-        <RelativePanel Grid.Row="1">
-            <TextBlock x:Name="BusDetailsLabel" Text="Bus Details"
-                       Style="{StaticResource ScreenLabel}"
-                       RelativePanel.AlignHorizontalCenterWithPanel="True"
-                       Margin="0,10,0,30"/>
-
-            <RelativePanel RelativePanel.AlignHorizontalCenterWithPanel="True"
-                           RelativePanel.AlignVerticalCenterWithPanel="True"
-                           RelativePanel.Below="BusDetailsLabel">
-                <Rectangle Style="{StaticResource RecButtonStyle}"
-                           Name="RecBusMap"
-                           Margin="0,0,2,2"
-                           Tapped="RecBusMap_Tapped"
-                           RelativePanel.AlignLeftWithPanel="True"/>
-                <StackPanel RelativePanel.AlignHorizontalCenterWith="RecBusMap"
-                        RelativePanel.AlignVerticalCenterWith="RecBusMap">
-                    <Image Source="Assets/icon_map.png"
-                       Height="40"/>
-                    <TextBlock Text="Bus Map"
-                           Style="{StaticResource ResourceKey=MainIconsLabel}"/>
-                </StackPanel>
-
-                <Rectangle Style="{StaticResource RecButtonStyle}"
-                       Name="RecTimeTable"
-                       RelativePanel.RightOf="RecBusMap"
-                       RelativePanel.AlignVerticalCenterWith="RecBusMap"
-                           Tapped="RecTimeTable_Tapped"
-                       Margin="2,0,0,2"/>
-                <StackPanel RelativePanel.AlignHorizontalCenterWith="RecTimeTable"
-                        RelativePanel.AlignVerticalCenterWith="RecTimeTable">
-                    <Image Source="Assets/icon_timetable.png"
-                       Height="40"/>
-                    <TextBlock Text="Timetable"
-                           Style="{StaticResource ResourceKey=MainIconsLabel}"/>
-                </StackPanel>
-
-                <Rectangle Style="{StaticResource RecButtonStyle}"
-                       Name="RecBusRoutes"
-                       RelativePanel.Below="RecBusMap"
-                       RelativePanel.AlignHorizontalCenterWith="RecBusMap"
-                       Margin="0,2,2,0"/>
-                <StackPanel RelativePanel.AlignHorizontalCenterWith="RecBusRoutes"
-                        RelativePanel.AlignVerticalCenterWith="RecBusRoutes">
-                    <Image Source="Assets/icon_route.png"
-                       Height="40"/>
-                    <TextBlock Text="Bus Routes"
-                           Style="{StaticResource ResourceKey=MainIconsLabel}"/>
-                </StackPanel>
-
-                <Rectangle Style="{StaticResource RecButtonStyle}"
-                       Name="RecStationSearch"
-                       RelativePanel.RightOf="RecBusRoutes"
-                       RelativePanel.Below="RecTimeTable"
-                       Margin="2,2,0,0"/>
-                <StackPanel RelativePanel.AlignHorizontalCenterWith="RecStationSearch"
-                        RelativePanel.AlignVerticalCenterWith="RecStationSearch">
-                    <Image Source="Assets/icon_search.png"
-                       Height="40"/>
-                    <TextBlock Text="Station Search"
-                           Style="{StaticResource ResourceKey=MainIconsLabel}"/>
-                </StackPanel>
-            </RelativePanel>
-        </RelativePanel>
+        
     </Grid>
 </Page>

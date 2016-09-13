@@ -98,9 +98,6 @@
     <Compile Include="Route_DetailsPage.xaml.cs">
       <DependentUpon>Route_DetailsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BusTimeTablePage.xaml.cs">
-      <DependentUpon>BusTimeTablePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="FeedbackPage.xaml.cs">
       <DependentUpon>FeedbackPage.xaml</DependentUpon>
     </Compile>
@@ -178,7 +175,15 @@
     <Content Include="Assets\icon_search.png" />
     <Content Include="Assets\icon_star.png" />
     <Content Include="Assets\icon_timetable.png" />
+    <Content Include="Assets\icon_video.png" />
+    <Content Include="Assets\icon_ZoomInBlack.png" />
+    <Content Include="Assets\icon_ZoomInWhite.png" />
+    <Content Include="Assets\icon_ZoomOutBlack.png" />
+    <Content Include="Assets\icon_ZoomOutWhite.png" />
     <Content Include="Assets\ScreenBackground.png" />
+    <Content Include="Assets\icon_ZoomInGray.png" />
+    <Content Include="Assets\icon_ZoomOutGray.png" />
+    <Content Include="Assets\fullMap.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -187,10 +192,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Route_DetailsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="BusTimeTablePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -95,8 +95,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BusDetailsPage.xaml.cs">
-      <DependentUpon>BusDetailsPage.xaml</DependentUpon>
+    <Compile Include="Route_DetailsPage.xaml.cs">
+      <DependentUpon>Route_DetailsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="BusTimeTablePage.xaml.cs">
       <DependentUpon>BusTimeTablePage.xaml</DependentUpon>
@@ -104,6 +104,10 @@
     <Compile Include="FeedbackPage.xaml.cs">
       <DependentUpon>FeedbackPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HomePageViewModel.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -117,8 +121,8 @@
     <Compile Include="SavedTripMoreInfo.xaml.cs">
       <DependentUpon>SavedTripMoreInfo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SavedTripsPage.xaml.cs">
-      <DependentUpon>SavedTripsPage.xaml</DependentUpon>
+    <Compile Include="Saved_TripsPage.xaml.cs">
+      <DependentUpon>Saved_TripsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="SavedTripTemplate.xaml.cs">
       <DependentUpon>SavedTripTemplate.xaml</DependentUpon>
@@ -133,8 +137,8 @@
     <Compile Include="TripMoreInfoPage.xaml.cs">
       <DependentUpon>TripMoreInfoPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TripPlannerPage.xaml.cs">
-      <DependentUpon>TripPlannerPage.xaml</DependentUpon>
+    <Compile Include="Trip_PlannerPage.xaml.cs">
+      <DependentUpon>Trip_PlannerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="TripsPage.xaml.cs">
       <DependentUpon>TripsPage.xaml</DependentUpon>
@@ -150,10 +154,25 @@
     <None Include="MoTApp_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\33-NL.jpg" />
+    <Content Include="Assets\a1-NL.jpg" />
+    <Content Include="Assets\A2-NL.jpg" />
     <Content Include="Assets\Background.jpg" />
+    <Content Include="Assets\BahrainBus1.jpg" />
+    <Content Include="Assets\BahrainBus2.jpg" />
+    <Content Include="Assets\BahrainBus3.jpg" />
+    <Content Include="Assets\BahrainBus4.jpg" />
+    <Content Include="Assets\icon_Add1.png" />
+    <Content Include="Assets\icon_Add2.png" />
+    <Content Include="Assets\icon_BackArrow1.png" />
+    <Content Include="Assets\icon_BackArrow2.png" />
     <Content Include="Assets\icon_calendar.png" />
     <Content Include="Assets\icon_feedback.png" />
+    <Content Include="Assets\icon_Home1.png" />
+    <Content Include="Assets\icon_Home2.png" />
     <Content Include="Assets\icon_map.png" />
+    <Content Include="Assets\icon_MapMarker1.png" />
+    <Content Include="Assets\icon_MenuWhite.png" />
     <Content Include="Assets\icon_news.png" />
     <Content Include="Assets\icon_route.png" />
     <Content Include="Assets\icon_search.png" />
@@ -161,20 +180,13 @@
     <Content Include="Assets\icon_timetable.png" />
     <Content Include="Assets\ScreenBackground.png" />
     <Content Include="Properties\Default.rd.xml" />
-    <Content Include="Assets\LockScreenLogo.scale-200.png" />
-    <Content Include="Assets\SplashScreen.scale-200.png" />
-    <Content Include="Assets\Square150x150Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
-    <Content Include="Assets\StoreLogo.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="BusDetailsPage.xaml">
+    <Page Include="Route_DetailsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -190,6 +202,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -212,7 +228,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SavedTripsPage.xaml">
+    <Page Include="Saved_TripsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -232,7 +248,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TripPlannerPage.xaml">
+    <Page Include="Trip_PlannerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

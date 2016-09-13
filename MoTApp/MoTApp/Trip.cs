@@ -44,12 +44,24 @@ namespace MoTApp
         public List<string> SatReturnTimetable { get; set; }
         public List<string> SunToThuGoTimetable { get; set; }
         public List<string> SunToThuReturnTimetable { get; set; }
+        public override string ToString()
+        {
+            return String.Format("{0}, {1}",city,name);
+        }
     }
 
     public class Route
     {
         public string id { get; set; }
         public string name { get; set; }
+        private string mapImageSourec;
+
+        public string mapImage
+        {
+            get { return string.Format(@"Assets/{0}",mapImageSourec); }
+            set { mapImageSourec = value; }
+        }
+
         public SolidColorBrush color { get; set; }
         public List<Stop> stops { get; set; }
     }
@@ -122,22 +134,22 @@ namespace MoTApp
         {
             List<Route> routes = new List<Route>();
 
-            routes.Add(new Route { id = "A1", color = GetSolidColorBrush("FF4A18D1"), stops = GetSavedStops()});
-            routes.Add(new Route { id = "B1", color = GetSolidColorBrush("FE4A18D1"), stops = GetSavedStops()});
-            routes.Add(new Route { id = "C2", color = GetSolidColorBrush("FF4A08D1"), stops = GetSavedStops()});
-            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops()});
-            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
-            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
-            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
-            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
-            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
-            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
-            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
-            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
-            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
-            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
-            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
-            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops() });
+            routes.Add(new Route { id = "A1", color = GetSolidColorBrush("FF4A18D1"), stops = GetSavedStops(), mapImage = "33-NL.jpg"});
+            routes.Add(new Route { id = "B1", color = GetSolidColorBrush("FE4A18D1"), stops = GetSavedStops(), mapImage = "a1-NL.jpg"});
+            routes.Add(new Route { id = "C2", color = GetSolidColorBrush("FF4A08D1"), stops = GetSavedStops(), mapImage = "A2-NL.jpg"});
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops(), mapImage = "A2-NL.jpg" });
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops(),mapImage = "A2-NL.jpg"} );
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops(), mapImage = "A2-NL.jpg" });
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops(), mapImage = "A2-NL.jpg" });
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops(), mapImage = "A2-NL.jpg" });
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops(), mapImage = "A2-NL.jpg" });
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops(), mapImage = "A2-NL.jpg" });
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops(), mapImage = "A2-NL.jpg" });
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops(), mapImage = "A2-NL.jpg" });
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops(), mapImage = "A2-NL.jpg" });
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops(), mapImage = "A2-NL.jpg" });
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops(), mapImage = "A2-NL.jpg" });
+            routes.Add(new Route { id = "X2B", color = GetSolidColorBrush("FF4A18A1"), stops = GetSavedStops(), mapImage = "A2-NL.jpg" });
 
             return routes;
         }

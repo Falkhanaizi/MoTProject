@@ -13,98 +13,50 @@
                 <ResourceDictionary Source="MainPageStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-        </Page.Resources>
+    </Page.Resources>
 
-        <Grid>
-            <Grid.Background>
-                <ImageBrush Stretch="Fill" ImageSource="Assets/ScreenBackground.png"/>
-            </Grid.Background>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="3*"/>
-            </Grid.RowDefinitions>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="Assets/ScreenBackground.png"/>
+        </Grid.Background>
+        <SplitView x:Name="PagesSplitView"
+                   OpenPaneLength="150">
+            <SplitView.PaneBackground>
+                <SolidColorBrush Color="Black" Opacity="0.85"/>
+            </SplitView.PaneBackground>
+            <SplitView.Pane>
+                <ListBox SelectionChanged="PagesList_SelectionChanged" Background="{x:Null}" x:Name="PagesList">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            <Setter Property="Padding" Value="0"/>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Margin="10" Source="{Binding PageImage}" Width="10" Height="10"/>
+                                <TextBlock Text="{Binding PageName}" FontSize="12" Foreground="White" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Grid x:Name="PagesGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Frame x:Name="MyFrame" Grid.RowSpan="2">
 
-            <RelativePanel Background="Red">
-                <Image Name="BusPic"
-               Stretch="UniformToFill"
-               Source="Assets/Background.jpg" Opacity="0.75"/>
-                <StackPanel RelativePanel.AlignRightWithPanel="True"
-                        Margin="0,10,10,0"
-                            Name="FeedbackLogo"
-                            Tapped="FeedbackLogo_Tapped">
-                    <Image Source="Assets/icon_feedback.png"
-                   Height="40"/>
-                    <TextBlock Text="Feedback" 
-                           Foreground="White"
-                           FontSize="12"
-                           FontWeight="Bold"/>
-                </StackPanel>
-            </RelativePanel>
+                    </Frame>
+                        <Border x:Name="MenuBtn"  Margin="10,0,0,0" HorizontalAlignment="Left" Padding="0" Width="35" Height="35" BorderThickness="3" BorderBrush="White" CornerRadius="10" Tapped="MenuBtn_Tapped">
+                            <Image Width="20" Height="20" Source="Assets/icon_MenuWhite.png"/>
+                        </Border>
+                </Grid>
+            </SplitView.Content>
+        </SplitView>
 
-            <RelativePanel Grid.Row="1">
-                <TextBlock x:Name="WelcomeLabel" Text="Welcome"
-                       Style="{StaticResource ScreenLabel}"
-                       RelativePanel.AlignHorizontalCenterWithPanel="True"
-                       Margin="0,10,0,30"/>
-
-                <RelativePanel RelativePanel.AlignHorizontalCenterWithPanel="True"
-                           RelativePanel.AlignVerticalCenterWithPanel="True"
-                           RelativePanel.Below="WelcomeLabel">
-                    <Rectangle Style="{StaticResource RecButtonStyle}"
-                           Name="RecMap"
-                           Margin="0,0,2,2"
-                           Tapped="RecMap_Tapped"
-                           RelativePanel.AlignLeftWithPanel="True"/>
-                    <StackPanel RelativePanel.AlignHorizontalCenterWith="RecMap"
-                        RelativePanel.AlignVerticalCenterWith="RecMap">
-                        <Image Source="Assets/icon_map.png"
-                       Height="40"/>
-                        <TextBlock Text="Bus Details"
-                           Style="{StaticResource ResourceKey=MainIconsLabel}"/>
-                    </StackPanel>
-
-                    <Rectangle Style="{StaticResource RecButtonStyle}"
-                       Name="RecTripPlanner"
-                       RelativePanel.RightOf="RecMap"
-                       RelativePanel.AlignVerticalCenterWith="RecMap"
-                           Tapped="RecTripPlanner_Tapped"
-                       Margin="2,0,0,2"/>
-                    <StackPanel RelativePanel.AlignHorizontalCenterWith="RecTripPlanner"
-                        RelativePanel.AlignVerticalCenterWith="RecTripPlanner">
-                        <Image Source="Assets/icon_calendar.png"
-                       Height="40"/>
-                        <TextBlock Text="Trip Planner"
-                           Style="{StaticResource ResourceKey=MainIconsLabel}"/>
-                    </StackPanel>
-
-                    <Rectangle Style="{StaticResource RecButtonStyle}"
-                       Name="RecSavedTrips"
-                       RelativePanel.Below="RecMap"
-                       RelativePanel.AlignHorizontalCenterWith="RecMap"
-                               Tapped="RecSavedTrips_Tapped"
-                       Margin="0,2,2,0"/>
-                    <StackPanel RelativePanel.AlignHorizontalCenterWith="RecSavedTrips"
-                        RelativePanel.AlignVerticalCenterWith="RecSavedTrips">
-                        <Image Source="Assets/icon_star.png"
-                       Height="40"/>
-                        <TextBlock Text="Saved Trips"
-                           Style="{StaticResource ResourceKey=MainIconsLabel}"/>
-                    </StackPanel>
-
-                    <Rectangle Style="{StaticResource RecButtonStyle}"
-                       Name="RecNews"
-                       RelativePanel.RightOf="RecSavedTrips"
-                       RelativePanel.Below="RecTripPlanner"
-                               Tapped="RecNews_Tapped"
-                       Margin="2,2,0,0"/>
-                    <StackPanel RelativePanel.AlignHorizontalCenterWith="RecNews"
-                        RelativePanel.AlignVerticalCenterWith="RecNews">
-                        <Image Source="Assets/icon_news.png"
-                       Height="40"/>
-                        <TextBlock Text="News"
-                           Style="{StaticResource ResourceKey=MainIconsLabel}"/>
-                    </StackPanel>
-                </RelativePanel>
-            </RelativePanel>
-        </Grid>
+    </Grid>
 </Page>

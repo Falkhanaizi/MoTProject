@@ -10,24 +10,21 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="FeedbackPageStyles.xaml"/>
-                <ResourceDictionary Source="MainPageStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
 
     <Grid>
-        <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="Assets/ScreenBackground.png"/>
-        </Grid.Background>
-
         <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <StackPanel>
-            <TextBlock Text="FeedBack" 
-                   Style="{StaticResource ScreenLabel}"/>
+        <Image x:ConnectionId='1' x:Name="BackBtn" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Width="25" Height="25" Source="Assets/icon_BackArrow2.png"                        />
+        <TextBlock Text="Feedback" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="30" FontWeight="Bold"/>
+
+        <StackPanel Grid.Row="1">
             <TextBlock Text="We highly appreciate your feedback to help us improve our services"
                    TextAlignment="Center"
                    Style="{StaticResource feedbackLabels}"/>
@@ -41,19 +38,16 @@
             <TextBox Height="150" TextWrapping="Wrap"/>
         </StackPanel>
 
-        <RelativePanel Grid.Row="1" 
-                    Background="White">
-            <Button x:ConnectionId='1' Content="&#x2714; Submit"
+        <Border Grid.Row="2" 
+                    Background="Black" Opacity="0.75">
+            <Button x:ConnectionId='2' Content="&#x2714; Submit"
                     Name="btn_Submit"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,10,0"
+                    Foreground="White"
                     Style="{StaticResource BarBtns}"
-                    RelativePanel.LeftOf="btn_Cancel" Background="{x:Null}"/>
-            <Button x:ConnectionId='2' Content="&#x2716; Cancel"
-                    Name="btn_Cancel"
-                                            
-                    Style="{StaticResource BarBtns}"
-                    Margin="5,0,5,0"
-                    RelativePanel.AlignRightWithPanel="True" Background="{x:Null}"/>
-        </RelativePanel>
+                    Background="{x:Null}"/>
+        </Border>
 
     </Grid>
 </Page>

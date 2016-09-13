@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -28,33 +29,43 @@ namespace MoTApp
         {
             this.InitializeComponent();
             routes = TripsManager.GetSavedRoutes();
-            MyFrame.Navigate(typeof(TablePage), routes.First());
         }
 
         private void RoutesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var route = (Route)RoutesListBox.SelectedItem;
             MyFrame.Navigate(typeof(TablePage), route);
+            RoutesListBox.Visibility = Visibility.Collapsed;
+            RoutesGridView.Visibility = Visibility.Collapsed;
+            idText.Text = route.id;
+            RouteIdBtn.Background = route.color;
         }
 
-        /*
-        private void Grid_Tapped(object sender, TappedRoutedEventArgs e)
+        private void RoutesGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (!RoutesSplitView.IsPaneOpen)
+            var route = (Route)RoutesGridView.SelectedItem;
+            MyFrame.Navigate(typeof(TablePage), route);
+            RoutesGridView.Visibility = Visibility.Collapsed;
+            idText.Text = route.id;
+            RouteIdBtn.Background = route.color;
+        }
+
+
+        private void RouteIdBtn_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            if (RoutesListBox.Visibility == Visibility.Visible)
             {
-                RoutesSplitView.IsPaneOpen = true;
+                RoutesListBox.Visibility = Visibility.Collapsed;
             }
             else
             {
-                RoutesSplitView.IsPaneOpen = false;
+                RoutesListBox.Visibility = Visibility.Visible;
             }
         }
 
-        private void TripsList_ItemClick(object sender, ItemClickEventArgs e)
+        private void BackBtn_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            var route = (Route)e.ClickedItem;
-            MyFrame.Navigate(typeof(TablePage), route);
+            Frame.GoBack();
         }
-       */
     }
 }

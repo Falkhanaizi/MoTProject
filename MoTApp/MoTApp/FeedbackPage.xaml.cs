@@ -27,7 +27,7 @@ namespace MoTApp
             this.InitializeComponent();
         }
 
-        private void btn_Cancel_Click(object sender, RoutedEventArgs e)
+        private void BackBtn_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Frame.GoBack();
         }

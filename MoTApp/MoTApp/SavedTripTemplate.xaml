@@ -11,7 +11,7 @@
 
     <UserControl.Resources>
         <Style TargetType="TextBlock" x:Key="TimeTextStyle">
-            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontSize" Value="18"/>
             <Setter Property="Margin" Value="5,0,5,0"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="FontWeight" Value="Bold"/>
@@ -20,6 +20,7 @@
         <Style TargetType="TextBlock" x:Key="LocationTextStyle">
             <Setter Property="FontSize" Value="12"/>
             <Setter Property="Margin" Value="5,0,5,0"/>
+            <Setter Property="Foreground" Value="White"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
@@ -30,7 +31,7 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid Background="White">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -48,8 +49,8 @@
         <TextBlock Text="{x:Bind Trip.fromTime}"
                        Foreground="#FF00BE00"
                        Style="{StaticResource TimeTextStyle}"/>
-        <SymbolIcon Grid.Column="1" 
-                        Symbol="Forward"
+        <Image Grid.Column="1" 
+                        Source="Assets/icon_BackArrow1.png"
                         Width="20" Height="30"
                         VerticalAlignment="Center"
                         Margin="5,0,5,0"/>

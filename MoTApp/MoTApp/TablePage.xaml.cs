@@ -23,6 +23,19 @@ namespace MoTApp
     public sealed partial class TablePage : Page
     {
         public List<Stop> stops { get; set; }
+        public List<List<string>> SatGoTimes { get; set; }
+        public List<List<string>> SatReturnTimes { get; set; }
+        public List<List<string>> SunToThuGoTimes { get; set; }
+        public List<List<string>> SunToThuReturnTimes { get; set; }
+
+        public TablePage()
+        {
+            this.InitializeComponent();
+            SatGoTimes = new List<List<string>>();
+            SatReturnTimes = new List<List<string>>();
+            SunToThuGoTimes = new List<List<string>>();
+            SunToThuReturnTimes = new List<List<string>>();
+        }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -30,12 +43,44 @@ namespace MoTApp
             {
                 var route = e.Parameter as Route;
                 stops = route.stops;
+                foreach (var stop in stops)
+                {
+                    SatGoTimes.Add(stop.SatGoTimetable);
+                    SatReturnTimes.Add(stop.SatReturnTimetable);
+                    SunToThuGoTimes.Add(stop.SunToThuGoTimetable);
+                    SunToThuReturnTimes.Add(stop.SunToThuReturnTimetable);
+                }
+                
+                SatGoTimes = SwapRowsAndColumns(SatGoTimes);
+                SatReturnTimes = SwapRowsAndColumns(SatReturnTimes);
+                SunToThuReturnTimes = SwapRowsAndColumns(SunToThuReturnTimes);
+                SunToThuGoTimes = SwapRowsAndColumns(SunToThuGoTimes);
+
+                StopsListView.ItemsSource = stops;
+                SatGoTimesListView.ItemsSource = SatGoTimes;
+                SatReturnTimesListView.ItemsSource = SatReturnTimes;
+                SunToThuGoTimesListView.ItemsSource = SunToThuGoTimes;
+                SunToThuReturnTimesListView.ItemsSource = SunToThuReturnTimes;
             }
         }
-
-        public TablePage()
+        
+        private List<List<string>> SwapRowsAndColumns(List<List<string>> times)
         {
-            this.InitializeComponent();
+            int rowCount = times.Count;
+            int columnCount = times[0].Count;
+            var transposed = new List<List<string>>(columnCount);
+            for (int i = 0; i < columnCount; i++)
+            {
+                List<string> newRow = new List<string>();
+                foreach (List<string> value in times)
+                {
+                    newRow.Add(value[i]);
+                }
+                transposed.Add(newRow);
+            }
+            return transposed;
         }
+        
+        
     }
 }

@@ -6,46 +6,71 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:data="using:MoTApp"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Name="BusDetails">
 
     <Grid>
-        <Grid.Background>
-            <ImageBrush Stretch="Fill" 
-                        ImageSource="Assets/ScreenBackground.png"/>
-        </Grid.Background>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <RelativePanel>
-            <TextBlock Text="Bus Timetable"
-                       Foreground="White"
-                       FontSize="32"
-                       FontWeight="Bold"
-                       RelativePanel.AlignHorizontalCenterWithPanel="True"
-                       RelativePanel.AlignVerticalCenterWithPanel="True"/>
-            <SymbolIcon Symbol="Back" 
-                        Height="50" Width="50"
-                        Foreground="White"
-                        RelativePanel.AlignLeftWithPanel="True"
-                        RelativePanel.AlignVerticalCenterWithPanel="True"/>
-        </RelativePanel>
+        <Image x:Name="BackBtn" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Width="25" Height="25" Source="Assets/icon_BackArrow2.png" Tapped="BackBtn_Tapped"/>
+        <TextBlock Text="Route Details" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="30" FontWeight="Bold"/>
 
         <Frame x:Name="MyFrame" Grid.Row="1">
             
         </Frame>
-        
+        <GridView x:Name="RoutesGridView" Grid.Row="1"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 ScrollViewer.HorizontalScrollMode="Disabled"
+                 ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                 ScrollViewer.VerticalScrollMode="Auto"
+                  Padding="0"
+                  HorizontalAlignment="Center"
+                 SelectionChanged="RoutesGridView_SelectionChanged"
+                  ItemsSource="{x:Bind routes}" Background="Transparent">
+            <GridView.ItemContainerStyle>
+                <Style TargetType="GridViewItem">
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="Margin" Value="8"/>
+                </Style>
+            </GridView.ItemContainerStyle>
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="data:Route">
+                    <RelativePanel>
+                        <Image x:Name="mapImage" Source="{x:Bind mapImage}" Width="100" Height="100" Stretch="UniformToFill"/>
+                        <Border Width="40" Height="40" 
+                            Background="{x:Bind color}"
+                            BorderBrush="White"
+                            BorderThickness="2"
+                                RelativePanel.AlignLeftWith="mapImage">
+                            <TextBlock Text="{x:Bind id}" Foreground="White"
+                                   FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </RelativePanel>
+
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+
         <ListBox x:Name="RoutesListBox"
-                  Grid.Row="2"
+                 Grid.Row="1"
+                 VerticalAlignment="Bottom"
+                 Visibility="Collapsed"
+                 Background="Black"
+                 Opacity="0.75"
+                 Margin="0,0,0,10"
+                 Padding="5"
                  ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                  ScrollViewer.HorizontalScrollMode="Auto"
                  ScrollViewer.VerticalScrollBarVisibility="Disabled"
                  ScrollViewer.VerticalScrollMode="Disabled"
                  SelectionChanged="RoutesListBox_SelectionChanged"
-                  ItemsSource="{x:Bind routes}" Background="Transparent">
+                  ItemsSource="{x:Bind routes}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal"/>
@@ -61,7 +86,7 @@
                 <DataTemplate x:DataType="data:Route">
                     <Border Width="40" Height="40" 
                             Background="{x:Bind color}"
-                            CornerRadius="40" BorderBrush="White"
+                            BorderBrush="White"
                             BorderThickness="2">
                         <TextBlock Text="{x:Bind id}" Foreground="White"
                                    FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -69,6 +94,15 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
+        <RelativePanel Grid.Row="2" Background="#FFA42226">
+            <Border Margin="5" x:Name="RouteIdBtn" Width="40" Height="40" IsTapEnabled="True" Tapped="RouteIdBtn_Tapped"
+                            Background="Gray" BorderBrush="White"
+                            BorderThickness="2" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
+                <TextBlock  x:Name="idText" Text="All" Foreground="White" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            
+        </RelativePanel>
         
     </Grid>
 </Page>

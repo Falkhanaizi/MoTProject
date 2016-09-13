@@ -25,31 +25,37 @@ namespace MoTApp
         public MainPage()
         {
             this.InitializeComponent();
+
+            MyFrame.Navigate(typeof(HomePage));
+
+            List<HomePageViewModel> models = new List<HomePageViewModel>
+            {
+                new HomePageViewModel(typeof(HomePage)) {PageImage = "Assets/icon_Home2.png" },
+                new HomePageViewModel(typeof(Trip_PlannerPage)) {PageImage = "Assets/icon_calendar.png" },
+                new HomePageViewModel(typeof(FeedbackPage)) {PageImage = "Assets/icon_feedback.png" },
+                new HomePageViewModel(typeof(Route_DetailsPage)) {PageImage = "Assets/icon_map.png" },
+                new HomePageViewModel(typeof(Saved_TripsPage)) {PageImage = "Assets/icon_star.png" }
+            };
+            PagesList.ItemsSource = models;
         }
 
-        private void RecMap_Tapped(object sender, TappedRoutedEventArgs e)
+        private void PagesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Frame.Navigate(typeof(BusDetailsPage));
+            var page = (HomePageViewModel)PagesList.SelectedItem;
+            MyFrame.Navigate(page.PageType);
+            if (!page.PageName.ToLower().Contains("home"))
+            {
+                MenuBtn.Margin = new Thickness(50, 0, 0, 0);
+            }
+            else
+            {
+                MenuBtn.Margin = new Thickness(10, 0, 0, 0);
+            }
         }
 
-        private void RecTripPlanner_Tapped(object sender, TappedRoutedEventArgs e)
+        private void MenuBtn_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            Frame.Navigate(typeof(TripPlannerPage));
-        }
-
-        private void RecNews_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(NewsPage));
-        }
-
-        private void RecSavedTrips_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(SavedTripsPage));
-        }
-
-        private void FeedbackLogo_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(FeedbackPage));
+            PagesSplitView.IsPaneOpen = true;
         }
     }
 }

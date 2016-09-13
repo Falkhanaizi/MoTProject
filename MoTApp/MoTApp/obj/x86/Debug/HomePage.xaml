@@ -1,0 +1,127 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="MoTApp.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MoTApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Name="Home">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="MainPageStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <!--Main UI Idea 1-->
+<!--
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+        
+        <RelativePanel Background="Red">
+            <Image Name="BusPic"
+               Stretch="UniformToFill"
+               Source="Assets/Background.jpg" Opacity="0.75"/>
+            <StackPanel RelativePanel.AlignRightWithPanel="True"
+                        Margin="0,5,5,0"
+                            Name="FeedbackLogo"
+                            Tapped="FeedbackLogo_Tapped">
+                <Image Source="Assets/icon_feedback.png"
+                   Height="40"/>
+                <TextBlock Text="Feedback" 
+                           Foreground="White"
+                           FontSize="12"
+                           FontWeight="Bold"/>
+            </StackPanel>
+            
+        </RelativePanel>
+
+        <RelativePanel Grid.Row="1">
+            <TextBlock x:Name="WelcomeLabel" Text="Welcome"
+                       Style="{StaticResource ScreenLabel}"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                       Margin="0,10,0,30"/>
+
+            <RelativePanel RelativePanel.AlignHorizontalCenterWithPanel="True"
+                           RelativePanel.AlignVerticalCenterWithPanel="True"
+                           RelativePanel.Below="WelcomeLabel">
+                <Rectangle Style="{StaticResource RecButtonStyle}"
+                           Name="RecMap"
+                           Margin="0,0,2,2"
+                           Tapped="RecMap_Tapped"
+                           RelativePanel.AlignLeftWithPanel="True"/>
+                <StackPanel RelativePanel.AlignHorizontalCenterWith="RecMap"
+                        RelativePanel.AlignVerticalCenterWith="RecMap">
+                    <Image Source="Assets/icon_map.png"
+                       Height="40"/>
+                    <TextBlock Text="Bus Details"
+                           Style="{StaticResource ResourceKey=MainIconsLabel}"/>
+                </StackPanel>
+
+                <Rectangle Style="{StaticResource RecButtonStyle}"
+                       Name="RecTripPlanner"
+                       RelativePanel.RightOf="RecMap"
+                       RelativePanel.AlignVerticalCenterWith="RecMap"
+                           Tapped="RecTripPlanner_Tapped"
+                       Margin="2,0,0,2"/>
+                <StackPanel RelativePanel.AlignHorizontalCenterWith="RecTripPlanner"
+                        RelativePanel.AlignVerticalCenterWith="RecTripPlanner">
+                    <Image Source="Assets/icon_calendar.png"
+                       Height="40"/>
+                    <TextBlock Text="Trip Planner"
+                           Style="{StaticResource ResourceKey=MainIconsLabel}"/>
+                </StackPanel>
+
+                <Rectangle Style="{StaticResource RecButtonStyle}"
+                       Name="RecSavedTrips"
+                       RelativePanel.Below="RecMap"
+                       RelativePanel.AlignHorizontalCenterWith="RecMap"
+                               Tapped="RecSavedTrips_Tapped"
+                       Margin="0,2,2,0"/>
+                <StackPanel RelativePanel.AlignHorizontalCenterWith="RecSavedTrips"
+                        RelativePanel.AlignVerticalCenterWith="RecSavedTrips">
+                    <Image Source="Assets/icon_star.png"
+                       Height="40"/>
+                    <TextBlock Text="Saved Trips"
+                           Style="{StaticResource ResourceKey=MainIconsLabel}"/>
+                </StackPanel>
+
+                <Rectangle Style="{StaticResource RecButtonStyle}"
+                       Name="RecNews"
+                       RelativePanel.RightOf="RecSavedTrips"
+                       RelativePanel.Below="RecTripPlanner"
+                               Tapped="RecNews_Tapped"
+                       Margin="2,2,0,0"/>
+                <StackPanel RelativePanel.AlignHorizontalCenterWith="RecNews"
+                        RelativePanel.AlignVerticalCenterWith="RecNews">
+                    <Image Source="Assets/icon_news.png"
+                       Height="40"/>
+                    <TextBlock Text="News"
+                           Style="{StaticResource ResourceKey=MainIconsLabel}"/>
+                </StackPanel>
+            </RelativePanel>
+        </RelativePanel>
+    </Grid>
+    -->
+    
+    <!--Main UI Idea 2-->
+    <FlipView x:ConnectionId='2' x:Name="ForUpdatesView">
+        <FlipView.ItemTemplate>
+            <DataTemplate>
+                <RelativePanel>
+                    <Image Source="{Binding ImageSource}" Stretch="UniformToFill" HorizontalAlignment="Center"/>
+                    <Border Background="#FF720000" Opacity="0.8" Width="200" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="10">
+                        <TextBlock Text="{Binding UpdateText}" TextWrapping="Wrap" FontSize="12" FontWeight="Bold" Foreground="White"/>
+                    </Border>
+                </RelativePanel>
+            </DataTemplate>
+        </FlipView.ItemTemplate>
+    </FlipView>
+</Page>
+

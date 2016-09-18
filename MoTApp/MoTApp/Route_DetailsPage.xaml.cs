@@ -74,5 +74,17 @@ namespace MoTApp
             MyFrame.Navigate(typeof(MapPage), SelectedRoute);
             RoutesGridView.Visibility = Visibility.Collapsed;
         }
+
+        private void TimeTableBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MyFrame.Navigate(typeof(TablePage), SelectedRoute);
+            RoutesGridView.Visibility = Visibility.Collapsed;
+        }
+
+        private void RouteListBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MyFrame.Navigate(typeof(Routes_ListPage), SelectedRoute);
+            RoutesGridView.Visibility = Visibility.Collapsed;
+        }
     }
 }

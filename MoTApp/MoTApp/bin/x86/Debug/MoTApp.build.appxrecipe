@@ -334,6 +334,9 @@
     <AppxPackagedFile Include="C:\Users\FatemaK\.nuget\packages\System.Xml.XmlSerializer\4.0.10\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\FatemaK\.nuget\packages\WinRTXamlToolkit.UWP\2.0.0\lib\uap10.0\WinRTXamlToolkit.dll">
+      <PackagePath>WinRTXamlToolkit.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\33-NL.jpg">
       <PackagePath>Assets\33-NL.jpg</PackagePath>
     </AppxPackagedFile>
@@ -373,6 +376,12 @@
     <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_calendar.png">
       <PackagePath>Assets\icon_calendar.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_calendar2.png">
+      <PackagePath>Assets\icon_calendar2.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_exit.png">
+      <PackagePath>Assets\icon_exit.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_feedback.png">
       <PackagePath>Assets\icon_feedback.png</PackagePath>
     </AppxPackagedFile>
@@ -394,8 +403,20 @@
     <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_news.png">
       <PackagePath>Assets\icon_news.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_pages.png">
+      <PackagePath>Assets\icon_pages.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_reminder.png">
+      <PackagePath>Assets\icon_reminder.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_RightArrow.png">
+      <PackagePath>Assets\icon_RightArrow.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_route.png">
       <PackagePath>Assets\icon_route.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_save.png">
+      <PackagePath>Assets\icon_save.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_search.png">
       <PackagePath>Assets\icon_search.png</PackagePath>
@@ -441,6 +462,12 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\FatemaK\.nuget\packages\WinRTXamlToolkit.UWP\2.0.0\lib\uap10.0\WinRTXamlToolkit\WinRTXamlToolkit.xr.xml">
+      <PackagePath>WinRTXamlToolkit\WinRTXamlToolkit.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\FatemaK\.nuget\packages\WinRTXamlToolkit.UWP\2.0.0\lib\uap10.0\WinRTXamlToolkit\Properties\WinRTXamlToolkit.UWP.rd.xml">
+      <PackagePath>WinRTXamlToolkit\Properties\WinRTXamlToolkit.UWP.rd.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>

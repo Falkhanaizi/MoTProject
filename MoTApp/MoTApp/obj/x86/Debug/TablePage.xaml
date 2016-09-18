@@ -417,21 +417,21 @@
         </Style>
     </Page.Resources>
     <ScrollViewer VerticalScrollBarVisibility="Hidden" VerticalScrollMode="Auto">
-           <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
             <Border Style="{StaticResource RouteBorder}" Margin="0">
                 <StackPanel Orientation="Horizontal">
@@ -470,8 +470,8 @@
                   Style="{StaticResource StopsListViewStyle}"/>
             <ListView x:ConnectionId='9' x:Name="SunToThuReturnTimesListView" Grid.Row="7" Grid.Column="1"
                   Style="{StaticResource TimetableListViewStyle}"/>
-    </Grid>
- 
+        </Grid>
+
     </ScrollViewer>
 </Page>
 

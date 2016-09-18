@@ -12,14 +12,30 @@
     <Page.Resources>
         <Style TargetType="Button" x:Key="BarBtns">
             <Setter Property="Height" Value="50"/>
-            <Setter Property="Width" Value="50"/>
-            <Setter Property="Padding" Value="0"/>
-            <Setter Property="Margin" Value="10,0,0,0"/>
+            <Setter Property="Padding" Value="5,2"/>
+            <Setter Property="BorderBrush" Value="#FFA42226"/>
+            <Setter Property="Background" Value="#FFC75A5E"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
         </Style>
         <Style TargetType="TextBlock" x:Key="BarBtnsText">
-            <Setter Property="FontFamily" Value="Segoe UI Symbol"/>
-            <Setter Property="FontSize" Value="10"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="MoreInfoHeaderText">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Margin" Value="0,5,10,5"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="MoreInfoText" BasedOn="{StaticResource MoreInfoHeaderText}">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="0,5,0,5"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="Foreground" Value="White"/>
         </Style>
     </Page.Resources>
 
@@ -36,14 +52,9 @@
         </Grid.RowDefinitions>
 
         <RelativePanel x:ConnectionId='2' Name="AssholeRelative">
-            <Maps:MapControl ZoomInteractionMode="GestureAndControl"
-                             Background="Black"
-                             Height="{Binding ElementName=AssholeRelative, Path=Height}"
-                             Width="{Binding ElementName=AssholeRelative, Path=Width}">
-                <Maps:MapControl Height="{Binding ElementName=AssholeRelative, Path=Height}"
-                             Width="{Binding ElementName=AssholeRelative, Path=Width}"/>
-            </Maps:MapControl>
-            <SymbolIcon x:ConnectionId='8' Symbol="Back" 
+            <Maps:MapControl x:ConnectionId='10' ZoomInteractionMode="GestureAndControl"
+                             Name="RouteMap"                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="236" Width="360"/>
+            <SymbolIcon x:ConnectionId='11' Symbol="Back" 
                         x:Name="icon_back"
                         Height="50" Width="40"
                         Foreground="Black"
@@ -53,67 +64,82 @@
         <ScrollViewer Grid.Row="1" 
                       VerticalScrollBarVisibility="Hidden"
                       HorizontalScrollMode="Disabled">
-            <StackPanel>
-                <ListView x:ConnectionId='6'                              
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <ListView x:ConnectionId='6'                                          
                       Name="StopsList">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                             <Setter Property="HorizontalAlignment" Value="Stretch"/>
-                            <Setter Property="Background" Value="Gray"/>
+                            <Setter Property="Background" Value="#FFA42226"/>
+                            <Setter Property="Padding" Value="0,5"/>
+                            <Setter Property="MinHeight" Value="10"/>
+                            <Setter Property="BorderBrush" Value="White"/>
+                            <Setter Property="BorderThickness" Value="0,0,0,2"/>
                         </Style>
                     </ListView.ItemContainerStyle>
                     <ListView.ItemTemplate>
-                        <DataTemplate                       >
-                            <local:StopDetailsTemplate/>
+                        <DataTemplate>
+                            <Grid>
+                                <TextBlock Text="{Binding}" FontSize="16" Foreground="White" HorizontalAlignment="Center"/>
+                            </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <TextBlock x:ConnectionId='7'                               />
-                <TextBlock Text=""/>
-            </StackPanel>
+                <Grid Background="#FFF26D72" Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Total Cost: " Style="{StaticResource MoreInfoHeaderText}"/>
+                    <TextBlock x:ConnectionId='7'                                Style="{StaticResource MoreInfoText}"/>
+                    <TextBlock Grid.Row="1" Text="Date: " Style="{StaticResource MoreInfoHeaderText}"/>
+                    <TextBlock x:ConnectionId='8' Grid.Row="1"                      Style="{StaticResource MoreInfoText}"/>
+                    <TextBlock Grid.Row="2" Text="Duration: " Style="{StaticResource MoreInfoHeaderText}"/>
+                    <TextBlock x:ConnectionId='9' Grid.Row="2"                               Style="{StaticResource MoreInfoText}"/>
+                </Grid>
+            </Grid>
         </ScrollViewer>
 
-        <RelativePanel Grid.Row="2" 
-                    Background="White">
-            <Button x:ConnectionId='3' Name="btn_Reminder"
-                    Style="{StaticResource BarBtns}"
-                    RelativePanel.LeftOf="btn_Save" 
-                    Background="{x:Null}">
+        <Grid Grid.Row="2" Background="#FFA42226">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:ConnectionId='3' x:Name="ReminderBtn"                           Grid.Column="0" Style="{StaticResource BarBtns}">
                 <StackPanel HorizontalAlignment="Center">
-                    <TextBlock Text="&#xE1FA;" 
-                               FontSize="20"
-                               Style="{StaticResource BarBtnsText}"/>
+                    <Image Source="Assets/icon_reminder.png" Width="25" Height="24"/>
                     <TextBlock Text="Reminder"
                                Style="{StaticResource BarBtnsText}"/>
                 </StackPanel>
             </Button>
-            <Button x:ConnectionId='4' Name="btn_Save"
-                    Style="{StaticResource BarBtns}"
-                    RelativePanel.LeftOf="btn_Done" 
-                    Background="{x:Null}">
+            <Button x:ConnectionId='4' x:Name="SaveBtn"                       Grid.Column="1" Style="{StaticResource BarBtns}" BorderThickness="0,2">
                 <StackPanel HorizontalAlignment="Center">
-                    <TextBlock Text="&#xE105;" 
-                               FontSize="20"
-                               Style="{StaticResource BarBtnsText}"/>
-                    <TextBlock Text="Save"
+                    <Image Source="Assets/icon_save.png" Width="25" Height="25"/>
+                    <TextBlock Text="Save Trip"
                                Style="{StaticResource BarBtnsText}"/>
                 </StackPanel>
             </Button>
-            <Button x:ConnectionId='5' Name="btn_Done"
-                    Style="{StaticResource BarBtns}"
-                    RelativePanel.AlignRightWithPanel="True" 
-                    Background="{x:Null}">
+            <Button x:ConnectionId='5' x:Name="QuitBtn" Grid.Column="2"                        Style="{StaticResource BarBtns}">
                 <StackPanel HorizontalAlignment="Center">
-                    <TextBlock Text="&#xE19F;"
-                               FontSize="20"
-                               Style="{StaticResource BarBtnsText}"/>
-                    <TextBlock Text="Done"
+                    <Image Source="Assets/icon_exit.png" Width="25" Height="25"/>
+                    <TextBlock Text="Quit"
                                Style="{StaticResource BarBtnsText}"/>
                 </StackPanel>
             </Button>
-        </RelativePanel>
-
+        </Grid>
     </Grid>
 </Page>
 

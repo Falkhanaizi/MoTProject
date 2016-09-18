@@ -8,6 +8,22 @@
     xmlns:data="using:MoTApp"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <Style TargetType="Button" x:Key="BarBtns">
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Padding" Value="5,2"/>
+            <Setter Property="BorderBrush" Value="#FFA42226"/>
+            <Setter Property="Background" Value="#FFC75A5E"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="BarBtnsText">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </Page.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -40,14 +56,14 @@
             </GridView.ItemContainerStyle>
             <GridView.ItemTemplate>
                 <DataTemplate                        >
-                    <RelativePanel x:ConnectionId='11'>
-                        <Image x:ConnectionId='12' x:Name="mapImage"                            Width="100" Height="100" Stretch="UniformToFill"/>
-                        <Border x:ConnectionId='13' Width="40" Height="40" 
+                    <RelativePanel x:ConnectionId='13'>
+                        <Image x:ConnectionId='14' x:Name="mapImage"                            Width="100" Height="100" Stretch="UniformToFill"/>
+                        <Border x:ConnectionId='15' Width="40" Height="40" 
                                                        
                             BorderBrush="White"
                             BorderThickness="2"
                                 RelativePanel.AlignLeftWith="mapImage">
-                            <TextBlock x:ConnectionId='14'                    Foreground="White"
+                            <TextBlock x:ConnectionId='16'                    Foreground="White"
                                    FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </RelativePanel>
@@ -62,7 +78,7 @@
                  Visibility="Collapsed"
                  Background="Black"
                  Opacity="0.75"
-                 Margin="0,0,0,10"
+                 Margin="0,0,0,3.5"
                  Padding="5"
                  ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                  ScrollViewer.HorizontalScrollMode="Auto"
@@ -83,25 +99,57 @@
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
                 <DataTemplate                        >
-                    <Border x:ConnectionId='9' Width="40" Height="40" 
+                    <Border x:ConnectionId='11' Width="40" Height="40" 
                                                        
                             BorderBrush="White"
                             BorderThickness="2">
-                        <TextBlock x:ConnectionId='10'                    Foreground="White"
+                        <TextBlock x:ConnectionId='12'                    Foreground="White"
                                    FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <RelativePanel Grid.Row="2" Background="#FFA42226">
+        <Grid Grid.Row="2" Background="#FFA42226">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
             <Border x:ConnectionId='6' Margin="5" x:Name="RouteIdBtn" Width="40" Height="40" IsTapEnabled="True"                           
                             Background="Gray" BorderBrush="White"
-                            BorderThickness="2" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
-                <TextBlock x:ConnectionId='8'  x:Name="idText" Text="All" Foreground="White" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            BorderThickness="2">
+                <TextBlock x:ConnectionId='10'  x:Name="idText" Text="All" Foreground="White" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Border>
-            <Button x:ConnectionId='7' x:Name="RouteMapBtn" Content="Route Map"                           Background="White" Height="50" FontSize="18" Width="130" RelativePanel.AlignRightWithPanel="True"/>
-        </RelativePanel>
+            <Button x:ConnectionId='7' x:Name="RouteListBtn"                            Grid.Column="1" Style="{StaticResource BarBtns}">
+                <StackPanel HorizontalAlignment="Center">
+                    <Image Source="Assets/icon_pages.png" Width="25" Height="24"/>
+                    <TextBlock Text="Routes List"
+                               Style="{StaticResource BarBtnsText}"/>
+                </StackPanel>
+            </Button>
+            <Button x:ConnectionId='8' x:Name="TimeTableBtn"                            Grid.Column="2" Style="{StaticResource BarBtns}" BorderThickness="0,2">
+                <StackPanel HorizontalAlignment="Center">
+                    <Image Source="Assets/icon_calendar2.png" Width="25" Height="25"/>
+                    <TextBlock Text="Time Table"
+                               Style="{StaticResource BarBtnsText}"/>
+                </StackPanel>
+            </Button>
+            <Button x:ConnectionId='9' x:Name="RouteMapBtn" Grid.Column="3"                            Style="{StaticResource BarBtns}">
+                <StackPanel HorizontalAlignment="Center">
+                    <Image Source="Assets/icon_MapMarker1.png" Width="25" Height="25"/>
+                    <TextBlock Text="Route Map"
+                               Style="{StaticResource BarBtnsText}"/>
+                </StackPanel>
+                <Button.Flyout>
+                    <MenuFlyout Placement="Top">
+                        <MenuFlyoutItem Text="Static"/>
+                        <MenuFlyoutItem Text="Dynamic"/>
+                    </MenuFlyout>
+                </Button.Flyout>
+            </Button>
+        </Grid>
         
     </Grid>
 </Page>

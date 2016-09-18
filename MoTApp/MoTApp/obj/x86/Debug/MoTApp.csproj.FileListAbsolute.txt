@@ -230,11 +230,6 @@
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\TripMoreInfoPage.g.cs
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\TripMoreInfoPage.xaml
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\TripMoreInfoPage.xbf
-\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\StopDetailsTemplate.g.i.cs
-\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\StopDetailsTemplate.g.cs
-\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\StopDetailsTemplate.xaml
-\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\StopDetailsTemplate.xbf
-\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\StopDetailsTemplate.xbf
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\SavedTripMoreInfo.g.i.cs
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\SavedTripMoreInfo.g.cs
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\SavedTripMoreInfo.xaml
@@ -266,3 +261,10 @@
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\Saved_TripsPage.xaml
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\Saved_TripsPage.xbf
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\MoTApp.csprojResolveAssemblyReference.cache
+\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\Routes_ListPage.g.i.cs
+\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\Routes_ListPage.g.cs
+\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\Routes_ListPage.xaml
+\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\Routes_ListPage.xbf
+\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\Routes_ListPage.xbf
+\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\WinRTXamlToolkit.dll
+\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\WinRTXamlToolkit.pri.xml

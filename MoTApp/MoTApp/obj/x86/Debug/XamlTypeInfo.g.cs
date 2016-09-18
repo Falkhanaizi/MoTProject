@@ -67,6 +67,18 @@ namespace MoTApp.MoTApp_XamlTypeInfo
             {
                 xamlType = CreateXamlType(typeIndex);
             }
+            var userXamlType = xamlType as global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType;
+            if(xamlType == null || (userXamlType != null && userXamlType.IsReturnTypeStub && !userXamlType.IsLocalType))
+            {
+                global::Windows.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForType(type);
+                if (libXamlType != null)
+                {
+                    if(libXamlType.IsConstructible || xamlType == null)
+                    {
+                        xamlType = libXamlType;
+                    }
+                }
+            }
             if (xamlType != null)
             {
                 _xamlTypeCacheByName.Add(xamlType.FullName, xamlType);
@@ -90,6 +102,18 @@ namespace MoTApp.MoTApp_XamlTypeInfo
             if(typeIndex != -1)
             {
                 xamlType = CreateXamlType(typeIndex);
+            }
+            var userXamlType = xamlType as global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType;
+            if(xamlType == null || (userXamlType != null && userXamlType.IsReturnTypeStub && !userXamlType.IsLocalType))
+            {
+                global::Windows.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForName(typeName);
+                if (libXamlType != null)
+                {
+                    if(libXamlType.IsConstructible || xamlType == null)
+                    {
+                        xamlType = libXamlType;
+                    }
+                }
             }
             if (xamlType != null)
             {
@@ -132,73 +156,89 @@ namespace MoTApp.MoTApp_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[32];
-            _typeNameTable[0] = "MoTApp.Route_DetailsPage";
-            _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "System.Collections.Generic.List`1<MoTApp.Route>";
-            _typeNameTable[4] = "Object";
-            _typeNameTable[5] = "MoTApp.Route";
-            _typeNameTable[6] = "String";
-            _typeNameTable[7] = "Windows.UI.Xaml.Media.SolidColorBrush";
-            _typeNameTable[8] = "System.Collections.Generic.List`1<MoTApp.Stop>";
-            _typeNameTable[9] = "MoTApp.Stop";
-            _typeNameTable[10] = "Double";
-            _typeNameTable[11] = "MoTApp.Zone";
-            _typeNameTable[12] = "System.Collections.Generic.List`1<String>";
-            _typeNameTable[13] = "MoTApp.FeedbackPage";
-            _typeNameTable[14] = "MoTApp.HomePage";
-            _typeNameTable[15] = "MoTApp.MainPage";
-            _typeNameTable[16] = "MoTApp.MapPage";
-            _typeNameTable[17] = "MoTApp.NewsPage";
-            _typeNameTable[18] = "MoTApp.SavedTripMoreInfo";
-            _typeNameTable[19] = "MoTApp.SavedTripTemplate";
-            _typeNameTable[20] = "MoTApp.Trip";
-            _typeNameTable[21] = "MoTApp.Saved_TripsPage";
-            _typeNameTable[22] = "MoTApp.StopDetailsTemplate";
-            _typeNameTable[23] = "MoTApp.TablePage";
-            _typeNameTable[24] = "System.Collections.Generic.List`1<System.Collections.Generic.List`1<String>>";
-            _typeNameTable[25] = "Int32";
-            _typeNameTable[26] = "System.Collections.Generic.IList`1<Windows.UI.Xaml.DependencyObject>";
-            _typeNameTable[27] = "Windows.UI.Xaml.DependencyObject";
-            _typeNameTable[28] = "MoTApp.TripMoreInfoPage";
-            _typeNameTable[29] = "MoTApp.Trip_PlannerPage";
-            _typeNameTable[30] = "MoTApp.TripTemplate";
-            _typeNameTable[31] = "MoTApp.TripsPage";
+            _typeNameTable = new string[40];
+            _typeNameTable[0] = "WinRTXamlToolkit.Controls.TreeView";
+            _typeNameTable[1] = "Windows.UI.Xaml.Controls.ItemsControl";
+            _typeNameTable[2] = "Object";
+            _typeNameTable[3] = "String";
+            _typeNameTable[4] = "WinRTXamlToolkit.Controls.TreeViewItem";
+            _typeNameTable[5] = "WinRTXamlToolkit.Controls.HeaderedItemsControl";
+            _typeNameTable[6] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[7] = "Boolean";
+            _typeNameTable[8] = "Windows.UI.Xaml.DataTemplate";
+            _typeNameTable[9] = "Windows.UI.Xaml.Style";
+            _typeNameTable[10] = "MoTApp.Routes_ListPage";
+            _typeNameTable[11] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[12] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[13] = "System.Collections.Generic.List`1<MoTApp.Route>";
+            _typeNameTable[14] = "MoTApp.Route";
+            _typeNameTable[15] = "Windows.UI.Xaml.Media.SolidColorBrush";
+            _typeNameTable[16] = "System.Collections.Generic.List`1<MoTApp.Stop>";
+            _typeNameTable[17] = "MoTApp.Stop";
+            _typeNameTable[18] = "Double";
+            _typeNameTable[19] = "MoTApp.Zone";
+            _typeNameTable[20] = "System.Collections.Generic.List`1<String>";
+            _typeNameTable[21] = "MoTApp.Route_DetailsPage";
+            _typeNameTable[22] = "MoTApp.FeedbackPage";
+            _typeNameTable[23] = "MoTApp.HomePage";
+            _typeNameTable[24] = "MoTApp.MainPage";
+            _typeNameTable[25] = "MoTApp.MapPage";
+            _typeNameTable[26] = "MoTApp.NewsPage";
+            _typeNameTable[27] = "MoTApp.SavedTripMoreInfo";
+            _typeNameTable[28] = "MoTApp.SavedTripTemplate";
+            _typeNameTable[29] = "MoTApp.Trip";
+            _typeNameTable[30] = "MoTApp.Saved_TripsPage";
+            _typeNameTable[31] = "MoTApp.TablePage";
+            _typeNameTable[32] = "System.Collections.Generic.List`1<System.Collections.Generic.List`1<String>>";
+            _typeNameTable[33] = "Int32";
+            _typeNameTable[34] = "MoTApp.TripMoreInfoPage";
+            _typeNameTable[35] = "System.DateTime";
+            _typeNameTable[36] = "System.ValueType";
+            _typeNameTable[37] = "MoTApp.Trip_PlannerPage";
+            _typeNameTable[38] = "MoTApp.TripTemplate";
+            _typeNameTable[39] = "MoTApp.TripsPage";
 
-            _typeTable = new global::System.Type[32];
-            _typeTable[0] = typeof(global::MoTApp.Route_DetailsPage);
-            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::System.Collections.Generic.List<global::MoTApp.Route>);
-            _typeTable[4] = typeof(global::System.Object);
-            _typeTable[5] = typeof(global::MoTApp.Route);
-            _typeTable[6] = typeof(global::System.String);
-            _typeTable[7] = typeof(global::Windows.UI.Xaml.Media.SolidColorBrush);
-            _typeTable[8] = typeof(global::System.Collections.Generic.List<global::MoTApp.Stop>);
-            _typeTable[9] = typeof(global::MoTApp.Stop);
-            _typeTable[10] = typeof(global::System.Double);
-            _typeTable[11] = typeof(global::MoTApp.Zone);
-            _typeTable[12] = typeof(global::System.Collections.Generic.List<global::System.String>);
-            _typeTable[13] = typeof(global::MoTApp.FeedbackPage);
-            _typeTable[14] = typeof(global::MoTApp.HomePage);
-            _typeTable[15] = typeof(global::MoTApp.MainPage);
-            _typeTable[16] = typeof(global::MoTApp.MapPage);
-            _typeTable[17] = typeof(global::MoTApp.NewsPage);
-            _typeTable[18] = typeof(global::MoTApp.SavedTripMoreInfo);
-            _typeTable[19] = typeof(global::MoTApp.SavedTripTemplate);
-            _typeTable[20] = typeof(global::MoTApp.Trip);
-            _typeTable[21] = typeof(global::MoTApp.Saved_TripsPage);
-            _typeTable[22] = typeof(global::MoTApp.StopDetailsTemplate);
-            _typeTable[23] = typeof(global::MoTApp.TablePage);
-            _typeTable[24] = typeof(global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::System.String>>);
-            _typeTable[25] = typeof(global::System.Int32);
-            _typeTable[26] = typeof(global::System.Collections.Generic.IList<global::Windows.UI.Xaml.DependencyObject>);
-            _typeTable[27] = typeof(global::Windows.UI.Xaml.DependencyObject);
-            _typeTable[28] = typeof(global::MoTApp.TripMoreInfoPage);
-            _typeTable[29] = typeof(global::MoTApp.Trip_PlannerPage);
-            _typeTable[30] = typeof(global::MoTApp.TripTemplate);
-            _typeTable[31] = typeof(global::MoTApp.TripsPage);
+            _typeTable = new global::System.Type[40];
+            _typeTable[0] = typeof(global::WinRTXamlToolkit.Controls.TreeView);
+            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.ItemsControl);
+            _typeTable[2] = typeof(global::System.Object);
+            _typeTable[3] = typeof(global::System.String);
+            _typeTable[4] = typeof(global::WinRTXamlToolkit.Controls.TreeViewItem);
+            _typeTable[5] = typeof(global::WinRTXamlToolkit.Controls.HeaderedItemsControl);
+            _typeTable[6] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[7] = typeof(global::System.Boolean);
+            _typeTable[8] = typeof(global::Windows.UI.Xaml.DataTemplate);
+            _typeTable[9] = typeof(global::Windows.UI.Xaml.Style);
+            _typeTable[10] = typeof(global::MoTApp.Routes_ListPage);
+            _typeTable[11] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[12] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[13] = typeof(global::System.Collections.Generic.List<global::MoTApp.Route>);
+            _typeTable[14] = typeof(global::MoTApp.Route);
+            _typeTable[15] = typeof(global::Windows.UI.Xaml.Media.SolidColorBrush);
+            _typeTable[16] = typeof(global::System.Collections.Generic.List<global::MoTApp.Stop>);
+            _typeTable[17] = typeof(global::MoTApp.Stop);
+            _typeTable[18] = typeof(global::System.Double);
+            _typeTable[19] = typeof(global::MoTApp.Zone);
+            _typeTable[20] = typeof(global::System.Collections.Generic.List<global::System.String>);
+            _typeTable[21] = typeof(global::MoTApp.Route_DetailsPage);
+            _typeTable[22] = typeof(global::MoTApp.FeedbackPage);
+            _typeTable[23] = typeof(global::MoTApp.HomePage);
+            _typeTable[24] = typeof(global::MoTApp.MainPage);
+            _typeTable[25] = typeof(global::MoTApp.MapPage);
+            _typeTable[26] = typeof(global::MoTApp.NewsPage);
+            _typeTable[27] = typeof(global::MoTApp.SavedTripMoreInfo);
+            _typeTable[28] = typeof(global::MoTApp.SavedTripTemplate);
+            _typeTable[29] = typeof(global::MoTApp.Trip);
+            _typeTable[30] = typeof(global::MoTApp.Saved_TripsPage);
+            _typeTable[31] = typeof(global::MoTApp.TablePage);
+            _typeTable[32] = typeof(global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::System.String>>);
+            _typeTable[33] = typeof(global::System.Int32);
+            _typeTable[34] = typeof(global::MoTApp.TripMoreInfoPage);
+            _typeTable[35] = typeof(global::System.DateTime);
+            _typeTable[36] = typeof(global::System.ValueType);
+            _typeTable[37] = typeof(global::MoTApp.Trip_PlannerPage);
+            _typeTable[38] = typeof(global::MoTApp.TripTemplate);
+            _typeTable[39] = typeof(global::MoTApp.TripsPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -233,57 +273,54 @@ namespace MoTApp.MoTApp_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_Route_DetailsPage() { return new global::MoTApp.Route_DetailsPage(); }
-        private object Activate_3_List() { return new global::System.Collections.Generic.List<global::MoTApp.Route>(); }
-        private object Activate_5_Route() { return new global::MoTApp.Route(); }
-        private object Activate_8_List() { return new global::System.Collections.Generic.List<global::MoTApp.Stop>(); }
-        private object Activate_9_Stop() { return new global::MoTApp.Stop(); }
-        private object Activate_11_Zone() { return new global::MoTApp.Zone(); }
-        private object Activate_12_List() { return new global::System.Collections.Generic.List<global::System.String>(); }
-        private object Activate_13_FeedbackPage() { return new global::MoTApp.FeedbackPage(); }
-        private object Activate_14_HomePage() { return new global::MoTApp.HomePage(); }
-        private object Activate_15_MainPage() { return new global::MoTApp.MainPage(); }
-        private object Activate_16_MapPage() { return new global::MoTApp.MapPage(); }
-        private object Activate_17_NewsPage() { return new global::MoTApp.NewsPage(); }
-        private object Activate_18_SavedTripMoreInfo() { return new global::MoTApp.SavedTripMoreInfo(); }
-        private object Activate_19_SavedTripTemplate() { return new global::MoTApp.SavedTripTemplate(); }
-        private object Activate_20_Trip() { return new global::MoTApp.Trip(); }
-        private object Activate_21_Saved_TripsPage() { return new global::MoTApp.Saved_TripsPage(); }
-        private object Activate_22_StopDetailsTemplate() { return new global::MoTApp.StopDetailsTemplate(); }
-        private object Activate_23_TablePage() { return new global::MoTApp.TablePage(); }
-        private object Activate_24_List() { return new global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::System.String>>(); }
-        private object Activate_28_TripMoreInfoPage() { return new global::MoTApp.TripMoreInfoPage(); }
-        private object Activate_29_Trip_PlannerPage() { return new global::MoTApp.Trip_PlannerPage(); }
-        private object Activate_30_TripTemplate() { return new global::MoTApp.TripTemplate(); }
-        private object Activate_31_TripsPage() { return new global::MoTApp.TripsPage(); }
-        private void VectorAdd_3_List(object instance, object item)
+        private object Activate_0_TreeView() { return new global::WinRTXamlToolkit.Controls.TreeView(); }
+        private object Activate_4_TreeViewItem() { return new global::WinRTXamlToolkit.Controls.TreeViewItem(); }
+        private object Activate_5_HeaderedItemsControl() { return new global::WinRTXamlToolkit.Controls.HeaderedItemsControl(); }
+        private object Activate_10_Routes_ListPage() { return new global::MoTApp.Routes_ListPage(); }
+        private object Activate_13_List() { return new global::System.Collections.Generic.List<global::MoTApp.Route>(); }
+        private object Activate_14_Route() { return new global::MoTApp.Route(); }
+        private object Activate_16_List() { return new global::System.Collections.Generic.List<global::MoTApp.Stop>(); }
+        private object Activate_17_Stop() { return new global::MoTApp.Stop(); }
+        private object Activate_19_Zone() { return new global::MoTApp.Zone(); }
+        private object Activate_20_List() { return new global::System.Collections.Generic.List<global::System.String>(); }
+        private object Activate_21_Route_DetailsPage() { return new global::MoTApp.Route_DetailsPage(); }
+        private object Activate_22_FeedbackPage() { return new global::MoTApp.FeedbackPage(); }
+        private object Activate_23_HomePage() { return new global::MoTApp.HomePage(); }
+        private object Activate_24_MainPage() { return new global::MoTApp.MainPage(); }
+        private object Activate_25_MapPage() { return new global::MoTApp.MapPage(); }
+        private object Activate_26_NewsPage() { return new global::MoTApp.NewsPage(); }
+        private object Activate_27_SavedTripMoreInfo() { return new global::MoTApp.SavedTripMoreInfo(); }
+        private object Activate_28_SavedTripTemplate() { return new global::MoTApp.SavedTripTemplate(); }
+        private object Activate_29_Trip() { return new global::MoTApp.Trip(); }
+        private object Activate_30_Saved_TripsPage() { return new global::MoTApp.Saved_TripsPage(); }
+        private object Activate_31_TablePage() { return new global::MoTApp.TablePage(); }
+        private object Activate_32_List() { return new global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::System.String>>(); }
+        private object Activate_34_TripMoreInfoPage() { return new global::MoTApp.TripMoreInfoPage(); }
+        private object Activate_37_Trip_PlannerPage() { return new global::MoTApp.Trip_PlannerPage(); }
+        private object Activate_38_TripTemplate() { return new global::MoTApp.TripTemplate(); }
+        private object Activate_39_TripsPage() { return new global::MoTApp.TripsPage(); }
+        private void VectorAdd_13_List(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::MoTApp.Route>)instance;
             var newItem = (global::MoTApp.Route)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_8_List(object instance, object item)
+        private void VectorAdd_16_List(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::MoTApp.Stop>)instance;
             var newItem = (global::MoTApp.Stop)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_12_List(object instance, object item)
+        private void VectorAdd_20_List(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::System.String>)instance;
             var newItem = (global::System.String)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_24_List(object instance, object item)
+        private void VectorAdd_32_List(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::System.Collections.Generic.List<global::System.String>>)instance;
             var newItem = (global::System.Collections.Generic.List<global::System.String>)item;
-            collection.Add(newItem);
-        }
-        private void VectorAdd_26_IList(object instance, object item)
-        {
-            var collection = (global::System.Collections.Generic.ICollection<global::Windows.UI.Xaml.DependencyObject>)instance;
-            var newItem = (global::Windows.UI.Xaml.DependencyObject)item;
             collection.Add(newItem);
         }
 
@@ -297,37 +334,91 @@ namespace MoTApp.MoTApp_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  MoTApp.Route_DetailsPage
+            case 0:   //  WinRTXamlToolkit.Controls.TreeView
+                userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.ItemsControl"));
+                userType.Activator = Activate_0_TreeView;
+                userType.AddMemberName("SelectedItem");
+                userType.AddMemberName("SelectedValue");
+                userType.AddMemberName("SelectedValuePath");
+                userType.AddMemberName("SelectedContainer");
+                userType.AddMemberName("IsExpandedBindingPath");
+                userType.AddMemberName("IsSelectedBindingPath");
+                xamlType = userType;
+                break;
+
+            case 1:   //  Windows.UI.Xaml.Controls.ItemsControl
+                xamlType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 2:   //  Object
+                xamlType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 3:   //  String
+                xamlType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 4:   //  WinRTXamlToolkit.Controls.TreeViewItem
+                userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("WinRTXamlToolkit.Controls.HeaderedItemsControl"));
+                userType.Activator = Activate_4_TreeViewItem;
+                userType.AddMemberName("HasItems");
+                userType.AddMemberName("IsExpanded");
+                userType.AddMemberName("IsSelected");
+                userType.AddMemberName("IsSelectionActive");
+                xamlType = userType;
+                break;
+
+            case 5:   //  WinRTXamlToolkit.Controls.HeaderedItemsControl
+                userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.ItemsControl"));
+                userType.Activator = Activate_5_HeaderedItemsControl;
+                userType.AddMemberName("Header");
+                userType.AddMemberName("HeaderTemplate");
+                userType.AddMemberName("ItemContainerStyle");
+                xamlType = userType;
+                break;
+
+            case 6:   //  Windows.UI.Xaml.DependencyObject
+                xamlType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 7:   //  Boolean
+                xamlType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 8:   //  Windows.UI.Xaml.DataTemplate
+                xamlType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 9:   //  Windows.UI.Xaml.Style
+                xamlType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 10:   //  MoTApp.Routes_ListPage
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_Route_DetailsPage;
+                userType.Activator = Activate_10_Routes_ListPage;
                 userType.AddMemberName("routes");
-                userType.AddMemberName("SelectedRoute");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 1:   //  Windows.UI.Xaml.Controls.Page
+            case 11:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  Windows.UI.Xaml.Controls.UserControl
+            case 12:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  System.Collections.Generic.List`1<MoTApp.Route>
+            case 13:   //  System.Collections.Generic.List`1<MoTApp.Route>
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.CollectionAdd = VectorAdd_3_List;
+                userType.CollectionAdd = VectorAdd_13_List;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 4:   //  Object
-                xamlType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 5:   //  MoTApp.Route
+            case 14:   //  MoTApp.Route
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_5_Route;
+                userType.Activator = Activate_14_Route;
                 userType.AddMemberName("id");
                 userType.AddMemberName("name");
                 userType.AddMemberName("mapImage");
@@ -337,24 +428,20 @@ namespace MoTApp.MoTApp_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 6:   //  String
+            case 15:   //  Windows.UI.Xaml.Media.SolidColorBrush
                 xamlType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 7:   //  Windows.UI.Xaml.Media.SolidColorBrush
-                xamlType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 8:   //  System.Collections.Generic.List`1<MoTApp.Stop>
+            case 16:   //  System.Collections.Generic.List`1<MoTApp.Stop>
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.CollectionAdd = VectorAdd_8_List;
+                userType.CollectionAdd = VectorAdd_16_List;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 9:   //  MoTApp.Stop
+            case 17:   //  MoTApp.Stop
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_9_Stop;
+                userType.Activator = Activate_17_Stop;
                 userType.AddMemberName("city");
                 userType.AddMemberName("name");
                 userType.AddMemberName("latitude");
@@ -368,101 +455,102 @@ namespace MoTApp.MoTApp_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 10:   //  Double
+            case 18:   //  Double
                 xamlType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 11:   //  MoTApp.Zone
+            case 19:   //  MoTApp.Zone
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 12:   //  System.Collections.Generic.List`1<String>
+            case 20:   //  System.Collections.Generic.List`1<String>
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_12_List;
-                userType.CollectionAdd = VectorAdd_12_List;
+                userType.Activator = Activate_20_List;
+                userType.CollectionAdd = VectorAdd_20_List;
                 userType.AddMemberName("Capacity");
                 userType.AddMemberName("Count");
                 xamlType = userType;
                 break;
 
-            case 13:   //  MoTApp.FeedbackPage
+            case 21:   //  MoTApp.Route_DetailsPage
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_13_FeedbackPage;
+                userType.Activator = Activate_21_Route_DetailsPage;
+                userType.AddMemberName("routes");
+                userType.AddMemberName("SelectedRoute");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 14:   //  MoTApp.HomePage
+            case 22:   //  MoTApp.FeedbackPage
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_14_HomePage;
+                userType.Activator = Activate_22_FeedbackPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 15:   //  MoTApp.MainPage
+            case 23:   //  MoTApp.HomePage
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_15_MainPage;
+                userType.Activator = Activate_23_HomePage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 16:   //  MoTApp.MapPage
+            case 24:   //  MoTApp.MainPage
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_16_MapPage;
+                userType.Activator = Activate_24_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 17:   //  MoTApp.NewsPage
+            case 25:   //  MoTApp.MapPage
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_17_NewsPage;
+                userType.Activator = Activate_25_MapPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 18:   //  MoTApp.SavedTripMoreInfo
+            case 26:   //  MoTApp.NewsPage
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_18_SavedTripMoreInfo;
+                userType.Activator = Activate_26_NewsPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 19:   //  MoTApp.SavedTripTemplate
+            case 27:   //  MoTApp.SavedTripMoreInfo
+                userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_27_SavedTripMoreInfo;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 28:   //  MoTApp.SavedTripTemplate
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_19_SavedTripTemplate;
+                userType.Activator = Activate_28_SavedTripTemplate;
                 userType.AddMemberName("Trip");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 20:   //  MoTApp.Trip
+            case 29:   //  MoTApp.Trip
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 21:   //  MoTApp.Saved_TripsPage
+            case 30:   //  MoTApp.Saved_TripsPage
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_21_Saved_TripsPage;
+                userType.Activator = Activate_30_Saved_TripsPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 22:   //  MoTApp.StopDetailsTemplate
-                userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_22_StopDetailsTemplate;
-                userType.AddMemberName("Stop");
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 23:   //  MoTApp.TablePage
+            case 31:   //  MoTApp.TablePage
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_23_TablePage;
+                userType.Activator = Activate_31_TablePage;
                 userType.AddMemberName("stops");
                 userType.AddMemberName("SatGoTimes");
                 userType.AddMemberName("SatReturnTimes");
@@ -472,54 +560,57 @@ namespace MoTApp.MoTApp_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 24:   //  System.Collections.Generic.List`1<System.Collections.Generic.List`1<String>>
+            case 32:   //  System.Collections.Generic.List`1<System.Collections.Generic.List`1<String>>
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.CollectionAdd = VectorAdd_24_List;
+                userType.CollectionAdd = VectorAdd_32_List;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 25:   //  Int32
+            case 33:   //  Int32
                 xamlType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 26:   //  System.Collections.Generic.IList`1<Windows.UI.Xaml.DependencyObject>
-                userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.CollectionAdd = VectorAdd_26_IList;
-                xamlType = userType;
-                break;
-
-            case 27:   //  Windows.UI.Xaml.DependencyObject
-                xamlType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 28:   //  MoTApp.TripMoreInfoPage
+            case 34:   //  MoTApp.TripMoreInfoPage
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_28_TripMoreInfoPage;
-                userType.AddMemberName("stops");
+                userType.Activator = Activate_34_TripMoreInfoPage;
+                userType.AddMemberName("expandedStopsInfo");
+                userType.AddMemberName("times");
                 userType.AddMemberName("trip");
+                userType.AddMemberName("date");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 29:   //  MoTApp.Trip_PlannerPage
+            case 35:   //  System.DateTime
+                userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 36:   //  System.ValueType
+                userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                xamlType = userType;
+                break;
+
+            case 37:   //  MoTApp.Trip_PlannerPage
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_29_Trip_PlannerPage;
+                userType.Activator = Activate_37_Trip_PlannerPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 30:   //  MoTApp.TripTemplate
+            case 38:   //  MoTApp.TripTemplate
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_30_TripTemplate;
+                userType.Activator = Activate_38_TripTemplate;
                 userType.AddMemberName("Trip");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 31:   //  MoTApp.TripsPage
+            case 39:   //  MoTApp.TripsPage
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_31_TripsPage;
+                userType.Activator = Activate_39_TripsPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -527,263 +618,438 @@ namespace MoTApp.MoTApp_XamlTypeInfo
             return xamlType;
         }
 
-
-        private object get_0_Route_DetailsPage_routes(object instance)
+        private global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider> _otherProviders;
+        private global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider> OtherProviders
         {
-            var that = (global::MoTApp.Route_DetailsPage)instance;
+            get
+            {
+                if(_otherProviders == null)
+                {
+                    var otherProviders = new global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider>();
+                    global::Windows.UI.Xaml.Markup.IXamlMetadataProvider provider;
+                    provider = new global::WinRTXamlToolkit.WinRTXamlToolkit_UWP_XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
+                    _otherProviders = otherProviders;
+                }
+                return _otherProviders;
+            }
+        }
+
+        private global::Windows.UI.Xaml.Markup.IXamlType CheckOtherMetadataProvidersForName(string typeName)
+        {
+            global::Windows.UI.Xaml.Markup.IXamlType xamlType = null;
+            global::Windows.UI.Xaml.Markup.IXamlType foundXamlType = null;
+            foreach(global::Windows.UI.Xaml.Markup.IXamlMetadataProvider xmp in OtherProviders)
+            {
+                xamlType = xmp.GetXamlType(typeName);
+                if(xamlType != null)
+                {
+                    if(xamlType.IsConstructible)    // not Constructible means it might be a Return Type Stub
+                    {
+                        return xamlType;
+                    }
+                    foundXamlType = xamlType;
+                }
+            }
+            return foundXamlType;
+        }
+
+        private global::Windows.UI.Xaml.Markup.IXamlType CheckOtherMetadataProvidersForType(global::System.Type type)
+        {
+            global::Windows.UI.Xaml.Markup.IXamlType xamlType = null;
+            global::Windows.UI.Xaml.Markup.IXamlType foundXamlType = null;
+            foreach(global::Windows.UI.Xaml.Markup.IXamlMetadataProvider xmp in OtherProviders)
+            {
+                xamlType = xmp.GetXamlType(type);
+                if(xamlType != null)
+                {
+                    if(xamlType.IsConstructible)    // not Constructible means it might be a Return Type Stub
+                    {
+                        return xamlType;
+                    }
+                    foundXamlType = xamlType;
+                }
+            }
+            return foundXamlType;
+        }
+
+        private object get_0_TreeView_SelectedItem(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.TreeView)instance;
+            return that.SelectedItem;
+        }
+        private object get_1_TreeView_SelectedValue(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.TreeView)instance;
+            return that.SelectedValue;
+        }
+        private object get_2_TreeView_SelectedValuePath(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.TreeView)instance;
+            return that.SelectedValuePath;
+        }
+        private void set_2_TreeView_SelectedValuePath(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.TreeView)instance;
+            that.SelectedValuePath = (global::System.String)Value;
+        }
+        private object get_3_TreeView_SelectedContainer(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.TreeView)instance;
+            return that.SelectedContainer;
+        }
+        private object get_4_TreeView_IsExpandedBindingPath(object instance)
+        {
+            return global::WinRTXamlToolkit.Controls.TreeView.GetIsExpandedBindingPath((global::Windows.UI.Xaml.DependencyObject)instance);
+        }
+        private void set_4_TreeView_IsExpandedBindingPath(object instance, object Value)
+        {
+            global::WinRTXamlToolkit.Controls.TreeView.SetIsExpandedBindingPath((global::Windows.UI.Xaml.DependencyObject)instance, (global::System.String)Value);
+        }
+        private object get_5_TreeView_IsSelectedBindingPath(object instance)
+        {
+            return global::WinRTXamlToolkit.Controls.TreeView.GetIsSelectedBindingPath((global::Windows.UI.Xaml.DependencyObject)instance);
+        }
+        private void set_5_TreeView_IsSelectedBindingPath(object instance, object Value)
+        {
+            global::WinRTXamlToolkit.Controls.TreeView.SetIsSelectedBindingPath((global::Windows.UI.Xaml.DependencyObject)instance, (global::System.String)Value);
+        }
+        private object get_6_TreeViewItem_HasItems(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.TreeViewItem)instance;
+            return that.HasItems;
+        }
+        private object get_7_TreeViewItem_IsExpanded(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.TreeViewItem)instance;
+            return that.IsExpanded;
+        }
+        private void set_7_TreeViewItem_IsExpanded(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.TreeViewItem)instance;
+            that.IsExpanded = (global::System.Boolean)Value;
+        }
+        private object get_8_TreeViewItem_IsSelected(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.TreeViewItem)instance;
+            return that.IsSelected;
+        }
+        private void set_8_TreeViewItem_IsSelected(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.TreeViewItem)instance;
+            that.IsSelected = (global::System.Boolean)Value;
+        }
+        private object get_9_TreeViewItem_IsSelectionActive(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.TreeViewItem)instance;
+            return that.IsSelectionActive;
+        }
+        private object get_10_HeaderedItemsControl_Header(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.HeaderedItemsControl)instance;
+            return that.Header;
+        }
+        private void set_10_HeaderedItemsControl_Header(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.HeaderedItemsControl)instance;
+            that.Header = (global::System.Object)Value;
+        }
+        private object get_11_HeaderedItemsControl_HeaderTemplate(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.HeaderedItemsControl)instance;
+            return that.HeaderTemplate;
+        }
+        private void set_11_HeaderedItemsControl_HeaderTemplate(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.HeaderedItemsControl)instance;
+            that.HeaderTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_12_HeaderedItemsControl_ItemContainerStyle(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.HeaderedItemsControl)instance;
+            return that.ItemContainerStyle;
+        }
+        private void set_12_HeaderedItemsControl_ItemContainerStyle(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.HeaderedItemsControl)instance;
+            that.ItemContainerStyle = (global::Windows.UI.Xaml.Style)Value;
+        }
+        private object get_13_Routes_ListPage_routes(object instance)
+        {
+            var that = (global::MoTApp.Routes_ListPage)instance;
             return that.routes;
         }
-        private void set_0_Route_DetailsPage_routes(object instance, object Value)
-        {
-            var that = (global::MoTApp.Route_DetailsPage)instance;
-            that.routes = (global::System.Collections.Generic.List<global::MoTApp.Route>)Value;
-        }
-        private object get_1_Route_id(object instance)
+        private object get_14_Route_id(object instance)
         {
             var that = (global::MoTApp.Route)instance;
             return that.id;
         }
-        private void set_1_Route_id(object instance, object Value)
+        private void set_14_Route_id(object instance, object Value)
         {
             var that = (global::MoTApp.Route)instance;
             that.id = (global::System.String)Value;
         }
-        private object get_2_Route_name(object instance)
+        private object get_15_Route_name(object instance)
         {
             var that = (global::MoTApp.Route)instance;
             return that.name;
         }
-        private void set_2_Route_name(object instance, object Value)
+        private void set_15_Route_name(object instance, object Value)
         {
             var that = (global::MoTApp.Route)instance;
             that.name = (global::System.String)Value;
         }
-        private object get_3_Route_mapImage(object instance)
+        private object get_16_Route_mapImage(object instance)
         {
             var that = (global::MoTApp.Route)instance;
             return that.mapImage;
         }
-        private void set_3_Route_mapImage(object instance, object Value)
+        private void set_16_Route_mapImage(object instance, object Value)
         {
             var that = (global::MoTApp.Route)instance;
             that.mapImage = (global::System.String)Value;
         }
-        private object get_4_Route_color(object instance)
+        private object get_17_Route_color(object instance)
         {
             var that = (global::MoTApp.Route)instance;
             return that.color;
         }
-        private void set_4_Route_color(object instance, object Value)
+        private void set_17_Route_color(object instance, object Value)
         {
             var that = (global::MoTApp.Route)instance;
             that.color = (global::Windows.UI.Xaml.Media.SolidColorBrush)Value;
         }
-        private object get_5_Route_stops(object instance)
+        private object get_18_Route_stops(object instance)
         {
             var that = (global::MoTApp.Route)instance;
             return that.stops;
         }
-        private void set_5_Route_stops(object instance, object Value)
+        private void set_18_Route_stops(object instance, object Value)
         {
             var that = (global::MoTApp.Route)instance;
             that.stops = (global::System.Collections.Generic.List<global::MoTApp.Stop>)Value;
         }
-        private object get_6_Stop_city(object instance)
+        private object get_19_Stop_city(object instance)
         {
             var that = (global::MoTApp.Stop)instance;
             return that.city;
         }
-        private void set_6_Stop_city(object instance, object Value)
+        private void set_19_Stop_city(object instance, object Value)
         {
             var that = (global::MoTApp.Stop)instance;
             that.city = (global::System.String)Value;
         }
-        private object get_7_Stop_name(object instance)
+        private object get_20_Stop_name(object instance)
         {
             var that = (global::MoTApp.Stop)instance;
             return that.name;
         }
-        private void set_7_Stop_name(object instance, object Value)
+        private void set_20_Stop_name(object instance, object Value)
         {
             var that = (global::MoTApp.Stop)instance;
             that.name = (global::System.String)Value;
         }
-        private object get_8_Stop_latitude(object instance)
+        private object get_21_Stop_latitude(object instance)
         {
             var that = (global::MoTApp.Stop)instance;
             return that.latitude;
         }
-        private void set_8_Stop_latitude(object instance, object Value)
+        private void set_21_Stop_latitude(object instance, object Value)
         {
             var that = (global::MoTApp.Stop)instance;
             that.latitude = (global::System.Double)Value;
         }
-        private object get_9_Stop_longitude(object instance)
+        private object get_22_Stop_longitude(object instance)
         {
             var that = (global::MoTApp.Stop)instance;
             return that.longitude;
         }
-        private void set_9_Stop_longitude(object instance, object Value)
+        private void set_22_Stop_longitude(object instance, object Value)
         {
             var that = (global::MoTApp.Stop)instance;
             that.longitude = (global::System.Double)Value;
         }
-        private object get_10_Stop_zone(object instance)
+        private object get_23_Stop_zone(object instance)
         {
             var that = (global::MoTApp.Stop)instance;
             return that.zone;
         }
-        private void set_10_Stop_zone(object instance, object Value)
+        private void set_23_Stop_zone(object instance, object Value)
         {
             var that = (global::MoTApp.Stop)instance;
             that.zone = (global::MoTApp.Zone)Value;
         }
-        private object get_11_Stop_SatGoTimetable(object instance)
+        private object get_24_Stop_SatGoTimetable(object instance)
         {
             var that = (global::MoTApp.Stop)instance;
             return that.SatGoTimetable;
         }
-        private void set_11_Stop_SatGoTimetable(object instance, object Value)
+        private void set_24_Stop_SatGoTimetable(object instance, object Value)
         {
             var that = (global::MoTApp.Stop)instance;
             that.SatGoTimetable = (global::System.Collections.Generic.List<global::System.String>)Value;
         }
-        private object get_12_Stop_SatReturnTimetable(object instance)
+        private object get_25_Stop_SatReturnTimetable(object instance)
         {
             var that = (global::MoTApp.Stop)instance;
             return that.SatReturnTimetable;
         }
-        private void set_12_Stop_SatReturnTimetable(object instance, object Value)
+        private void set_25_Stop_SatReturnTimetable(object instance, object Value)
         {
             var that = (global::MoTApp.Stop)instance;
             that.SatReturnTimetable = (global::System.Collections.Generic.List<global::System.String>)Value;
         }
-        private object get_13_Stop_SunToThuGoTimetable(object instance)
+        private object get_26_Stop_SunToThuGoTimetable(object instance)
         {
             var that = (global::MoTApp.Stop)instance;
             return that.SunToThuGoTimetable;
         }
-        private void set_13_Stop_SunToThuGoTimetable(object instance, object Value)
+        private void set_26_Stop_SunToThuGoTimetable(object instance, object Value)
         {
             var that = (global::MoTApp.Stop)instance;
             that.SunToThuGoTimetable = (global::System.Collections.Generic.List<global::System.String>)Value;
         }
-        private object get_14_Stop_SunToThuReturnTimetable(object instance)
+        private object get_27_Stop_SunToThuReturnTimetable(object instance)
         {
             var that = (global::MoTApp.Stop)instance;
             return that.SunToThuReturnTimetable;
         }
-        private void set_14_Stop_SunToThuReturnTimetable(object instance, object Value)
+        private void set_27_Stop_SunToThuReturnTimetable(object instance, object Value)
         {
             var that = (global::MoTApp.Stop)instance;
             that.SunToThuReturnTimetable = (global::System.Collections.Generic.List<global::System.String>)Value;
         }
-        private object get_15_Route_DetailsPage_SelectedRoute(object instance)
+        private object get_28_Route_DetailsPage_routes(object instance)
+        {
+            var that = (global::MoTApp.Route_DetailsPage)instance;
+            return that.routes;
+        }
+        private void set_28_Route_DetailsPage_routes(object instance, object Value)
+        {
+            var that = (global::MoTApp.Route_DetailsPage)instance;
+            that.routes = (global::System.Collections.Generic.List<global::MoTApp.Route>)Value;
+        }
+        private object get_29_Route_DetailsPage_SelectedRoute(object instance)
         {
             var that = (global::MoTApp.Route_DetailsPage)instance;
             return that.SelectedRoute;
         }
-        private void set_15_Route_DetailsPage_SelectedRoute(object instance, object Value)
+        private void set_29_Route_DetailsPage_SelectedRoute(object instance, object Value)
         {
             var that = (global::MoTApp.Route_DetailsPage)instance;
             that.SelectedRoute = (global::MoTApp.Route)Value;
         }
-        private object get_16_SavedTripTemplate_Trip(object instance)
+        private object get_30_SavedTripTemplate_Trip(object instance)
         {
             var that = (global::MoTApp.SavedTripTemplate)instance;
             return that.Trip;
         }
-        private object get_17_StopDetailsTemplate_Stop(object instance)
-        {
-            var that = (global::MoTApp.StopDetailsTemplate)instance;
-            return that.Stop;
-        }
-        private object get_18_TablePage_stops(object instance)
+        private object get_31_TablePage_stops(object instance)
         {
             var that = (global::MoTApp.TablePage)instance;
             return that.stops;
         }
-        private void set_18_TablePage_stops(object instance, object Value)
+        private void set_31_TablePage_stops(object instance, object Value)
         {
             var that = (global::MoTApp.TablePage)instance;
             that.stops = (global::System.Collections.Generic.List<global::MoTApp.Stop>)Value;
         }
-        private object get_19_TablePage_SatGoTimes(object instance)
+        private object get_32_TablePage_SatGoTimes(object instance)
         {
             var that = (global::MoTApp.TablePage)instance;
             return that.SatGoTimes;
         }
-        private void set_19_TablePage_SatGoTimes(object instance, object Value)
+        private void set_32_TablePage_SatGoTimes(object instance, object Value)
         {
             var that = (global::MoTApp.TablePage)instance;
             that.SatGoTimes = (global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::System.String>>)Value;
         }
-        private object get_20_List_Capacity(object instance)
+        private object get_33_List_Capacity(object instance)
         {
             var that = (global::System.Collections.Generic.List<global::System.String>)instance;
             return that.Capacity;
         }
-        private void set_20_List_Capacity(object instance, object Value)
+        private void set_33_List_Capacity(object instance, object Value)
         {
             var that = (global::System.Collections.Generic.List<global::System.String>)instance;
             that.Capacity = (global::System.Int32)Value;
         }
-        private object get_21_List_Count(object instance)
+        private object get_34_List_Count(object instance)
         {
             var that = (global::System.Collections.Generic.List<global::System.String>)instance;
             return that.Count;
         }
-        private object get_22_TablePage_SatReturnTimes(object instance)
+        private object get_35_TablePage_SatReturnTimes(object instance)
         {
             var that = (global::MoTApp.TablePage)instance;
             return that.SatReturnTimes;
         }
-        private void set_22_TablePage_SatReturnTimes(object instance, object Value)
+        private void set_35_TablePage_SatReturnTimes(object instance, object Value)
         {
             var that = (global::MoTApp.TablePage)instance;
             that.SatReturnTimes = (global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::System.String>>)Value;
         }
-        private object get_23_TablePage_SunToThuGoTimes(object instance)
+        private object get_36_TablePage_SunToThuGoTimes(object instance)
         {
             var that = (global::MoTApp.TablePage)instance;
             return that.SunToThuGoTimes;
         }
-        private void set_23_TablePage_SunToThuGoTimes(object instance, object Value)
+        private void set_36_TablePage_SunToThuGoTimes(object instance, object Value)
         {
             var that = (global::MoTApp.TablePage)instance;
             that.SunToThuGoTimes = (global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::System.String>>)Value;
         }
-        private object get_24_TablePage_SunToThuReturnTimes(object instance)
+        private object get_37_TablePage_SunToThuReturnTimes(object instance)
         {
             var that = (global::MoTApp.TablePage)instance;
             return that.SunToThuReturnTimes;
         }
-        private void set_24_TablePage_SunToThuReturnTimes(object instance, object Value)
+        private void set_37_TablePage_SunToThuReturnTimes(object instance, object Value)
         {
             var that = (global::MoTApp.TablePage)instance;
             that.SunToThuReturnTimes = (global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::System.String>>)Value;
         }
-        private object get_25_TripMoreInfoPage_stops(object instance)
+        private object get_38_TripMoreInfoPage_expandedStopsInfo(object instance)
         {
             var that = (global::MoTApp.TripMoreInfoPage)instance;
-            return that.stops;
+            return that.expandedStopsInfo;
         }
-        private void set_25_TripMoreInfoPage_stops(object instance, object Value)
+        private void set_38_TripMoreInfoPage_expandedStopsInfo(object instance, object Value)
         {
             var that = (global::MoTApp.TripMoreInfoPage)instance;
-            that.stops = (global::System.Collections.Generic.List<global::MoTApp.Stop>)Value;
+            that.expandedStopsInfo = (global::System.Collections.Generic.List<global::System.String>)Value;
         }
-        private object get_26_TripMoreInfoPage_trip(object instance)
+        private object get_39_TripMoreInfoPage_times(object instance)
+        {
+            var that = (global::MoTApp.TripMoreInfoPage)instance;
+            return that.times;
+        }
+        private void set_39_TripMoreInfoPage_times(object instance, object Value)
+        {
+            var that = (global::MoTApp.TripMoreInfoPage)instance;
+            that.times = (global::System.Collections.Generic.List<global::System.String>)Value;
+        }
+        private object get_40_TripMoreInfoPage_trip(object instance)
         {
             var that = (global::MoTApp.TripMoreInfoPage)instance;
             return that.trip;
         }
-        private void set_26_TripMoreInfoPage_trip(object instance, object Value)
+        private void set_40_TripMoreInfoPage_trip(object instance, object Value)
         {
             var that = (global::MoTApp.TripMoreInfoPage)instance;
             that.trip = (global::MoTApp.Trip)Value;
         }
-        private object get_27_TripTemplate_Trip(object instance)
+        private object get_41_TripMoreInfoPage_date(object instance)
+        {
+            var that = (global::MoTApp.TripMoreInfoPage)instance;
+            return that.date;
+        }
+        private void set_41_TripMoreInfoPage_date(object instance, object Value)
+        {
+            var that = (global::MoTApp.TripMoreInfoPage)instance;
+            that.date = (global::System.DateTime)Value;
+        }
+        private object get_42_TripTemplate_Trip(object instance)
         {
             var that = (global::MoTApp.TripTemplate)instance;
             return that.Trip;
@@ -796,172 +1062,278 @@ namespace MoTApp.MoTApp_XamlTypeInfo
 
             switch (longMemberName)
             {
-            case "MoTApp.Route_DetailsPage.routes":
-                userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.Route_DetailsPage");
+            case "WinRTXamlToolkit.Controls.TreeView.SelectedItem":
+                userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.TreeView");
+                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "SelectedItem", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_0_TreeView_SelectedItem;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WinRTXamlToolkit.Controls.TreeView.SelectedValue":
+                userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.TreeView");
+                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "SelectedValue", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_1_TreeView_SelectedValue;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WinRTXamlToolkit.Controls.TreeView.SelectedValuePath":
+                userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.TreeView");
+                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "SelectedValuePath", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_2_TreeView_SelectedValuePath;
+                xamlMember.Setter = set_2_TreeView_SelectedValuePath;
+                break;
+            case "WinRTXamlToolkit.Controls.TreeView.SelectedContainer":
+                userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.TreeView");
+                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "SelectedContainer", "WinRTXamlToolkit.Controls.TreeViewItem");
+                xamlMember.Getter = get_3_TreeView_SelectedContainer;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WinRTXamlToolkit.Controls.TreeView.IsExpandedBindingPath":
+                userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.TreeView");
+                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "IsExpandedBindingPath", "String");
+                xamlMember.SetTargetTypeName("Windows.UI.Xaml.DependencyObject");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.SetIsAttachable();
+                xamlMember.Getter = get_4_TreeView_IsExpandedBindingPath;
+                xamlMember.Setter = set_4_TreeView_IsExpandedBindingPath;
+                break;
+            case "WinRTXamlToolkit.Controls.TreeView.IsSelectedBindingPath":
+                userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.TreeView");
+                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "IsSelectedBindingPath", "String");
+                xamlMember.SetTargetTypeName("Windows.UI.Xaml.DependencyObject");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.SetIsAttachable();
+                xamlMember.Getter = get_5_TreeView_IsSelectedBindingPath;
+                xamlMember.Setter = set_5_TreeView_IsSelectedBindingPath;
+                break;
+            case "WinRTXamlToolkit.Controls.TreeViewItem.HasItems":
+                userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.TreeViewItem");
+                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "HasItems", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_6_TreeViewItem_HasItems;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WinRTXamlToolkit.Controls.TreeViewItem.IsExpanded":
+                userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.TreeViewItem");
+                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "IsExpanded", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_7_TreeViewItem_IsExpanded;
+                xamlMember.Setter = set_7_TreeViewItem_IsExpanded;
+                break;
+            case "WinRTXamlToolkit.Controls.TreeViewItem.IsSelected":
+                userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.TreeViewItem");
+                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "IsSelected", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_8_TreeViewItem_IsSelected;
+                xamlMember.Setter = set_8_TreeViewItem_IsSelected;
+                break;
+            case "WinRTXamlToolkit.Controls.TreeViewItem.IsSelectionActive":
+                userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.TreeViewItem");
+                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "IsSelectionActive", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_9_TreeViewItem_IsSelectionActive;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WinRTXamlToolkit.Controls.HeaderedItemsControl.Header":
+                userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.HeaderedItemsControl");
+                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "Header", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_10_HeaderedItemsControl_Header;
+                xamlMember.Setter = set_10_HeaderedItemsControl_Header;
+                break;
+            case "WinRTXamlToolkit.Controls.HeaderedItemsControl.HeaderTemplate":
+                userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.HeaderedItemsControl");
+                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "HeaderTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_11_HeaderedItemsControl_HeaderTemplate;
+                xamlMember.Setter = set_11_HeaderedItemsControl_HeaderTemplate;
+                break;
+            case "WinRTXamlToolkit.Controls.HeaderedItemsControl.ItemContainerStyle":
+                userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.HeaderedItemsControl");
+                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "ItemContainerStyle", "Windows.UI.Xaml.Style");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_12_HeaderedItemsControl_ItemContainerStyle;
+                xamlMember.Setter = set_12_HeaderedItemsControl_ItemContainerStyle;
+                break;
+            case "MoTApp.Routes_ListPage.routes":
+                userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.Routes_ListPage");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "routes", "System.Collections.Generic.List`1<MoTApp.Route>");
-                xamlMember.Getter = get_0_Route_DetailsPage_routes;
-                xamlMember.Setter = set_0_Route_DetailsPage_routes;
+                xamlMember.Getter = get_13_Routes_ListPage_routes;
+                xamlMember.SetIsReadOnly();
                 break;
             case "MoTApp.Route.id":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.Route");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "id", "String");
-                xamlMember.Getter = get_1_Route_id;
-                xamlMember.Setter = set_1_Route_id;
+                xamlMember.Getter = get_14_Route_id;
+                xamlMember.Setter = set_14_Route_id;
                 break;
             case "MoTApp.Route.name":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.Route");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "name", "String");
-                xamlMember.Getter = get_2_Route_name;
-                xamlMember.Setter = set_2_Route_name;
+                xamlMember.Getter = get_15_Route_name;
+                xamlMember.Setter = set_15_Route_name;
                 break;
             case "MoTApp.Route.mapImage":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.Route");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "mapImage", "String");
-                xamlMember.Getter = get_3_Route_mapImage;
-                xamlMember.Setter = set_3_Route_mapImage;
+                xamlMember.Getter = get_16_Route_mapImage;
+                xamlMember.Setter = set_16_Route_mapImage;
                 break;
             case "MoTApp.Route.color":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.Route");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "color", "Windows.UI.Xaml.Media.SolidColorBrush");
-                xamlMember.Getter = get_4_Route_color;
-                xamlMember.Setter = set_4_Route_color;
+                xamlMember.Getter = get_17_Route_color;
+                xamlMember.Setter = set_17_Route_color;
                 break;
             case "MoTApp.Route.stops":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.Route");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "stops", "System.Collections.Generic.List`1<MoTApp.Stop>");
-                xamlMember.Getter = get_5_Route_stops;
-                xamlMember.Setter = set_5_Route_stops;
+                xamlMember.Getter = get_18_Route_stops;
+                xamlMember.Setter = set_18_Route_stops;
                 break;
             case "MoTApp.Stop.city":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.Stop");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "city", "String");
-                xamlMember.Getter = get_6_Stop_city;
-                xamlMember.Setter = set_6_Stop_city;
+                xamlMember.Getter = get_19_Stop_city;
+                xamlMember.Setter = set_19_Stop_city;
                 break;
             case "MoTApp.Stop.name":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.Stop");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "name", "String");
-                xamlMember.Getter = get_7_Stop_name;
-                xamlMember.Setter = set_7_Stop_name;
+                xamlMember.Getter = get_20_Stop_name;
+                xamlMember.Setter = set_20_Stop_name;
                 break;
             case "MoTApp.Stop.latitude":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.Stop");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "latitude", "Double");
-                xamlMember.Getter = get_8_Stop_latitude;
-                xamlMember.Setter = set_8_Stop_latitude;
+                xamlMember.Getter = get_21_Stop_latitude;
+                xamlMember.Setter = set_21_Stop_latitude;
                 break;
             case "MoTApp.Stop.longitude":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.Stop");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "longitude", "Double");
-                xamlMember.Getter = get_9_Stop_longitude;
-                xamlMember.Setter = set_9_Stop_longitude;
+                xamlMember.Getter = get_22_Stop_longitude;
+                xamlMember.Setter = set_22_Stop_longitude;
                 break;
             case "MoTApp.Stop.zone":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.Stop");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "zone", "MoTApp.Zone");
-                xamlMember.Getter = get_10_Stop_zone;
-                xamlMember.Setter = set_10_Stop_zone;
+                xamlMember.Getter = get_23_Stop_zone;
+                xamlMember.Setter = set_23_Stop_zone;
                 break;
             case "MoTApp.Stop.SatGoTimetable":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.Stop");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "SatGoTimetable", "System.Collections.Generic.List`1<String>");
-                xamlMember.Getter = get_11_Stop_SatGoTimetable;
-                xamlMember.Setter = set_11_Stop_SatGoTimetable;
+                xamlMember.Getter = get_24_Stop_SatGoTimetable;
+                xamlMember.Setter = set_24_Stop_SatGoTimetable;
                 break;
             case "MoTApp.Stop.SatReturnTimetable":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.Stop");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "SatReturnTimetable", "System.Collections.Generic.List`1<String>");
-                xamlMember.Getter = get_12_Stop_SatReturnTimetable;
-                xamlMember.Setter = set_12_Stop_SatReturnTimetable;
+                xamlMember.Getter = get_25_Stop_SatReturnTimetable;
+                xamlMember.Setter = set_25_Stop_SatReturnTimetable;
                 break;
             case "MoTApp.Stop.SunToThuGoTimetable":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.Stop");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "SunToThuGoTimetable", "System.Collections.Generic.List`1<String>");
-                xamlMember.Getter = get_13_Stop_SunToThuGoTimetable;
-                xamlMember.Setter = set_13_Stop_SunToThuGoTimetable;
+                xamlMember.Getter = get_26_Stop_SunToThuGoTimetable;
+                xamlMember.Setter = set_26_Stop_SunToThuGoTimetable;
                 break;
             case "MoTApp.Stop.SunToThuReturnTimetable":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.Stop");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "SunToThuReturnTimetable", "System.Collections.Generic.List`1<String>");
-                xamlMember.Getter = get_14_Stop_SunToThuReturnTimetable;
-                xamlMember.Setter = set_14_Stop_SunToThuReturnTimetable;
+                xamlMember.Getter = get_27_Stop_SunToThuReturnTimetable;
+                xamlMember.Setter = set_27_Stop_SunToThuReturnTimetable;
+                break;
+            case "MoTApp.Route_DetailsPage.routes":
+                userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.Route_DetailsPage");
+                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "routes", "System.Collections.Generic.List`1<MoTApp.Route>");
+                xamlMember.Getter = get_28_Route_DetailsPage_routes;
+                xamlMember.Setter = set_28_Route_DetailsPage_routes;
                 break;
             case "MoTApp.Route_DetailsPage.SelectedRoute":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.Route_DetailsPage");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "SelectedRoute", "MoTApp.Route");
-                xamlMember.Getter = get_15_Route_DetailsPage_SelectedRoute;
-                xamlMember.Setter = set_15_Route_DetailsPage_SelectedRoute;
+                xamlMember.Getter = get_29_Route_DetailsPage_SelectedRoute;
+                xamlMember.Setter = set_29_Route_DetailsPage_SelectedRoute;
                 break;
             case "MoTApp.SavedTripTemplate.Trip":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.SavedTripTemplate");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "Trip", "MoTApp.Trip");
-                xamlMember.Getter = get_16_SavedTripTemplate_Trip;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "MoTApp.StopDetailsTemplate.Stop":
-                userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.StopDetailsTemplate");
-                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "Stop", "MoTApp.Stop");
-                xamlMember.Getter = get_17_StopDetailsTemplate_Stop;
+                xamlMember.Getter = get_30_SavedTripTemplate_Trip;
                 xamlMember.SetIsReadOnly();
                 break;
             case "MoTApp.TablePage.stops":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.TablePage");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "stops", "System.Collections.Generic.List`1<MoTApp.Stop>");
-                xamlMember.Getter = get_18_TablePage_stops;
-                xamlMember.Setter = set_18_TablePage_stops;
+                xamlMember.Getter = get_31_TablePage_stops;
+                xamlMember.Setter = set_31_TablePage_stops;
                 break;
             case "MoTApp.TablePage.SatGoTimes":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.TablePage");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "SatGoTimes", "System.Collections.Generic.List`1<System.Collections.Generic.List`1<String>>");
-                xamlMember.Getter = get_19_TablePage_SatGoTimes;
-                xamlMember.Setter = set_19_TablePage_SatGoTimes;
+                xamlMember.Getter = get_32_TablePage_SatGoTimes;
+                xamlMember.Setter = set_32_TablePage_SatGoTimes;
                 break;
             case "System.Collections.Generic.List`1<String>.Capacity":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("System.Collections.Generic.List`1<String>");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "Capacity", "Int32");
-                xamlMember.Getter = get_20_List_Capacity;
-                xamlMember.Setter = set_20_List_Capacity;
+                xamlMember.Getter = get_33_List_Capacity;
+                xamlMember.Setter = set_33_List_Capacity;
                 break;
             case "System.Collections.Generic.List`1<String>.Count":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("System.Collections.Generic.List`1<String>");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "Count", "Int32");
-                xamlMember.Getter = get_21_List_Count;
+                xamlMember.Getter = get_34_List_Count;
                 xamlMember.SetIsReadOnly();
                 break;
             case "MoTApp.TablePage.SatReturnTimes":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.TablePage");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "SatReturnTimes", "System.Collections.Generic.List`1<System.Collections.Generic.List`1<String>>");
-                xamlMember.Getter = get_22_TablePage_SatReturnTimes;
-                xamlMember.Setter = set_22_TablePage_SatReturnTimes;
+                xamlMember.Getter = get_35_TablePage_SatReturnTimes;
+                xamlMember.Setter = set_35_TablePage_SatReturnTimes;
                 break;
             case "MoTApp.TablePage.SunToThuGoTimes":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.TablePage");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "SunToThuGoTimes", "System.Collections.Generic.List`1<System.Collections.Generic.List`1<String>>");
-                xamlMember.Getter = get_23_TablePage_SunToThuGoTimes;
-                xamlMember.Setter = set_23_TablePage_SunToThuGoTimes;
+                xamlMember.Getter = get_36_TablePage_SunToThuGoTimes;
+                xamlMember.Setter = set_36_TablePage_SunToThuGoTimes;
                 break;
             case "MoTApp.TablePage.SunToThuReturnTimes":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.TablePage");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "SunToThuReturnTimes", "System.Collections.Generic.List`1<System.Collections.Generic.List`1<String>>");
-                xamlMember.Getter = get_24_TablePage_SunToThuReturnTimes;
-                xamlMember.Setter = set_24_TablePage_SunToThuReturnTimes;
+                xamlMember.Getter = get_37_TablePage_SunToThuReturnTimes;
+                xamlMember.Setter = set_37_TablePage_SunToThuReturnTimes;
                 break;
-            case "MoTApp.TripMoreInfoPage.stops":
+            case "MoTApp.TripMoreInfoPage.expandedStopsInfo":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.TripMoreInfoPage");
-                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "stops", "System.Collections.Generic.List`1<MoTApp.Stop>");
-                xamlMember.Getter = get_25_TripMoreInfoPage_stops;
-                xamlMember.Setter = set_25_TripMoreInfoPage_stops;
+                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "expandedStopsInfo", "System.Collections.Generic.List`1<String>");
+                xamlMember.Getter = get_38_TripMoreInfoPage_expandedStopsInfo;
+                xamlMember.Setter = set_38_TripMoreInfoPage_expandedStopsInfo;
+                break;
+            case "MoTApp.TripMoreInfoPage.times":
+                userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.TripMoreInfoPage");
+                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "times", "System.Collections.Generic.List`1<String>");
+                xamlMember.Getter = get_39_TripMoreInfoPage_times;
+                xamlMember.Setter = set_39_TripMoreInfoPage_times;
                 break;
             case "MoTApp.TripMoreInfoPage.trip":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.TripMoreInfoPage");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "trip", "MoTApp.Trip");
-                xamlMember.Getter = get_26_TripMoreInfoPage_trip;
-                xamlMember.Setter = set_26_TripMoreInfoPage_trip;
+                xamlMember.Getter = get_40_TripMoreInfoPage_trip;
+                xamlMember.Setter = set_40_TripMoreInfoPage_trip;
+                break;
+            case "MoTApp.TripMoreInfoPage.date":
+                userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.TripMoreInfoPage");
+                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "date", "System.DateTime");
+                xamlMember.Getter = get_41_TripMoreInfoPage_date;
+                xamlMember.Setter = set_41_TripMoreInfoPage_date;
                 break;
             case "MoTApp.TripTemplate.Trip":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.TripTemplate");
                 xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "Trip", "MoTApp.Trip");
-                xamlMember.Getter = get_27_TripTemplate_Trip;
+                xamlMember.Getter = get_42_TripTemplate_Trip;
                 xamlMember.SetIsReadOnly();
                 break;
             }

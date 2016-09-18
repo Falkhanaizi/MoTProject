@@ -95,6 +95,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Routes_ListPage.xaml.cs">
+      <DependentUpon>Routes_ListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Route_DetailsPage.xaml.cs">
       <DependentUpon>Route_DetailsPage.xaml</DependentUpon>
     </Compile>
@@ -123,9 +126,6 @@
     </Compile>
     <Compile Include="SavedTripTemplate.xaml.cs">
       <DependentUpon>SavedTripTemplate.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="StopDetailsTemplate.xaml.cs">
-      <DependentUpon>StopDetailsTemplate.xaml</DependentUpon>
     </Compile>
     <Compile Include="TablePage.xaml.cs">
       <DependentUpon>TablePage.xaml</DependentUpon>
@@ -164,6 +164,8 @@
     <Content Include="Assets\icon_BackArrow1.png" />
     <Content Include="Assets\icon_BackArrow2.png" />
     <Content Include="Assets\icon_calendar.png" />
+    <Content Include="Assets\icon_calendar2.png" />
+    <Content Include="Assets\icon_exit.png" />
     <Content Include="Assets\icon_feedback.png" />
     <Content Include="Assets\icon_Home1.png" />
     <Content Include="Assets\icon_Home2.png" />
@@ -171,7 +173,11 @@
     <Content Include="Assets\icon_MapMarker1.png" />
     <Content Include="Assets\icon_MenuWhite.png" />
     <Content Include="Assets\icon_news.png" />
+    <Content Include="Assets\icon_pages.png" />
+    <Content Include="Assets\icon_reminder.png" />
+    <Content Include="Assets\icon_RightArrow.png" />
     <Content Include="Assets\icon_route.png" />
+    <Content Include="Assets\icon_save.png" />
     <Content Include="Assets\icon_search.png" />
     <Content Include="Assets\icon_star.png" />
     <Content Include="Assets\icon_timetable.png" />
@@ -191,6 +197,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Routes_ListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Route_DetailsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -234,10 +244,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SavedTripTemplate.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="StopDetailsTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

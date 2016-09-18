@@ -47,15 +47,15 @@
 
 
         <TextBlock Text="{x:Bind Trip.fromTime}"
-                       Foreground="#FF00BE00"
+                       Foreground="White"
                        Style="{StaticResource TimeTextStyle}"/>
         <Image Grid.Column="1" 
-                        Source="Assets/icon_BackArrow1.png"
+                        Source="Assets/icon_RightArrow.png"
                         Width="20" Height="30"
                         VerticalAlignment="Center"
                         Margin="5,0,5,0"/>
         <TextBlock Grid.Column="2"  
-                       Foreground="#FF0085FF"
+                       Foreground="White"
                        Text="{x:Bind Trip.toTime}"
                        Style="{StaticResource TimeTextStyle}"/>
         <TextBlock Grid.Row="1"  
@@ -67,8 +67,8 @@
                        Text="{x:Bind Trip.endLocation}"/>
 
         <TextBlock Grid.Column="3"  
-                   Margin="5"
-                   Foreground="Red"
+                   Margin="0,0,20,0"
+                   Foreground="White"
                    Style="{StaticResource OtherInfoTextStyle}"
                    Text="{x:Bind Trip.totalCost}"
                    HorizontalAlignment="Right"/>
@@ -78,7 +78,7 @@
                     VerticalAlignment="Bottom"
                     Orientation="Horizontal"
                     Margin="10">
-            <TextBlock  Foreground="#FF009CFF"
+            <TextBlock  Foreground="White"
                         Style="{StaticResource OtherInfoTextStyle}"
                         Text="{x:Bind Trip.duration}"/>
         </StackPanel>

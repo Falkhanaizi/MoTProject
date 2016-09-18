@@ -6,9 +6,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image x:ConnectionId='1' x:Name="BackBtn" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Width="25" Height="25" Source="Assets/icon_BackArrow2.png"/>
+        <TextBlock Text="Trip Planner" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="30" FontWeight="Bold"/>
 
-    <StackPanel HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch">
+        <StackPanel HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch" Grid.Row="1">
             <TextBlock Text="Use the trip planner to know all your stops and timings to your destination"
                        TextWrapping="Wrap"
                        TextAlignment="Center"
@@ -33,7 +40,7 @@
                            TextAlignment="Right"
                            VerticalAlignment="Center"
                            FontWeight="Bold"/>
-                <AutoSuggestBox x:ConnectionId='2' Width="250" 
+                <AutoSuggestBox x:ConnectionId='3' Width="250" 
                                 Name="FromLocation_box"
                                 FontSize="24"
                                 Grid.Column="1"
@@ -49,7 +56,7 @@
                            VerticalAlignment="Center"
                            TextAlignment="Right"
                            FontWeight="Bold"/>
-                <AutoSuggestBox x:ConnectionId='3' Width="250" 
+                <AutoSuggestBox x:ConnectionId='4' Width="250" 
                                 Name="ToLocation_box"
                                 FontSize="24"
                                 Grid.Column="1"
@@ -85,7 +92,7 @@
                                     FontSize="24"
                                     Width="250"/>
             </Grid>
-            <Button x:ConnectionId='1' x:Name="trip_btn" Content="Find Trip" 
+            <Button x:ConnectionId='2' x:Name="trip_btn" Content="Find Trip" 
                     FontSize="20"
                     FontWeight="Bold"
                     Foreground="White"
@@ -94,5 +101,7 @@
                     BorderBrush="#FF780000"
                     HorizontalAlignment="Right"                       />
         </StackPanel>
+
+    </Grid>
 </Page>
 

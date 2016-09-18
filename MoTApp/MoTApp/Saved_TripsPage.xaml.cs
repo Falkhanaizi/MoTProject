@@ -38,7 +38,13 @@ namespace MoTApp
 
         private void AddBtn_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            Frame.Navigate(typeof(Trip_PlannerPage));
+        }
 
+        private void TripsList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var trip = (Trip)e.ClickedItem;
+            Frame.Navigate(typeof(SavedTripMoreInfo), trip);
         }
     }
 }

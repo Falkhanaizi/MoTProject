@@ -212,14 +212,9 @@
 \\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\MainPageStyles.xbf
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\TripsPage.g.i.cs
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\TripsPage.g.cs
-\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\TripTemplate.g.i.cs
-\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\TripTemplate.g.cs
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\TripsPage.xaml
-\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\TripTemplate.xaml
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\TripsPage.xbf
-\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\TripTemplate.xbf
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\TripsPage.xbf
-\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\TripTemplate.xbf
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\SavedTripTemplate.g.i.cs
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\SavedTripTemplate.g.cs
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\SavedTripTemplate.xaml
@@ -260,7 +255,6 @@
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\Saved_TripsPage.g.cs
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\Saved_TripsPage.xaml
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\Saved_TripsPage.xbf
-\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\MoTApp.csprojResolveAssemblyReference.cache
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\Routes_ListPage.g.i.cs
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\Routes_ListPage.g.cs
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\Routes_ListPage.xaml

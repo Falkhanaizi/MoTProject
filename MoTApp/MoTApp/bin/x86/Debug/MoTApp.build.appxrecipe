@@ -454,6 +454,9 @@
     <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\fullMap.png">
       <PackagePath>Assets\fullMap.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_edit.png">
+      <PackagePath>Assets\icon_edit.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>

@@ -140,9 +140,6 @@
     <Compile Include="TripsPage.xaml.cs">
       <DependentUpon>TripsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TripTemplate.xaml.cs">
-      <DependentUpon>TripTemplate.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -190,6 +187,7 @@
     <Content Include="Assets\icon_ZoomInGray.png" />
     <Content Include="Assets\icon_ZoomOutGray.png" />
     <Content Include="Assets\fullMap.png" />
+    <Content Include="Assets\icon_edit.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -260,10 +258,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TripsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="TripTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

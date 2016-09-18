@@ -6,9 +6,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image x:Name="BackBtn" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Width="25" Height="25" Source="Assets/icon_BackArrow2.png"/>
+        <TextBlock Text="Trip Planner" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="30" FontWeight="Bold"/>
 
-    <StackPanel HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch">
+        <StackPanel HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch" Grid.Row="1">
             <TextBlock Text="Use the trip planner to know all your stops and timings to your destination"
                        TextWrapping="Wrap"
                        TextAlignment="Center"
@@ -94,4 +101,6 @@
                     BorderBrush="#FF780000"
                     HorizontalAlignment="Right" Click="trip_btn_Click"/>
         </StackPanel>
+
+    </Grid>
 </Page>

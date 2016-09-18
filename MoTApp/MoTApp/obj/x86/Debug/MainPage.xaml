@@ -51,7 +51,7 @@
                     <Frame x:ConnectionId='4' x:Name="MyFrame" Grid.RowSpan="2">
 
                     </Frame>
-                        <Border x:ConnectionId='5' x:Name="MenuBtn"  Margin="10,0,0,0" HorizontalAlignment="Left" Padding="0" Width="35" Height="35" BorderThickness="3" BorderBrush="White" CornerRadius="10"                        >
+                        <Border x:ConnectionId='5' x:Name="MenuBtn" Background="#FFD81422" Margin="10,0,0,0" HorizontalAlignment="Left" Padding="0" Width="35" Height="35" BorderThickness="3" BorderBrush="White" CornerRadius="10"                        >
                             <Image Width="20" Height="20" Source="Assets/icon_MenuWhite.png"/>
                         </Border>
                 </Grid>

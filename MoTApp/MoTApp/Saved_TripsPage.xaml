@@ -26,8 +26,11 @@
                   ItemsSource="{x:Bind Trips}" 
                   SelectionMode="Single"
                   Margin="0,10,0,0"
-                  ShowsScrollingPlaceholders="True"
                   Name="TripsList"
+                  IsItemClickEnabled="True"
+                  ItemClick="TripsList_ItemClick"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                  ScrollViewer.VerticalScrollMode="Auto"
                   HorizontalAlignment="Stretch">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
@@ -35,7 +38,6 @@
                     <Setter Property="HorizontalAlignment" Value="Stretch"/>
                     <Setter Property="Margin" Value="0,0,0,10"/>
                     <Setter Property="Background" Value="#FF880000"/>
-                    <Setter Property="Opacity" Value="0.8"/>
                     <Setter Property="Padding" Value="0"/>
                 </Style>
             </ListView.ItemContainerStyle>

@@ -47,15 +47,15 @@
 
 
         <TextBlock x:ConnectionId='2'                              
-                       Foreground="#FF00BE00"
+                       Foreground="White"
                        Style="{StaticResource TimeTextStyle}"/>
         <Image Grid.Column="1" 
-                        Source="Assets/icon_BackArrow1.png"
+                        Source="Assets/icon_RightArrow.png"
                         Width="20" Height="30"
                         VerticalAlignment="Center"
                         Margin="5,0,5,0"/>
         <TextBlock x:ConnectionId='3' Grid.Column="2"  
-                       Foreground="#FF0085FF"
+                       Foreground="White"
                                                   
                        Style="{StaticResource TimeTextStyle}"/>
         <TextBlock x:ConnectionId='4' Grid.Row="1"  
@@ -67,8 +67,8 @@
                                                        />
 
         <TextBlock x:ConnectionId='6' Grid.Column="3"  
-                   Margin="5"
-                   Foreground="Red"
+                   Margin="0,0,20,0"
+                   Foreground="White"
                    Style="{StaticResource OtherInfoTextStyle}"
                                                  
                    HorizontalAlignment="Right"/>
@@ -78,7 +78,7 @@
                     VerticalAlignment="Bottom"
                     Orientation="Horizontal"
                     Margin="10">
-            <TextBlock x:ConnectionId='7'  Foreground="#FF009CFF"
+            <TextBlock x:ConnectionId='7'  Foreground="White"
                         Style="{StaticResource OtherInfoTextStyle}"
                                                      />
         </StackPanel>

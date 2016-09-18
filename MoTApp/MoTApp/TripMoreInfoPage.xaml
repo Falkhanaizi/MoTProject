@@ -46,22 +46,17 @@
         </Grid.Background>
         
         <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <RelativePanel Name="AssholeRelative">
-            <Maps:MapControl ZoomInteractionMode="GestureAndControl"
-                             Name="RouteMap" Loaded="RouteMap_Loaded" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="236" Width="360"/>
-            <SymbolIcon Symbol="Back" 
-                        x:Name="icon_back"
-                        Height="50" Width="40"
-                        Foreground="Black"
-                        RelativePanel.AlignLeftWithPanel="True"/>
-        </RelativePanel>
+            <Maps:MapControl Grid.RowSpan="2" ZoomInteractionMode="GestureAndControl"
+                             Name="RouteMap" Loaded="RouteMap_Loaded" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Image x:Name="BackBtn" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Width="25" Height="25" Source="Assets/icon_BackArrow2.png"/>
 
-        <ScrollViewer Grid.Row="1" 
+        <ScrollViewer Grid.Row="2" 
                       VerticalScrollBarVisibility="Hidden"
                       HorizontalScrollMode="Disabled">
             <Grid>
@@ -112,7 +107,7 @@
             </Grid>
         </ScrollViewer>
 
-        <Grid Grid.Row="2" Background="#FFA42226">
+        <Grid Grid.Row="3" Background="#FFA42226">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>

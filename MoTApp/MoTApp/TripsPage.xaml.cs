@@ -35,5 +35,10 @@ namespace MoTApp
             var trip = (Trip)e.ClickedItem;
             Frame.Navigate(typeof(TripMoreInfoPage), trip);
         }
+
+        private void BackBtn_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
     }
 }

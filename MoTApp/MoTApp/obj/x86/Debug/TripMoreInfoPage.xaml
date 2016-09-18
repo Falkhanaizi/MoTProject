@@ -46,22 +46,17 @@
         </Grid.Background>
         
         <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <RelativePanel x:ConnectionId='2' Name="AssholeRelative">
-            <Maps:MapControl x:ConnectionId='10' ZoomInteractionMode="GestureAndControl"
-                             Name="RouteMap"                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="236" Width="360"/>
-            <SymbolIcon x:ConnectionId='11' Symbol="Back" 
-                        x:Name="icon_back"
-                        Height="50" Width="40"
-                        Foreground="Black"
-                        RelativePanel.AlignLeftWithPanel="True"/>
-        </RelativePanel>
+            <Maps:MapControl x:ConnectionId='2' Grid.RowSpan="2" ZoomInteractionMode="GestureAndControl"
+                             Name="RouteMap"                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Image x:ConnectionId='3' x:Name="BackBtn" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Width="25" Height="25" Source="Assets/icon_BackArrow2.png"/>
 
-        <ScrollViewer Grid.Row="1" 
+        <ScrollViewer Grid.Row="2" 
                       VerticalScrollBarVisibility="Hidden"
                       HorizontalScrollMode="Disabled">
             <Grid>
@@ -69,7 +64,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <ListView x:ConnectionId='6'                                          
+                <ListView x:ConnectionId='7'                                          
                       Name="StopsList">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
@@ -103,36 +98,36 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="Total Cost: " Style="{StaticResource MoreInfoHeaderText}"/>
-                    <TextBlock x:ConnectionId='7'                                Style="{StaticResource MoreInfoText}"/>
+                    <TextBlock x:ConnectionId='8'                                Style="{StaticResource MoreInfoText}"/>
                     <TextBlock Grid.Row="1" Text="Date: " Style="{StaticResource MoreInfoHeaderText}"/>
-                    <TextBlock x:ConnectionId='8' Grid.Row="1"                      Style="{StaticResource MoreInfoText}"/>
+                    <TextBlock x:ConnectionId='9' Grid.Row="1"                      Style="{StaticResource MoreInfoText}"/>
                     <TextBlock Grid.Row="2" Text="Duration: " Style="{StaticResource MoreInfoHeaderText}"/>
-                    <TextBlock x:ConnectionId='9' Grid.Row="2"                               Style="{StaticResource MoreInfoText}"/>
+                    <TextBlock x:ConnectionId='10' Grid.Row="2"                               Style="{StaticResource MoreInfoText}"/>
                 </Grid>
             </Grid>
         </ScrollViewer>
 
-        <Grid Grid.Row="2" Background="#FFA42226">
+        <Grid Grid.Row="3" Background="#FFA42226">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:ConnectionId='3' x:Name="ReminderBtn"                           Grid.Column="0" Style="{StaticResource BarBtns}">
+            <Button x:ConnectionId='4' x:Name="ReminderBtn"                           Grid.Column="0" Style="{StaticResource BarBtns}">
                 <StackPanel HorizontalAlignment="Center">
                     <Image Source="Assets/icon_reminder.png" Width="25" Height="24"/>
                     <TextBlock Text="Reminder"
                                Style="{StaticResource BarBtnsText}"/>
                 </StackPanel>
             </Button>
-            <Button x:ConnectionId='4' x:Name="SaveBtn"                       Grid.Column="1" Style="{StaticResource BarBtns}" BorderThickness="0,2">
+            <Button x:ConnectionId='5' x:Name="SaveBtn"                       Grid.Column="1" Style="{StaticResource BarBtns}" BorderThickness="0,2">
                 <StackPanel HorizontalAlignment="Center">
                     <Image Source="Assets/icon_save.png" Width="25" Height="25"/>
                     <TextBlock Text="Save Trip"
                                Style="{StaticResource BarBtnsText}"/>
                 </StackPanel>
             </Button>
-            <Button x:ConnectionId='5' x:Name="QuitBtn" Grid.Column="2"                        Style="{StaticResource BarBtns}">
+            <Button x:ConnectionId='6' x:Name="QuitBtn" Grid.Column="2"                        Style="{StaticResource BarBtns}">
                 <StackPanel HorizontalAlignment="Center">
                     <Image Source="Assets/icon_exit.png" Width="25" Height="25"/>
                     <TextBlock Text="Quit"

@@ -34,6 +34,7 @@ namespace MoTApp
 
         private void RoutesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            MyFrame.Visibility = Visibility.Visible;
             SelectedRoute = (Route)RoutesListBox.SelectedItem;
             MyFrame.Navigate(typeof(TablePage), SelectedRoute);
             RoutesListBox.Visibility = Visibility.Collapsed;
@@ -44,6 +45,7 @@ namespace MoTApp
 
         private void RoutesGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            MyFrame.Visibility = Visibility.Visible;
             SelectedRoute = (Route)RoutesGridView.SelectedItem;
             MyFrame.Navigate(typeof(TablePage), SelectedRoute);
             RoutesGridView.Visibility = Visibility.Collapsed;
@@ -71,20 +73,26 @@ namespace MoTApp
 
         private void RouteMapBtn_Click(object sender, RoutedEventArgs e)
         {
+            MyFrame.Visibility = Visibility.Visible;
             MyFrame.Navigate(typeof(MapPage), SelectedRoute);
             RoutesGridView.Visibility = Visibility.Collapsed;
         }
 
         private void TimeTableBtn_Click(object sender, RoutedEventArgs e)
         {
+            MyFrame.Visibility = Visibility.Visible;
             MyFrame.Navigate(typeof(TablePage), SelectedRoute);
             RoutesGridView.Visibility = Visibility.Collapsed;
         }
 
         private void RouteListBtn_Click(object sender, RoutedEventArgs e)
         {
+            /*
             MyFrame.Navigate(typeof(Routes_ListPage), SelectedRoute);
             RoutesGridView.Visibility = Visibility.Collapsed;
+            */
+            MyFrame.Visibility = Visibility.Collapsed;
+            RoutesGridView.Visibility = Visibility.Visible;
         }
     }
 }

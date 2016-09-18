@@ -454,22 +454,6 @@
                   Style="{StaticResource StopsListViewStyle}"/>
             <ListView x:Name="SatReturnTimesListView" Grid.Row="3" Grid.Column="1"
                   Style="{StaticResource TimetableListViewStyle}"/>
-
-            <Border Style="{StaticResource RouteBorder}" Grid.Row="4">
-                <TextBlock Text="Sunday to Thursday" Margin="5,0,0,0" Foreground="Red"/>
-            </Border>
-            <ListView Grid.Row="5" ItemsSource="{x:Bind stops}"
-                  Style="{StaticResource StopsListViewStyle}"/>
-            <ListView x:Name="SunToThuGoTimesListView" Grid.Row="5" Grid.Column="1"
-                  Style="{StaticResource TimetableListViewStyle}"/>
-
-            <Border Style="{StaticResource RouteBorder}" Grid.Row="6">
-                <TextBlock Text="Sunday to Thursday" Margin="5,0,0,0" Foreground="Red"/>
-            </Border>
-            <ListView Grid.Row="7" ItemsSource="{x:Bind stops}"
-                  Style="{StaticResource StopsListViewStyle}"/>
-            <ListView x:Name="SunToThuReturnTimesListView" Grid.Row="7" Grid.Column="1"
-                  Style="{StaticResource TimetableListViewStyle}"/>
         </Grid>
 
     </ScrollViewer>

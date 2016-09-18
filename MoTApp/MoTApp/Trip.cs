@@ -19,7 +19,7 @@ namespace MoTApp
         public int numberOfStops { get { return stops.Count; } }
         public List<Stop> stops { get; set; }
         public Route route { get; set; }
-        public double totalCost
+        public string totalCost
         {
             get
             {
@@ -28,7 +28,7 @@ namespace MoTApp
                 {
                     total += stop.zone.price;
                 }
-                return total / 1000;
+                return total / 1000 + " BD";
             }
         }
     }

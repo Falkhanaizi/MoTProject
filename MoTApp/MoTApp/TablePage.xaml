@@ -26,6 +26,8 @@
                         <Setter Property="VerticalAlignment" Value="Stretch"/>
                         <Setter Property="VerticalContentAlignment" Value="Stretch"/>
                         <Setter Property="Background" Value="DarkGray"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                        <Setter Property="BorderThickness" Value="0,0,0,2"/>
                         <Setter Property="Padding" Value="5"/>
                         <Setter Property="MinHeight" Value="0"/>
                         <Setter Property="MinWidth" Value="0"/>
@@ -385,6 +387,8 @@
                         <Setter Property="VerticalAlignment" Value="Stretch"/>
                         <Setter Property="VerticalContentAlignment" Value="Stretch"/>
                         <Setter Property="Background" Value="White"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                        <Setter Property="BorderThickness" Value="0,0,0,2"/>
                         <Setter Property="Padding" Value="5"/>
                         <Setter Property="MinHeight" Value="0"/>
                         <Setter Property="MinWidth" Value="0"/>
@@ -407,21 +411,33 @@
             <Setter Property="FontSize" Value="10"/>
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="VerticalAlignment" Value="Bottom"/>
-            <Setter Property="Margin" Value="10,0,0,0"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
         </Style>
 
-        <Style TargetType="TextBlock" x:Key="DayTextStyle">
+        <Style TargetType="TextBlock" x:Key="RouteStartFinishTextStyle">
             <Setter Property="Foreground" Value="#FFD81422"/>
-            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontSize" Value="16"/>
             <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <Style TargetType="Border" x:Key="DayBtns">
+            <Setter Property="Height" Value="Auto"/>
+            <Setter Property="Padding" Value="5,7"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="DatBtnsText">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
         </Style>
     </Page.Resources>
     <ScrollViewer VerticalScrollBarVisibility="Hidden" VerticalScrollMode="Auto">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -433,27 +449,40 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Border Style="{StaticResource RouteBorder}" Margin="0">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Saturday"  Style="{StaticResource DayTextStyle}"/>
+            <RelativePanel Padding="5" Grid.ColumnSpan="2">
+                <Border x:Name="SatThuBtn" RelativePanel.AlignVerticalCenterWithPanel="True" BorderBrush="Black" BorderThickness="0,0,2,0" Style="{StaticResource DayBtns}" Tapped="SatThuBtn_Tapped">
+                    <TextBlock Text="Sat - Thu" Style="{StaticResource DatBtnsText}"/>
+                </Border>
+                <Border x:Name="FriBtn" RelativePanel.RightOf="SatThuBtn" BorderBrush="Transparent" Style="{StaticResource DayBtns}" Tapped="FriBtn_Tapped">
+                    <TextBlock Text="Friday" Style="{StaticResource DatBtnsText}"/>
+                </Border>
+            </RelativePanel>
+            
+             
+            
+            
+            <Border Grid.Row="1" Style="{StaticResource RouteBorder}" Margin="0">
+                <StackPanel>
+                    <TextBlock x:Name="GoRouteStartFinishTextBlock" Style="{StaticResource RouteStartFinishTextStyle}"/>
                     <TextBlock x:Name="GoRouteAreaTextBlock" Style="{StaticResource RouteAreasTextStyle}"/>
                 </StackPanel>
             </Border>
-            <ListView Grid.Row="1" ItemsSource="{x:Bind stops}"
+            <ListView Grid.Row="2" ItemsSource="{x:Bind stops}"
                   Style="{StaticResource StopsListViewStyle}"/>
-            <ListView x:Name="SatGoTimesListView" Grid.Row="1" Grid.Column="1"
+            <ListView x:Name="GoTimesListView" Grid.Row="2" Grid.Column="1"
                   Style="{StaticResource TimetableListViewStyle}"/>
 
-            <Border Style="{StaticResource RouteBorder}" Grid.Row="2">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Saturday"  Style="{StaticResource DayTextStyle}"/>
+            <Border Style="{StaticResource RouteBorder}" Grid.Row="3">
+                <StackPanel>
+                    <TextBlock x:Name="ReturnRouteStartFinishTextBlock" Style="{StaticResource RouteStartFinishTextStyle}"/>
                     <TextBlock x:Name="ReturnRouteAreaTextBlock" Style="{StaticResource RouteAreasTextStyle}"/>
                 </StackPanel>
             </Border>
-            <ListView Grid.Row="3" ItemsSource="{x:Bind stops}"
+            <ListView x:Name="ReturnStopsList" Grid.Row="4"
                   Style="{StaticResource StopsListViewStyle}"/>
-            <ListView x:Name="SatReturnTimesListView" Grid.Row="3" Grid.Column="1"
+            <ListView x:Name="ReturnTimesListView" Grid.Row="4" Grid.Column="1"
                   Style="{StaticResource TimetableListViewStyle}"/>
+            
         </Grid>
 
     </ScrollViewer>

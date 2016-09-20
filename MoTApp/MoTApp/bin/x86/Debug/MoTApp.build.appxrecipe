@@ -10,19 +10,19 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>251d5a09-9337-44a2-8205-712668e0e7fc</PackageIdentityName>
     <PackageIdentityPublisher>CN=FatemaK</PackageIdentityPublisher>
-    <IntermediateOutputPath>\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\MoTApp.exe">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\MoTApp.exe">
       <PackagePath>entrypoint\MoTApp.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\FatemaK\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
@@ -337,130 +337,130 @@
     <AppxPackagedFile Include="C:\Users\FatemaK\.nuget\packages\WinRTXamlToolkit.UWP\2.0.0\lib\uap10.0\WinRTXamlToolkit.dll">
       <PackagePath>WinRTXamlToolkit.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\33-NL.jpg">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\33-NL.jpg">
       <PackagePath>Assets\33-NL.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\a1-NL.jpg">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\a1-NL.jpg">
       <PackagePath>Assets\a1-NL.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\A2-NL.jpg">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\A2-NL.jpg">
       <PackagePath>Assets\A2-NL.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\Background.jpg">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\Background.jpg">
       <PackagePath>Assets\Background.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\BahrainBus1.jpg">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\BahrainBus1.jpg">
       <PackagePath>Assets\BahrainBus1.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\BahrainBus2.jpg">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\BahrainBus2.jpg">
       <PackagePath>Assets\BahrainBus2.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\BahrainBus3.jpg">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\BahrainBus3.jpg">
       <PackagePath>Assets\BahrainBus3.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\BahrainBus4.jpg">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\BahrainBus4.jpg">
       <PackagePath>Assets\BahrainBus4.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_Add1.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_Add1.png">
       <PackagePath>Assets\icon_Add1.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_Add2.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_Add2.png">
       <PackagePath>Assets\icon_Add2.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_BackArrow1.png">
-      <PackagePath>Assets\icon_BackArrow1.png</PackagePath>
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\SplashScreen.png">
+      <PackagePath>Assets\SplashScreen.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_BackArrow2.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_BackArrow2.png">
       <PackagePath>Assets\icon_BackArrow2.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_calendar.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_calendar.png">
       <PackagePath>Assets\icon_calendar.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_calendar2.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_calendar2.png">
       <PackagePath>Assets\icon_calendar2.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_exit.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_exit.png">
       <PackagePath>Assets\icon_exit.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_feedback.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_feedback.png">
       <PackagePath>Assets\icon_feedback.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_Home1.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_Home1.png">
       <PackagePath>Assets\icon_Home1.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_Home2.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_Home2.png">
       <PackagePath>Assets\icon_Home2.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_map.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_map.png">
       <PackagePath>Assets\icon_map.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_MapMarker1.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_MapMarker1.png">
       <PackagePath>Assets\icon_MapMarker1.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_MenuWhite.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_MenuWhite.png">
       <PackagePath>Assets\icon_MenuWhite.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_news.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_news.png">
       <PackagePath>Assets\icon_news.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_pages.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_pages.png">
       <PackagePath>Assets\icon_pages.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_reminder.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_reminder.png">
       <PackagePath>Assets\icon_reminder.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_RightArrow.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_RightArrow.png">
       <PackagePath>Assets\icon_RightArrow.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_route.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_route.png">
       <PackagePath>Assets\icon_route.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_save.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_save.png">
       <PackagePath>Assets\icon_save.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_search.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_search.png">
       <PackagePath>Assets\icon_search.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_star.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_star.png">
       <PackagePath>Assets\icon_star.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_timetable.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_timetable.png">
       <PackagePath>Assets\icon_timetable.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_video.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_video.png">
       <PackagePath>Assets\icon_video.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_ZoomInBlack.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_ZoomInBlack.png">
       <PackagePath>Assets\icon_ZoomInBlack.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_ZoomInWhite.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_ZoomInWhite.png">
       <PackagePath>Assets\icon_ZoomInWhite.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_ZoomOutBlack.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_ZoomOutBlack.png">
       <PackagePath>Assets\icon_ZoomOutBlack.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_ZoomOutWhite.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_ZoomOutWhite.png">
       <PackagePath>Assets\icon_ZoomOutWhite.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\ScreenBackground.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\ScreenBackground.png">
       <PackagePath>Assets\ScreenBackground.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_ZoomInGray.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_ZoomInGray.png">
       <PackagePath>Assets\icon_ZoomInGray.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_ZoomOutGray.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_ZoomOutGray.png">
       <PackagePath>Assets\icon_ZoomOutGray.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\fullMap.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\fullMap.png">
       <PackagePath>Assets\fullMap.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Assets\icon_edit.png">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Assets\icon_edit.png">
       <PackagePath>Assets\icon_edit.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\MoTApp.xr.xml">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\MoTApp.xr.xml">
       <PackagePath>MoTApp.xr.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files\Windows Kits\10\UnionMetadata\Windows.winmd">
@@ -472,10 +472,10 @@
     <AppxPackagedFile Include="C:\Users\FatemaK\.nuget\packages\WinRTXamlToolkit.UWP\2.0.0\lib\uap10.0\WinRTXamlToolkit\Properties\WinRTXamlToolkit.UWP.rd.xml">
       <PackagePath>WinRTXamlToolkit\Properties\WinRTXamlToolkit.UWP.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\Core\MoTApp.exe">
+    <AppxPackagedFile Include="\\mac\home\documents\visual studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\Core\MoTApp.exe">
       <PackagePath>MoTApp.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

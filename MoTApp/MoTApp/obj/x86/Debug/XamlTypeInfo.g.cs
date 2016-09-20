@@ -564,10 +564,10 @@ namespace MoTApp.MoTApp_XamlTypeInfo
                 userType = new global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_33_TablePage;
                 userType.AddMemberName("stops");
-                userType.AddMemberName("SatGoTimes");
-                userType.AddMemberName("SatReturnTimes");
-                userType.AddMemberName("SunToThuGoTimes");
-                userType.AddMemberName("SunToThuReturnTimes");
+                userType.AddMemberName("SatThuGoTimes");
+                userType.AddMemberName("SatThuReturnTimes");
+                userType.AddMemberName("FridayGoTimes");
+                userType.AddMemberName("FridayReturnTimes");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -987,15 +987,15 @@ namespace MoTApp.MoTApp_XamlTypeInfo
             var that = (global::MoTApp.TablePage)instance;
             that.stops = (global::System.Collections.Generic.List<global::MoTApp.Stop>)Value;
         }
-        private object get_36_TablePage_SatGoTimes(object instance)
+        private object get_36_TablePage_SatThuGoTimes(object instance)
         {
             var that = (global::MoTApp.TablePage)instance;
-            return that.SatGoTimes;
+            return that.SatThuGoTimes;
         }
-        private void set_36_TablePage_SatGoTimes(object instance, object Value)
+        private void set_36_TablePage_SatThuGoTimes(object instance, object Value)
         {
             var that = (global::MoTApp.TablePage)instance;
-            that.SatGoTimes = (global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::System.String>>)Value;
+            that.SatThuGoTimes = (global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::System.String>>)Value;
         }
         private object get_37_List_Capacity(object instance)
         {
@@ -1012,35 +1012,35 @@ namespace MoTApp.MoTApp_XamlTypeInfo
             var that = (global::System.Collections.Generic.List<global::System.String>)instance;
             return that.Count;
         }
-        private object get_39_TablePage_SatReturnTimes(object instance)
+        private object get_39_TablePage_SatThuReturnTimes(object instance)
         {
             var that = (global::MoTApp.TablePage)instance;
-            return that.SatReturnTimes;
+            return that.SatThuReturnTimes;
         }
-        private void set_39_TablePage_SatReturnTimes(object instance, object Value)
+        private void set_39_TablePage_SatThuReturnTimes(object instance, object Value)
         {
             var that = (global::MoTApp.TablePage)instance;
-            that.SatReturnTimes = (global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::System.String>>)Value;
+            that.SatThuReturnTimes = (global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::System.String>>)Value;
         }
-        private object get_40_TablePage_SunToThuGoTimes(object instance)
+        private object get_40_TablePage_FridayGoTimes(object instance)
         {
             var that = (global::MoTApp.TablePage)instance;
-            return that.SunToThuGoTimes;
+            return that.FridayGoTimes;
         }
-        private void set_40_TablePage_SunToThuGoTimes(object instance, object Value)
+        private void set_40_TablePage_FridayGoTimes(object instance, object Value)
         {
             var that = (global::MoTApp.TablePage)instance;
-            that.SunToThuGoTimes = (global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::System.String>>)Value;
+            that.FridayGoTimes = (global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::System.String>>)Value;
         }
-        private object get_41_TablePage_SunToThuReturnTimes(object instance)
+        private object get_41_TablePage_FridayReturnTimes(object instance)
         {
             var that = (global::MoTApp.TablePage)instance;
-            return that.SunToThuReturnTimes;
+            return that.FridayReturnTimes;
         }
-        private void set_41_TablePage_SunToThuReturnTimes(object instance, object Value)
+        private void set_41_TablePage_FridayReturnTimes(object instance, object Value)
         {
             var that = (global::MoTApp.TablePage)instance;
-            that.SunToThuReturnTimes = (global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::System.String>>)Value;
+            that.FridayReturnTimes = (global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::System.String>>)Value;
         }
         private object get_42_TripMoreInfoPage_expandedStopsInfo(object instance)
         {
@@ -1322,11 +1322,11 @@ namespace MoTApp.MoTApp_XamlTypeInfo
                 xamlMember.Getter = get_35_TablePage_stops;
                 xamlMember.Setter = set_35_TablePage_stops;
                 break;
-            case "MoTApp.TablePage.SatGoTimes":
+            case "MoTApp.TablePage.SatThuGoTimes":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.TablePage");
-                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "SatGoTimes", "System.Collections.Generic.List`1<System.Collections.Generic.List`1<String>>");
-                xamlMember.Getter = get_36_TablePage_SatGoTimes;
-                xamlMember.Setter = set_36_TablePage_SatGoTimes;
+                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "SatThuGoTimes", "System.Collections.Generic.List`1<System.Collections.Generic.List`1<String>>");
+                xamlMember.Getter = get_36_TablePage_SatThuGoTimes;
+                xamlMember.Setter = set_36_TablePage_SatThuGoTimes;
                 break;
             case "System.Collections.Generic.List`1<String>.Capacity":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("System.Collections.Generic.List`1<String>");
@@ -1340,23 +1340,23 @@ namespace MoTApp.MoTApp_XamlTypeInfo
                 xamlMember.Getter = get_38_List_Count;
                 xamlMember.SetIsReadOnly();
                 break;
-            case "MoTApp.TablePage.SatReturnTimes":
+            case "MoTApp.TablePage.SatThuReturnTimes":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.TablePage");
-                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "SatReturnTimes", "System.Collections.Generic.List`1<System.Collections.Generic.List`1<String>>");
-                xamlMember.Getter = get_39_TablePage_SatReturnTimes;
-                xamlMember.Setter = set_39_TablePage_SatReturnTimes;
+                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "SatThuReturnTimes", "System.Collections.Generic.List`1<System.Collections.Generic.List`1<String>>");
+                xamlMember.Getter = get_39_TablePage_SatThuReturnTimes;
+                xamlMember.Setter = set_39_TablePage_SatThuReturnTimes;
                 break;
-            case "MoTApp.TablePage.SunToThuGoTimes":
+            case "MoTApp.TablePage.FridayGoTimes":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.TablePage");
-                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "SunToThuGoTimes", "System.Collections.Generic.List`1<System.Collections.Generic.List`1<String>>");
-                xamlMember.Getter = get_40_TablePage_SunToThuGoTimes;
-                xamlMember.Setter = set_40_TablePage_SunToThuGoTimes;
+                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "FridayGoTimes", "System.Collections.Generic.List`1<System.Collections.Generic.List`1<String>>");
+                xamlMember.Getter = get_40_TablePage_FridayGoTimes;
+                xamlMember.Setter = set_40_TablePage_FridayGoTimes;
                 break;
-            case "MoTApp.TablePage.SunToThuReturnTimes":
+            case "MoTApp.TablePage.FridayReturnTimes":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.TablePage");
-                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "SunToThuReturnTimes", "System.Collections.Generic.List`1<System.Collections.Generic.List`1<String>>");
-                xamlMember.Getter = get_41_TablePage_SunToThuReturnTimes;
-                xamlMember.Setter = set_41_TablePage_SunToThuReturnTimes;
+                xamlMember = new global::MoTApp.MoTApp_XamlTypeInfo.XamlMember(this, "FridayReturnTimes", "System.Collections.Generic.List`1<System.Collections.Generic.List`1<String>>");
+                xamlMember.Getter = get_41_TablePage_FridayReturnTimes;
+                xamlMember.Setter = set_41_TablePage_FridayReturnTimes;
                 break;
             case "MoTApp.TripMoreInfoPage.expandedStopsInfo":
                 userType = (global::MoTApp.MoTApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MoTApp.TripMoreInfoPage");

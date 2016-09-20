@@ -87,9 +87,9 @@ namespace MoTApp
             stops.Add(new Stop { name = "main terminal 1", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "manama"});
             stops.Add(new Stop { name = "main terminal 2", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "saar" });
             stops.Add(new Stop { name = "main terminal 3", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "jidhafs" });
-            stops.Add(new Stop { name = "main terminal 4", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "manama" });
-            stops.Add(new Stop { name = "main terminal 5", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "manama" });
-            stops.Add(new Stop { name = "main terminal 6", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimesStop6, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "manama" });
+            stops.Add(new Stop { name = "main terminal 4", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "Hamad Town" });
+            stops.Add(new Stop { name = "main terminal 5", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "Airport" });
+            stops.Add(new Stop { name = "main terminal 6", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimesStop6, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "Isa Town" });
 
 
             return stops;

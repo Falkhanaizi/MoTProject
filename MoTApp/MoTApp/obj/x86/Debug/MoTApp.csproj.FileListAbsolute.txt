@@ -262,3 +262,4 @@
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\Routes_ListPage.xbf
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\bin\x86\Debug\WinRTXamlToolkit.dll
 \\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\WinRTXamlToolkit.pri.xml
+\\Mac\Home\Documents\Visual Studio 2015\Projects\MoTApp\MoTApp\obj\x86\Debug\MoTApp.csprojResolveAssemblyReference.cache

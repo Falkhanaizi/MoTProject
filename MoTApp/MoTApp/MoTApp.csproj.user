@@ -3,6 +3,15 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <RemoteDebugMachine>localhost</RemoteDebugMachine>
     <AuthenticationMode>None</AuthenticationMode>
-    <RemoteDebugEnabled>true</RemoteDebugEnabled>
+    <RemoteDebugEnabled>false</RemoteDebugEnabled>
+    <DeviceId>30F105C9-681E-420b-A277-7C086EAD8A4E</DeviceId>
+    <UseEmulator>true</UseEmulator>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DeviceId>30F105C9-681E-420b-A277-7C086EAD8A4E</DeviceId>
+    <UseEmulator>true</UseEmulator>
+    <RemoteDebugMachine>localhost</RemoteDebugMachine>
+    <AuthenticationMode>None</AuthenticationMode>
+    <RemoteDebugEnabled>false</RemoteDebugEnabled>
   </PropertyGroup>
 </Project>

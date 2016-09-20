@@ -9,7 +9,6 @@ Assets\BahrainBus4.jpg
 Assets\fullMap.png
 Assets\icon_Add1.png
 Assets\icon_Add2.png
-Assets\icon_BackArrow1.png
 Assets\icon_BackArrow2.png
 Assets\icon_calendar.png
 Assets\icon_calendar2.png
@@ -38,6 +37,7 @@ Assets\icon_ZoomOutBlack.png
 Assets\icon_ZoomOutGray.png
 Assets\icon_ZoomOutWhite.png
 Assets\ScreenBackground.png
+Assets\SplashScreen.png
 MoTApp.xr.xml
 Properties\Default.rd.xml
 WinMetadata\Windows.winmd

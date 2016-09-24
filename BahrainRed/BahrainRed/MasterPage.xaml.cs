@@ -18,7 +18,7 @@ namespace BahrainRed
 				new MasterPageItem("Route Details", "icon_map.png", typeof(RouteDetailsPage)),
 				new MasterPageItem("Trip Planner", "icon_calendar.png", typeof(TripPlannerPage)),
 				new MasterPageItem("Saved Trips", "icon_star.png", typeof(SavedTripsPage)),
-				new MasterPageItem("Feddback", "icon_feedback.png", typeof(FeedbackPage))
+				new MasterPageItem("Feedback", "icon_feedback.png", typeof(FeedbackPage))
 			};
 
 			listView.ItemsSource = masterPageItems;

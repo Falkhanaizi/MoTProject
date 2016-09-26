@@ -46,12 +46,12 @@ namespace MoTApp
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            Frame.Navigate(typeof(Trip_PlannerPage), trip);
         }
 
         private void QuitBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            Frame.Navigate(typeof(Saved_TripsPage));
         }
 
         private void ReminderBtn_Click(object sender, RoutedEventArgs e)

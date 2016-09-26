@@ -20,7 +20,7 @@
             <ImageBrush Stretch="Fill" ImageSource="Assets/ScreenBackground.png"/>
         </Grid.Background>
         <SplitView x:Name="PagesSplitView"
-                   OpenPaneLength="150">
+                   OpenPaneLength="185">
             <SplitView.PaneBackground>
                 <SolidColorBrush Color="Black" Opacity="0.85"/>
             </SplitView.PaneBackground>
@@ -35,8 +35,8 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Image Margin="10" Source="{Binding PageImage}" Width="10" Height="10"/>
-                                <TextBlock Text="{Binding PageName}" FontSize="12" Foreground="White" VerticalAlignment="Center"/>
+                                <Image Margin="10" Source="{Binding PageImage}" Width="20" Height="20"/>
+                                <TextBlock Text="{Binding PageName}" FontSize="16" Foreground="White" VerticalAlignment="Center"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

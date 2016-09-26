@@ -31,13 +31,12 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <Image x:ConnectionId='2' x:Name="BackBtn" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Width="25" Height="25" Source="Assets/icon_BackArrow2.png"                        />
         <TextBlock Text="Route Details" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="30" FontWeight="Bold"/>
 
-        <Frame x:ConnectionId='3' x:Name="MyFrame" Grid.Row="1">
+        <Frame x:ConnectionId='2' x:Name="MyFrame" Grid.Row="1">
             
         </Frame>
-        <GridView x:ConnectionId='4' x:Name="RoutesGridView" Grid.Row="1"
+        <GridView x:ConnectionId='3' x:Name="RoutesGridView" Grid.Row="1"
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                  ScrollViewer.HorizontalScrollMode="Disabled"
                  ScrollViewer.VerticalScrollBarVisibility="Hidden"
@@ -56,14 +55,14 @@
             </GridView.ItemContainerStyle>
             <GridView.ItemTemplate>
                 <DataTemplate                        >
-                    <RelativePanel x:ConnectionId='13'>
-                        <Image x:ConnectionId='14' x:Name="mapImage"                            Width="100" Height="100" Stretch="UniformToFill"/>
-                        <Border x:ConnectionId='15' Width="40" Height="40" 
+                    <RelativePanel x:ConnectionId='12'>
+                        <Image x:ConnectionId='13' x:Name="mapImage"                            Width="100" Height="100" Stretch="UniformToFill"/>
+                        <Border x:ConnectionId='14' Width="40" Height="40" 
                                                        
                             BorderBrush="White"
                             BorderThickness="2"
                                 RelativePanel.AlignLeftWith="mapImage">
-                            <TextBlock x:ConnectionId='16'                    Foreground="White"
+                            <TextBlock x:ConnectionId='15'                    Foreground="White"
                                    FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </RelativePanel>
@@ -72,7 +71,7 @@
             </GridView.ItemTemplate>
         </GridView>
 
-        <ListBox x:ConnectionId='5' x:Name="RoutesListBox"
+        <ListBox x:ConnectionId='4' x:Name="RoutesListBox"
                  Grid.Row="1"
                  VerticalAlignment="Bottom"
                  Visibility="Collapsed"
@@ -99,11 +98,11 @@
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
                 <DataTemplate                        >
-                    <Border x:ConnectionId='11' Width="40" Height="40" 
+                    <Border x:ConnectionId='10' Width="40" Height="40" 
                                                        
                             BorderBrush="White"
                             BorderThickness="2">
-                        <TextBlock x:ConnectionId='12'                    Foreground="White"
+                        <TextBlock x:ConnectionId='11'                    Foreground="White"
                                    FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                 </DataTemplate>
@@ -117,26 +116,26 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Border x:ConnectionId='6' Margin="5" x:Name="RouteIdBtn" Width="40" Height="40" IsTapEnabled="True"                           
+            <Border x:ConnectionId='5' Margin="5" x:Name="RouteIdBtn" Width="40" Height="40" IsTapEnabled="True"                           
                             Background="Gray" BorderBrush="White"
                             BorderThickness="2">
-                <TextBlock x:ConnectionId='10'  x:Name="idText" Text="All" Foreground="White" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:ConnectionId='9'  x:Name="idText" Text="All" Foreground="White" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Border>
-            <Button x:ConnectionId='7' x:Name="RouteListBtn"                            Grid.Column="1" Style="{StaticResource BarBtns}">
+            <Button x:ConnectionId='6' x:Name="RouteListBtn"                            Grid.Column="1" Style="{StaticResource BarBtns}">
                 <StackPanel HorizontalAlignment="Center">
                     <Image Source="Assets/icon_pages.png" Width="25" Height="24"/>
                     <TextBlock Text="Routes List"
                                Style="{StaticResource BarBtnsText}"/>
                 </StackPanel>
             </Button>
-            <Button x:ConnectionId='8' x:Name="TimeTableBtn"                            Grid.Column="2" Style="{StaticResource BarBtns}" BorderThickness="0,2">
+            <Button x:ConnectionId='7' x:Name="TimeTableBtn"                            Grid.Column="2" Style="{StaticResource BarBtns}" BorderThickness="0,2">
                 <StackPanel HorizontalAlignment="Center">
                     <Image Source="Assets/icon_calendar2.png" Width="25" Height="25"/>
                     <TextBlock Text="Time Table"
                                Style="{StaticResource BarBtnsText}"/>
                 </StackPanel>
             </Button>
-            <Button x:ConnectionId='9' x:Name="RouteMapBtn" Grid.Column="3"                            Style="{StaticResource BarBtns}">
+            <Button x:ConnectionId='8' x:Name="RouteMapBtn" Grid.Column="3"                            Style="{StaticResource BarBtns}">
                 <StackPanel HorizontalAlignment="Center">
                     <Image Source="Assets/icon_MapMarker1.png" Width="25" Height="25"/>
                     <TextBlock Text="Route Map"

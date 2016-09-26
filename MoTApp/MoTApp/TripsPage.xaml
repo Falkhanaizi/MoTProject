@@ -19,7 +19,6 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <Image x:Name="BackBtn" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Width="25" Height="25" Source="Assets/icon_BackArrow2.png" Tapped="BackBtn_Tapped"/>
         <TextBlock Text="Trips Found" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="30" FontWeight="Bold"/>
 
 

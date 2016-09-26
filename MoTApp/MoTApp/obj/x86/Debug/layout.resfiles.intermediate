@@ -1,3 +1,4 @@
+WinMetadata\Windows.winmd
 Assets\33-NL.jpg
 Assets\a1-NL.jpg
 Assets\A2-NL.jpg
@@ -40,4 +41,3 @@ Assets\ScreenBackground.png
 Assets\SplashScreen.png
 MoTApp.xr.xml
 Properties\Default.rd.xml
-WinMetadata\Windows.winmd

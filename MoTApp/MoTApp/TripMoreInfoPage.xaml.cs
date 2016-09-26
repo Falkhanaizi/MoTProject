@@ -58,7 +58,7 @@ namespace MoTApp
 
         private void QuitBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            Frame.Navigate(typeof(Trip_PlannerPage));
         }
 
         private void RouteMap_Loaded(object sender, RoutedEventArgs e)

@@ -11,7 +11,6 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Image x:ConnectionId='1' x:Name="BackBtn" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Width="25" Height="25" Source="Assets/icon_BackArrow2.png"/>
         <TextBlock Text="Trip Planner" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="30" FontWeight="Bold"/>
 
         <StackPanel HorizontalAlignment="Stretch"
@@ -40,7 +39,7 @@
                            TextAlignment="Right"
                            VerticalAlignment="Center"
                            FontWeight="Bold"/>
-                <AutoSuggestBox x:ConnectionId='3' Width="250" 
+                <AutoSuggestBox x:ConnectionId='2' Width="250" 
                                 Name="FromLocation_box"
                                 FontSize="24"
                                 Grid.Column="1"
@@ -56,7 +55,7 @@
                            VerticalAlignment="Center"
                            TextAlignment="Right"
                            FontWeight="Bold"/>
-                <AutoSuggestBox x:ConnectionId='4' Width="250" 
+                <AutoSuggestBox x:ConnectionId='3' Width="250" 
                                 Name="ToLocation_box"
                                 FontSize="24"
                                 Grid.Column="1"
@@ -92,7 +91,7 @@
                                     FontSize="24"
                                     Width="250"/>
             </Grid>
-            <Button x:ConnectionId='2' x:Name="trip_btn" Content="Find Trip" 
+            <Button x:ConnectionId='1' x:Name="trip_btn" Content="Find Trip" 
                     FontSize="20"
                     FontWeight="Bold"
                     Foreground="White"

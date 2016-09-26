@@ -43,14 +43,7 @@ namespace MoTApp
         {
             var page = (HomePageViewModel)PagesList.SelectedItem;
             MyFrame.Navigate(page.PageType);
-            if (!page.PageName.ToLower().Contains("home"))
-            {
-                MenuBtn.Margin = new Thickness(50, 0, 0, 0);
-            }
-            else
-            {
-                MenuBtn.Margin = new Thickness(10, 0, 0, 0);
-            }
+            PagesSplitView.IsPaneOpen = false;
         }
 
         private void MenuBtn_Tapped(object sender, TappedRoutedEventArgs e)

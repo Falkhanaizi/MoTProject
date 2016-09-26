@@ -31,11 +31,6 @@ namespace MoTApp
             Trips = TripsManager.GetSavedTrips();
         }
 
-        private void BackBtn_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-
-        }
-
         private void AddBtn_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Frame.Navigate(typeof(Trip_PlannerPage));

@@ -26,10 +26,5 @@ namespace MoTApp
         {
             this.InitializeComponent();
         }
-
-        private void BackBtn_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            Frame.GoBack();
-        }
     }
 }

@@ -52,9 +52,8 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-            <Maps:MapControl Grid.RowSpan="2" ZoomInteractionMode="GestureAndControl"
+        <Maps:MapControl MapServiceToken="TmGmM8RYSJEPtTF6Z7xG~CloUka2kGZxTRUKXq_n_hw~AscMtxFoENb1GFP-x1hGnzrIkCdOgjvQTDHj9BoZ5Zdu5XeQS0VTrrBjDmUk_IoW" Grid.RowSpan="2" ZoomInteractionMode="GestureAndControl"
                              Name="RouteMap" Loaded="RouteMap_Loaded" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-        <Image x:Name="BackBtn" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Width="25" Height="25" Source="Assets/icon_BackArrow2.png"/>
 
         <ScrollViewer Grid.Row="2" 
                       VerticalScrollBarVisibility="Hidden"

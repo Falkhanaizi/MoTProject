@@ -117,7 +117,7 @@
                 <RelativePanel>
                     <Image Source="{Binding ImageSource}" Stretch="UniformToFill" HorizontalAlignment="Center"/>
                     <Border Background="#FF720000" Opacity="0.8" Width="200" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="10">
-                        <TextBlock Text="{Binding UpdateText}" TextWrapping="Wrap" FontSize="12" FontWeight="Bold" Foreground="White"/>
+                        <TextBlock Text="{Binding UpdateText}" TextWrapping="Wrap" FontSize="14" FontWeight="Bold" Foreground="White"/>
                     </Border>
                 </RelativePanel>
             </DataTemplate>

@@ -18,7 +18,6 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Image x:Name="BackBtn" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Width="25" Height="25" Source="Assets/icon_BackArrow2.png" Tapped="BackBtn_Tapped"/>
         <Image x:Name="AddBtn" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0" Width="25" Height="25" Source="Assets/icon_Add2.png" Tapped="AddBtn_Tapped"/>
         <TextBlock Text="Saved Trips" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="30" FontWeight="Bold"/>
 

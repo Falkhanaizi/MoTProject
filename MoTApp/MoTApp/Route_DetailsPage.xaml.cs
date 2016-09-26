@@ -66,11 +66,6 @@ namespace MoTApp
             }
         }
 
-        private void BackBtn_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            Frame.GoBack();
-        }
-
         private void RouteMapBtn_Click(object sender, RoutedEventArgs e)
         {
             MyFrame.Visibility = Visibility.Visible;

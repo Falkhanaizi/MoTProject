@@ -9,11 +9,13 @@ namespace BahrainRed
 {
 	public class CustomMap : Map
 	{
-		public List<Position> RouteCoordinates { get { return CustomPins.Select(p => p.Pin.Position).ToList<Position>(); }}
+		public List<Position> RouteCoordinates { get; private set; }
+
 		public List<CustomPin> CustomPins { get; set; }
 
 		public CustomMap()
 		{
+			RouteCoordinates = new List<Position>();
 			CustomPins = new List<CustomPin>();
 		}
 	}

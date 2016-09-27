@@ -1,5 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="BahrainRed.FeedbackPage" Title="Feedback">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="BahrainRed.FeedbackPage" Title="Feedback" BackgroundImage="ScreenBackground.png">
+
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style TargetType="Label" x:Key="feedbackLabels">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="LineBreakMode" Value="WordWrap"/>
+        <Setter Property="Margin" Value="2,5,2,2"/>
+    </Style>
+
+    <Style TargetType="Button" x:Key="BarBtns">
+        <Setter Property="FontFamily" Value="Segoe UI Emoji"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="HeightRequest" Value="50"/>
+        <Setter Property="WidthRequest" Value="90"/>
+    </Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
 	<ContentPage.Content>
+		<Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout>
+            <Label Text="We highly appreciate your feedback to help us improve our services"
+                   HorizontalTextAlignment="Center"
+                   Style="{StaticResource feedbackLabels}"/>
+            <Label Text="Name" Style="{StaticResource feedbackLabels}"/>
+            <Entry Keyboard="Text"/>
+            <Label Text="Phone" Style="{StaticResource feedbackLabels}"/>
+            <Entry Keyboard="Text"/>
+            <Label Text="E-mail" Style="{StaticResource feedbackLabels}"/>
+            <Entry Keyboard="Text"/>
+            <Label Text="Your FeedBack" Style="{StaticResource feedbackLabels}"/>
+            <Editor HeightRequest="150" Keyboard="Text"/>
+        </StackLayout>
+
+        <Grid Grid.Row="1" 
+                    BackgroundColor="Black" Opacity="0.75">
+            <Button Text="&#x2714; Submit"
+                    x:Name="btn_Submit"
+                    HorizontalOptions="End"
+                    Margin="0,0,10,0"
+                    TextColor="White"
+						Clicked="btn_Submit_Clicked"
+                    Style="{StaticResource BarBtns}"
+                    BackgroundColor="Transparent"/>
+        </Grid>
+
+    </Grid>
 	</ContentPage.Content>
 </ContentPage>

@@ -15,9 +15,19 @@ namespace BahrainRed
 
 			var stop = TripsManager.GetSavedStops().First();
 
-			//var time = Convert.ToDateTime(stop.SatGoTimetable.First(p => Convert.ToDateTime(p).Subtract(DateTime.Now).TotalSeconds > 0)).Subtract(DateTime.Now).ToString();
+			string nextTime;
 
-			var time = Convert.ToDateTime(stop.SatGoTimetable.First(p => Convert.ToDateTime(p).Subtract(DateTime.Now).TotalSeconds > 0)).Subtract(DateTime.Now);
+			if (DateTime.Now.Hour == 23)
+			{
+				nextTime = "00:00";
+			}
+			else
+			{
+				nextTime = stop.SatGoTimetable.First(p => Convert.ToDateTime(p).Subtract(DateTime.Now).TotalSeconds > 0);
+
+			}
+
+			var time = Convert.ToDateTime(nextTime).Subtract(DateTime.Now);
 
 			Device.StartTimer(TimeSpan.FromSeconds(1), () =>
 				{

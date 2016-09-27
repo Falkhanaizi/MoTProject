@@ -11,5 +11,10 @@ namespace BahrainRed
 		{
 			InitializeComponent();
 		}
+
+		void btn_Submit_Clicked(object sender, System.EventArgs e)
+		{
+			this.Navigation.PopToRootAsync();
+		}
 	}
 }

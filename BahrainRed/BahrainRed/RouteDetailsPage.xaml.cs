@@ -10,6 +10,8 @@ namespace BahrainRed
 		public RouteDetailsPage()
 		{
 			InitializeComponent();
+
+			NavigationPage.SetBackButtonTitle(this, "");
 		}
 
 	}

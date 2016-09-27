@@ -3,7 +3,6 @@
 	<ContentPage.Content>
 		<RelativeLayout HorizontalOptions="Fill" VerticalOptions="Fill">
 			<local:CustomMap x:Name="customMap" MapType="Satellite" HasScrollEnabled="true" HasZoomEnabled="true" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}"/>
-			<Button x:Name="stopInfo" HeightRequest="50" WidthRequest="50" BackgroundColor="Blue"/>
 		</RelativeLayout>
 	</ContentPage.Content>
 </ContentPage>

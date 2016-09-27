@@ -18,6 +18,7 @@ namespace BahrainRed
         public int numberOfStops { get { return stops.Count; } }
         public List<Stop> stops { get; set; }
         public Route route { get; set; }
+		public string date { get; set; }
         public string totalCost
         {
             get
@@ -68,6 +69,7 @@ namespace BahrainRed
 
         public Color color { get; set; }
         public List<Stop> stops { get; set; }
+		public string AreasCovered { get { return string.Join(" - ", stops.Select(p => p.city));} }
     }
 
     public class Zone
@@ -90,9 +92,9 @@ namespace BahrainRed
 			TimeSpan timeSpan = TimeSpan.FromHours(1);
 
 			stops.Add(new Stop { name = "main terminal 1", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "manama", FriGoingTimeSpan = timeSpan, FriReturningTimeSpan = timeSpan, SatToThuGoingTimeSpan = timeSpan, SatToThuReturningTimeSpan = timeSpan, Image = "BahrainBus4.jpg", zone = new Zone {name = "zone 1", price=300}, latitude = 26.215085, longitude = 50.497277});
-            stops.Add(new Stop { name = "main terminal 2", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "saar" , FriGoingTimeSpan = timeSpan, FriReturningTimeSpan = timeSpan, SatToThuGoingTimeSpan = timeSpan, SatToThuReturningTimeSpan = timeSpan, Image = "BahrainBus4.jpg", zone = new Zone { name = "zone 1", price = 300 }, latitude = 26.215095, longitude = 50.497277});
-            stops.Add(new Stop { name = "main terminal 3", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "jidhafs" ,FriGoingTimeSpan = timeSpan, FriReturningTimeSpan = timeSpan, SatToThuGoingTimeSpan = timeSpan, SatToThuReturningTimeSpan = timeSpan, Image = "BahrainBus4.jpg", zone = new Zone { name = "zone 1", price = 300 }, latitude = 26.215185, longitude = 50.497277 });
-            stops.Add(new Stop { name = "main terminal 4", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "Hamad Town" , FriGoingTimeSpan = timeSpan, FriReturningTimeSpan = timeSpan, SatToThuGoingTimeSpan = timeSpan, SatToThuReturningTimeSpan = timeSpan, Image = "BahrainBus4.jpg", zone = new Zone { name = "zone 1", price = 300 }, latitude = 26.215285, longitude = 50.497277});
+            stops.Add(new Stop { name = "main terminal 2", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "saar" , FriGoingTimeSpan = timeSpan, FriReturningTimeSpan = timeSpan, SatToThuGoingTimeSpan = timeSpan, SatToThuReturningTimeSpan = timeSpan, Image = "BahrainBus4.jpg", zone = new Zone { name = "zone 2", price = 300 }, latitude = 26.215095, longitude = 50.497277});
+            stops.Add(new Stop { name = "main terminal 3", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "jidhafs" ,FriGoingTimeSpan = timeSpan, FriReturningTimeSpan = timeSpan, SatToThuGoingTimeSpan = timeSpan, SatToThuReturningTimeSpan = timeSpan, Image = "BahrainBus4.jpg", zone = new Zone { name = "zone 5", price = 300 }, latitude = 26.215185, longitude = 50.497277 });
+            stops.Add(new Stop { name = "main terminal 4", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "Hamad Town" , FriGoingTimeSpan = timeSpan, FriReturningTimeSpan = timeSpan, SatToThuGoingTimeSpan = timeSpan, SatToThuReturningTimeSpan = timeSpan, Image = "BahrainBus4.jpg", zone = new Zone { name = "zone 3", price = 300 }, latitude = 26.216285, longitude = 50.497277});
             stops.Add(new Stop { name = "main terminal 5", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "Airport" , FriGoingTimeSpan = timeSpan, FriReturningTimeSpan = timeSpan, SatToThuGoingTimeSpan = timeSpan, SatToThuReturningTimeSpan = timeSpan, Image = "BahrainBus4.jpg", zone = new Zone { name = "zone 1", price = 300 }, latitude = 26.215085, longitude = 50.497297});
             stops.Add(new Stop { name = "main terminal 6", SatGoTimetable = SatGoTimes, SatReturnTimetable = SatReturnTimes, SunToThuGoTimetable = SunToThuGoTimes, SunToThuReturnTimetable = SunToThuReturnTimes, city = "Isa Town" , FriGoingTimeSpan = timeSpan, FriReturningTimeSpan = timeSpan, SatToThuGoingTimeSpan = timeSpan, SatToThuReturningTimeSpan = timeSpan, Image = "BahrainBus4.jpg", zone = new Zone { name = "zone 1", price = 300 }, latitude = 26.215085, longitude = 50.497377});
 
@@ -120,7 +122,7 @@ namespace BahrainRed
             tripStops.Add(new Stop { name = "Main Terminal", city = "Manama", latitude = 2.0394, longitude = 3.3742, zone = new Zone { name = "zone 1", price = 100 } });
 
 
-            trips.Add(new Trip { startLocation = stop1, endLocation = stop2, fromTime = "10:00", toTime = "11:25", stops = tripStops, route = new Route { name = "B1", stops = new List<Stop> { stop1 } } });
+			trips.Add(new Trip { startLocation = stop1, endLocation = stop2, fromTime = "10:00", toTime = "11:25", stops = tripStops, route = new Route { name = "B1", stops = new List<Stop> { stop1 } } });
             trips.Add(new Trip { startLocation = stop1, endLocation = stop2, fromTime = "10:00", toTime = "11:25", stops = tripStops, route = new Route { name = "B1", stops = new List<Stop> { stop1 } } });
             trips.Add(new Trip { startLocation = stop1, endLocation = stop2, fromTime = "10:00", toTime = "11:25", stops = tripStops, route = new Route { name = "B1", stops = new List<Stop> { stop1 } } });
             trips.Add(new Trip { startLocation = stop1, endLocation = stop2, fromTime = "10:00", toTime = "11:25", stops = tripStops, route = new Route { name = "B1", stops = new List<Stop> { stop1 } } });

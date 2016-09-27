@@ -9,12 +9,14 @@ using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Maps.iOS;
 using Xamarin.Forms.Platform.iOS;
+using CoreLocation;
 
 [assembly: ExportRenderer(typeof(CustomMap), typeof(CustomMapRenderer))]
 namespace BahrainRed.iOS
 {
 	public class CustomMapRenderer : MapRenderer
 	{
+		MKPolylineRenderer polylineRenderer;
 		List<CustomPin> customPins;
 
 		protected override void OnElementChanged(ElementChangedEventArgs<View> e)
@@ -25,6 +27,7 @@ namespace BahrainRed.iOS
 			{
 				var nativeMap = Control as MKMapView;
 				nativeMap.GetViewForAnnotation = null;
+				//nativeMap.OverlayRenderer = null;
 				nativeMap.CalloutAccessoryControlTapped -= OnCalloutAccessoryControlTapped;
 
 			}
@@ -34,7 +37,21 @@ namespace BahrainRed.iOS
 				var formsMap = (CustomMap)e.NewElement;
 				var nativeMap = Control as MKMapView;
 				customPins = formsMap.CustomPins;
+				/*
+				nativeMap.OverlayRenderer = GetOverlayRenderer;
 
+				CLLocationCoordinate2D[] coords = new CLLocationCoordinate2D[formsMap.RouteCoordinates.Count];
+
+				int index = 0;
+				foreach (var position in formsMap.RouteCoordinates)
+				{
+					coords[index] = new CLLocationCoordinate2D(position.Latitude, position.Longitude);
+					index++;
+				}
+
+				var routeOverlay = MKPolyline.FromCoordinates(coords);
+				nativeMap.AddOverlay(routeOverlay);
+*/
 				nativeMap.GetViewForAnnotation = GetViewForAnnotation;
 				nativeMap.CalloutAccessoryControlTapped += OnCalloutAccessoryControlTapped;
 
@@ -72,6 +89,19 @@ namespace BahrainRed.iOS
 			annotationView.CanShowCallout = true;
 
 			return annotationView;
+		}
+
+		MKOverlayRenderer GetOverlayRenderer(MKMapView mapView, IMKOverlay overlay)
+		{
+			if (polylineRenderer == null)
+			{
+				polylineRenderer = new MKPolylineRenderer(overlay as MKPolyline);
+				polylineRenderer.FillColor = UIColor.Blue;
+				polylineRenderer.StrokeColor = UIColor.Red;
+				polylineRenderer.LineWidth = 3;
+				polylineRenderer.Alpha = 0.4f;
+			}
+			return polylineRenderer;
 		}
 
 		void OnCalloutAccessoryControlTapped(object sender, MKMapViewAccessoryTappedEventArgs e)

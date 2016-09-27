@@ -1,5 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="BahrainRed.TimeTablePage"  BackgroundImage="ScreenBackground.png" Title="Time Table" Icon="icon_calendar_24.png">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:Controls="clr-namespace:BahrainRed;assembly=BahrainRed" x:Class="BahrainRed.TimeTablePage" BackgroundImage="ScreenBackground.png" Title="Time Table" Icon="icon_calendar_24.png">
 	<ContentPage.Content>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<StackLayout>
+				<Label x:Name="GoRouteStartFinishLabel" />
+				<Label x:Name="GoRouteAreaLabel" />
+			</StackLayout>
+			<ListView Grid.Row="2" x:Name="StopsListView" VerticalOptions="FillAndExpand" SeparatorVisibility="None" BackgroundColor="Transparent" HasUnevenRows="true">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<StackLayout Orientation="Vertical">
+								<StackLayout Orientation="Horizontal" Padding="10" VerticalOptions="Center">
+									<Label Text="{Binding name}" VerticalOptions="CenterAndExpand" TextColor="White" FontSize="16" Margin="5,0" FontAttributes="Bold" />
+								</StackLayout>
+							</StackLayout>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+			<RelativeLayout HeightRequest="60" Grid.Row="2" Grid.Column="1">
+				<ListView Rotation="270" x:Name="GoTimesListView" BackgroundColor="Transparent" RowHeight="60" SeparatorVisibility="None" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-30}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=30}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=60}" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<ViewCell>
+								<ContentView Rotation="90" Padding="1" TranslationX="60">
+									<ListView ItemsSource="{Binding}" SeparatorVisibility="None" BackgroundColor="Transparent" HasUnevenRows="true" WidthRequest="60">
+										<ListView.ItemTemplate>
+											<DataTemplate>
+												<ViewCell>
+													<StackLayout Orientation="Vertical">
+														<StackLayout VerticalOptions="Center">
+															<Label Text="{Binding}" TextColor="White" FontSize="16" FontAttributes="Bold" />
+														</StackLayout>
+													</StackLayout>
+												</ViewCell>
+											</DataTemplate>
+										</ListView.ItemTemplate>
+									</ListView>
+								</ContentView>
+							</ViewCell>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+				</ListView>
+			</RelativeLayout>
+		</Grid>
 	</ContentPage.Content>
 </ContentPage>

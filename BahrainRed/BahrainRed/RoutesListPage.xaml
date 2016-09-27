@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="BahrainRed.RoutesListPage"  BackgroundImage="ScreenBackground.png"  Title="Routes List" Icon="icon_list_24.png">
 	<ContentPage.Content>
-		
+		<StackLayout VerticalOptions="FillAndExpand">
+			<ListView x:Name="listView" VerticalOptions="FillAndExpand" SeparatorVisibility="None" BackgroundColor="Transparent" HasUnevenRows="true" >
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<StackLayout Orientation="Vertical" Padding="5">
+								<StackLayout Orientation="Horizontal" VerticalOptions="Center">
+									<Button Text="{Binding id}" VerticalOptions="CenterAndExpand" WidthRequest="30" HeightRequest="30" BorderColor="White" BackgroundColor="{Binding color}" BorderWidth="2" TextColor="White"/>
+									<Label Text="{Binding AreasCovered}" VerticalOptions="CenterAndExpand" TextColor="White" FontSize="12" Margin="5,0" FontAttributes="None"/>
+								</StackLayout>
+							</StackLayout>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="BahrainRed.TripPlannerPage" Title="Trip Planner">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="BahrainRed.TripPlannerPage" Title="Trip Planner" BackgroundImage="ScreenBackground.png">
 	<ContentPage.Content>
+		<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="1">
+			<Label Text="Use the trip planner to know all your stops and timings to your destination" LineBreakMode="WordWrap" HorizontalTextAlignment="Center" FontSize="16" TextColor="White" Margin="0,10,0,20" />
+			<Grid HorizontalOptions="Center">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="50" />
+					<RowDefinition Height="50" />
+					<RowDefinition Height="50" />
+					<RowDefinition Height="50" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<Label Text="From" FontSize="20" Margin="0,5,10,0" HorizontalTextAlignment="End" VerticalOptions="Center" FontAttributes="Bold" />
+				<Picker WidthRequest="200" x:Name="FromLocation_Picker" Grid.Column="1" VerticalOptions="Center" BackgroundColor="Transparent" TextColor="White"/>
+				<Label Text="To" FontSize="20" Grid.Row="1" Margin="0,5,10,0" VerticalOptions="Center" HorizontalTextAlignment="End" FontAttributes="Bold" />
+				<Picker WidthRequest="200" x:Name="ToLocation_Picker" Grid.Column="1" Grid.Row="1" VerticalOptions="Center" BackgroundColor="Transparent" TextColor="White"/>
+				<Label Text="Time" FontSize="20" Grid.Row="2" Margin="0,10,10,10" HorizontalTextAlignment="End" VerticalOptions="Center" FontAttributes="Bold" />
+				<TimePicker Grid.Column="1" Grid.Row="2" WidthRequest="200" HeightRequest="50" HorizontalOptions="Center" VerticalOptions="Center" Format="HH:mm" TextColor="White" BackgroundColor="Transparent"/>
+				<Label Text="Date" FontSize="20" Grid.Row="3" Margin="0,10,10,10" HorizontalTextAlignment="End" VerticalOptions="Center" FontAttributes="Bold" />
+				<DatePicker Grid.Row="3" Grid.Column="1" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="Center" Format="MMMM dd yyyy" TextColor="White" BackgroundColor="Transparent"/>
+			</Grid>
+			<Button x:Name="trip_btn" Text="Find Trip" FontSize="20" FontAttributes="Bold" TextColor="White" Margin="0,20,20,0" BorderColor="#FF780000" BackgroundColor="#FFC75A5E" BorderWidth="2" WidthRequest="120" HorizontalOptions="End" Clicked="trip_btn_Clicked" />
+		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

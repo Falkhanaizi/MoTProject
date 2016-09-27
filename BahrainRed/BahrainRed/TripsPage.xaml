@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="BahrainRed.SavedTripsPage" Title="Saved Trips" BackgroundImage="ScreenBackground.png">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="BahrainRed.TripsPage" Title="Trips Found" BackgroundImage="ScreenBackground.png">
 	<ContentPage.Resources>
 		<ResourceDictionary>
 			<Style TargetType="Label" x:Key="TimeTextStyle">
@@ -23,9 +23,6 @@
 			</Style>
 		</ResourceDictionary>
 	</ContentPage.Resources>
-	<ContentPage.ToolbarItems>
-		<ToolbarItem Text="Add" Icon="icon_Add2.png"/>
-	</ContentPage.ToolbarItems>
 	<ContentPage.Content>
 		<Grid>
 			<ListView Margin="0,10,0,0" IsEnabled="True" ItemSelected="TripsList_ItemSelected" x:Name="TripsList" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent" HasUnevenRows="true" SeparatorVisibility="None">

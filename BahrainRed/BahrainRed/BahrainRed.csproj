@@ -44,9 +44,6 @@
     <EmbeddedResource Include="MapPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="TimeTablePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="RoutesListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -60,6 +57,18 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="StopInfoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeTablePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TripsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TripsMoreInfoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SavedTripsMoreInfoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -83,9 +92,6 @@
     <Compile Include="MapPage.xaml.cs">
       <DependentUpon>MapPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TimeTablePage.xaml.cs">
-      <DependentUpon>TimeTablePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="RoutesListPage.xaml.cs">
       <DependentUpon>RoutesListPage.xaml</DependentUpon>
     </Compile>
@@ -103,6 +109,18 @@
     <Compile Include="Trip.cs" />
     <Compile Include="StopInfoPage.xaml.cs">
       <DependentUpon>StopInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimeTablePage.xaml.cs">
+      <DependentUpon>TimeTablePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TripsPage.xaml.cs">
+      <DependentUpon>TripsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TripsMoreInfoPage.xaml.cs">
+      <DependentUpon>TripsMoreInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SavedTripsMoreInfoPage.xaml.cs">
+      <DependentUpon>SavedTripsMoreInfoPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +153,9 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="HorizontalList">
+      <HintPath>..\packages\HorizontalListView1.1.1.1.0\lib\HorizontalList.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

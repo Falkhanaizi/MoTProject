@@ -70,7 +70,7 @@
     <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: falkhanaizi@gmail.com (9752TPZ2KQ)</CodesignKey>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchDebug>true</MtouchDebug>
     <MtouchFastDev>true</MtouchFastDev>
@@ -110,6 +110,9 @@
     <Reference Include="Xamarin.Forms.Maps.iOS">
       <HintPath>..\packages\Xamarin.Forms.Maps.2.3.2.127\lib\Xamarin.iOS10\Xamarin.Forms.Maps.iOS.dll</HintPath>
     </Reference>
+    <Reference Include="HorizontalList">
+      <HintPath>..\packages\HorizontalListView1.1.1.1.0\lib\HorizontalList.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BahrainRed\BahrainRed.csproj">
@@ -137,6 +140,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="CustomMapRenderer.cs" />
     <Compile Include="CustomMKAnnotationView.cs" />
+    <Compile Include="TimePicker24HRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\hamburger.png" />
@@ -167,7 +171,6 @@
     <BundleResource Include="Resources\icon_calendar.png" />
     <BundleResource Include="Resources\icon_calendar2.png" />
     <BundleResource Include="Resources\icon_edit.png" />
-    <BundleResource Include="Resources\icon_exit.png" />
     <BundleResource Include="Resources\icon_feedback.png" />
     <BundleResource Include="Resources\icon_map.png" />
     <BundleResource Include="Resources\icon_news.png" />
@@ -192,6 +195,10 @@
     <BundleResource Include="Resources\pin_PURPLEBLUE%402x.png" />
     <BundleResource Include="Resources\pin_RED.png" />
     <BundleResource Include="Resources\pin_RED%402x.png" />
+    <BundleResource Include="Resources\icon_exit.png" />
+    <BundleResource Include="Resources\icon_delete.png" />
+    <BundleResource Include="Resources\icon_delete%402x.png" />
+    <BundleResource Include="Resources\icon_Add2%402x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
